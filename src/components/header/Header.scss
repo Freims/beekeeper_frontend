@@ -1,0 +1,18 @@
+@import './src/assets/styles/colors';
+
+.logo {
+    height: 4rem;
+    margin-top: 0.2rem;
+}
+
+.header {
+	background-color: $primary-color;
+	width: 100vw;
+	box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+.content {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 7rem;
+}
