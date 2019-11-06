@@ -4,7 +4,7 @@ import './ContentContainer.scss'
 
 const ContentContainer = ({ children }) => (
   <div className='content-container'>
-    <Card style={{backgroundColor: "lightgray"}}className='card'>{children}</Card>
+    <div className="card">{children}</div>
   </div>
 )
 export default ContentContainer

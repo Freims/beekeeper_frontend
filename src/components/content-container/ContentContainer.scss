@@ -1,8 +1,23 @@
-.content-container{
-    margin: 3.2rem 7rem 2.3rem 7rem;
+.content-container {
+	background: url('../../assets/images/default_background.svg');
+	height: 100vh;
+	background-size: cover;
+	background-position: top;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.card{
-    min-height: 80vh;
-    background-color: gray;
+.card {
+	display: flex;
+	justify-content: center;
+	box-sizing: border-box;
+	padding: 2rem;
+	width: 80%;
+	height: 80%;
+	margin-top: 2rem;
+	border-radius: 40px;
+	background-color: white;
+	border: solid 1px rgba(211, 211, 211, 0.582);
+    box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.2);
 }

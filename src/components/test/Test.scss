@@ -1,0 +1,15 @@
+.custom-card {
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 35rem;
+    width: 25rem;
+	display: flex;
+	box-sizing: border-box;
+	padding: 2rem;
+	border-radius: 5.2rem;
+	background-color: white;
+	border: solid 0.23rem rgba(0, 0, 0, 0.6);
+	box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.2);
+}

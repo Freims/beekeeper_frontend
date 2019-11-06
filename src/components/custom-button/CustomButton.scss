@@ -1,0 +1,26 @@
+.custom-button {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	border-radius: 1.8rem;
+	padding: 1rem;
+	border: 0.2rem solid black;
+    transition: all 0.2s;
+    height: 1.5rem;
+    width: 12rem;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    backface-visibility: hidden;
+
+	&:hover {
+        cursor: pointer;
+		transform: translateY(-0.3rem);
+		box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+	}
+
+	&:active {
+		transform: translateY(-0.1rem);
+		box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+	}
+}

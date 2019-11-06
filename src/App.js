@@ -10,9 +10,9 @@ import Layout from './components/layout/Layout';
 
 const App = () =>
   <Switch>
-      <Route exact path="/" component={Test} />
+      <Route exact path="/pepe" component={Test} />
       <Layout>
-        <Route path="/pepe">
+        <Route path="/">
           <Test pepe={"esto funciona!!!"} />
         </Route>
         <Route path="/freims">
