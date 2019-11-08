@@ -1,13 +1,18 @@
 import React from "react";
 import "./CustomButton.scss";
 
-const CustomButton = ({ color = "#FECD1C", text, width = "100%" }) => (
-  <span
+const CustomButton = ({
+  color = "#FECD1C",
+  text,
+  width = "100%",
+  type = "button"
+}) => (
+  <input
+    type={type}
     className="custom-button"
     style={{ backgroundColor: `${color}`, width: `${width}` }}
-  >
-    {text}
-  </span>
+    value={text}
+  ></input>
 );
 
 export default CustomButton;

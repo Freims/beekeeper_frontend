@@ -1,24 +1,23 @@
-import React from "react";
+import React, { createRef } from "react";
 import "./IconInput.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const IconInput = ({ type, icon, placeholder }) => {
-  let textInput = null;
+const IconInput = ({ type, icon, handleChange, ...props }) => {
+  let textInput = createRef();
 
-  const focusText = () => {
-    textInput.focus();
+  const focusInput = () => {
+    textInput.current.focus();
   };
 
   return (
-    <div className="icon-input-container" onClick={focusText}>
+    <div className="icon-input-container" onClick={focusInput}>
       <FontAwesomeIcon className="icon" icon={icon} />
       <input
-        ref={input => {
-          textInput = input;
-        }}
+        ref={textInput}
+        onChange={handleChange}
         className="input"
         type={type}
-        placeholder={placeholder}
+        {...props}
       />
     </div>
   );
