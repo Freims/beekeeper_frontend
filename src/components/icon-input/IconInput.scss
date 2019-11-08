@@ -1,0 +1,43 @@
+@import "../../index.css";
+
+.icon-input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "BAHNSCHRIFT";
+
+  box-sizing: border-box;
+  margin: 0.1rem;
+  width: 100%;
+  padding: 0 1rem;
+  border-radius: 2rem;
+  border: 0.3rem solid black;
+
+  background-color: white;
+  
+  transition: all 0.3s;
+
+  &:focus-within {
+    transform: scale(1.05) translateY(-0.2rem);
+    filter: blur(0px);
+  }
+ 
+  &:hover {
+    cursor: text;
+  }
+}
+
+.icon {
+  font-size: 2rem;
+}
+
+.input {
+  width: 80%;
+  padding: 1rem 0;
+  font-size: 1.65rem;
+  font-family: inherit;
+  text-align: center;
+  outline: none;
+  margin-right: 2rem;
+}

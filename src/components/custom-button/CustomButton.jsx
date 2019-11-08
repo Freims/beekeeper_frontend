@@ -1,8 +1,13 @@
-import React from 'react'
-import './CustomButton.scss'
+import React from "react";
+import "./CustomButton.scss";
 
-const CustomButton = ({ color = '#FECD1C', text = 'ACCEDER', width = '100%' }) => (
-  <span className="custom-button" style={{ backgroundColor: `${color}`, width: `${width}` }}> {text} </span>
-)
+const CustomButton = ({ color = "#FECD1C", text, width = "100%" }) => (
+  <span
+    className="custom-button"
+    style={{ backgroundColor: `${color}`, width: `${width}` }}
+  >
+    {text}
+  </span>
+);
 
-export default CustomButton
+export default CustomButton;
