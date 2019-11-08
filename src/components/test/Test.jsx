@@ -1,15 +1,12 @@
 import React from 'react'
 import CustomButton from '../custom-button/CustomButton'
 import './Test.scss'
+import LoginCard from '../login-card/LoginCard'
 
-const Test = ({ pepe }) => (
-  <h1>
-    this is a test {pepe || ''}
-    <div className='custom-card'>Hola
-    
+const Test = () => (
+  <LoginCard>
     <CustomButton />
-    </div>
-  </h1>
+  </LoginCard>
 )
 
 export default Test

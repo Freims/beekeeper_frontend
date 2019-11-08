@@ -1,11 +1,12 @@
 import React from 'react'
-import { ExitToApp } from "@material-ui/icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDoorOpen } from '@fortawesome/free-solid-svg-icons'
 import './SignOutButton.scss';
 
 const SignOutButton = () => (
   <span className="sign-out-button">
-    <h2 className="text">Cerrar sesión</h2>
-    <ExitToApp className="icon"/>
+    <span className="text">Cerrar sesión</span>
+    <FontAwesomeIcon icon={faDoorOpen} />
   </span>
 )
 

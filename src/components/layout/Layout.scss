@@ -1,4 +1,6 @@
-.layout-container{
-    height: 100vh;
+.layout{
+    display: flex;
+    height: 100%;
+    flex-flow: column;
     overflow: hidden;
 }

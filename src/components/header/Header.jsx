@@ -5,10 +5,12 @@ import SignOutButton from '../sign-out-button/SignOutButton'
 
 const Header = () => {
   return (
-    <div className='header'>
-      <div className='content'>
-        <Logo className='logo' />
-        <SignOutButton />
+    <div className='header-container'>
+      <div className='header'>
+        <div className='content'>
+          <Logo className='logo' />
+          <SignOutButton />
+        </div>
       </div>
     </div>
   )

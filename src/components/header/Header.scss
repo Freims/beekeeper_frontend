@@ -1,19 +1,23 @@
 @import './src/assets/styles/colors';
 
 .logo {
-    height: 4rem;
-    margin-top: 0.2rem;
+	height: 6rem;
+	margin-top: 0.2rem;
+}
+
+.header-container {
+	position: relative;
+	background-color: $primary-color;
+	box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .header {
-	position: absolute;
-	background-color: $primary-color;
-	width: 100vw;
-	box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.15);
+	width: 80%;
+	margin: 0 auto;
 }
 
 .content {
 	display: flex;
+	width: 100%;
 	justify-content: space-between;
-	padding: 0 10%;
 }

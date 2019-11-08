@@ -1,5 +1,4 @@
 import React from 'react'
-import { Card } from '@material-ui/core'
 import './ContentContainer.scss'
 
 const ContentContainer = ({ children }) => (

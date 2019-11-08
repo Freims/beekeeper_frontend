@@ -6,19 +6,19 @@ import {
 } from "react-router-dom";
 import './App.scss';
 import Layout from './components/layout/Layout';
+import LoginPage from '../src/pages/login-page/LoginPage';
 
 
 const App = () =>
   <Switch>
-      <Route exact path="/pepe" component={Test} />
-      <Layout>
-        <Route path="/">
-          <Test pepe={"esto funciona!!!"} />
-        </Route>
-        <Route path="/freims">
-          <Test pepe={"esto funciona freims!!!"} />
-        </Route>
-      </Layout>
+      <Route path="/">
+        <LoginPage/>
+      </Route>
+    <Route exact path="/pepe" component={Test} />
+    <Layout>
+      <Route path="/freims">
+        <Test pepe={"esto funciona freims!!!"} />
+      </Route>
+    </Layout>
   </Switch>
-
 export default App;
