@@ -5,7 +5,7 @@ import CustomButton from "../custom-button/CustomButton";
 import IconInput from "../icon-input/IconInput";
 import { faUser, faKey } from "@fortawesome/free-solid-svg-icons";
 
-const LoginCard = () => {
+const LoginCard = (props) => {
   const [userCredentials, setUserCredentials] = useState({
     id: "",
     password: ""
@@ -14,6 +14,7 @@ const LoginCard = () => {
   const { id, password } = userCredentials;
 
   const handleSubmit = () => {
+    props.history.push("/freims");
     console.log(id, password);
     setTimeout(() => {}, 600000);
   };
@@ -31,24 +32,26 @@ const LoginCard = () => {
       </div>
       <form onSubmit={handleSubmit} className="form-container">
         <div className="label-input">
-          <label className="label">ID</label>
           <IconInput
             name="id"
             value={id}
             handleChange={handleChange}
             type="text"
             icon={faUser}
+            required
           />
+          <label className="label">ID</label>
         </div>
-        <div className="label-input-last">
-          <label className="label">Contraseña</label>
+        <div className="label-input label-input-last">
           <IconInput
             name="password"
             value={password}
             handleChange={handleChange}
             type="password"
             icon={faKey}
+            required
           />
+          <label className="label">Contraseña</label>
         </div>
         <CustomButton type="submit" text="ACCEDER" width="65%" />
       </form>

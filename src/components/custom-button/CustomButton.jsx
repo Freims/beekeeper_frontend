@@ -5,13 +5,15 @@ const CustomButton = ({
   color = "#FECD1C",
   text,
   width = "100%",
-  type = "button"
+  type = "button",
+  ...props
 }) => (
   <input
     type={type}
     className="custom-button"
     style={{ backgroundColor: `${color}`, width: `${width}` }}
     value={text}
+    {...props}
   ></input>
 );
 

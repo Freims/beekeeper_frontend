@@ -2,9 +2,9 @@ import React from 'react'
 import './LoginPage.scss'
 import LoginCard from '../../components/login-card/LoginCard'
 
-const LoginPage = () => 
+const LoginPage = (props) => 
 <div className="login-page">
-    <LoginCard>
+    <LoginCard {...props}>
         klk
     </LoginCard>
 </div>

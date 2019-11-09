@@ -1,70 +1,79 @@
 .login-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 
-  height: 55rem;
-  width: 42.5rem;
-  box-sizing: border-box;
-  border-radius: 11rem;
-  background-color: white;
-  border: solid 0.35rem rgba(0, 0, 0, 0.6);
-  box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.1);
+	height: 55rem;
+	width: 42.5rem;
+	box-sizing: border-box;
+	border-radius: 11rem;
+	background-color: white;
+	border: solid 0.35rem rgba(0, 0, 0, 0.7);
+	box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.1);
 
-  @media only screen and (max-width: 600px) {
-    height: 50rem;
-    width: 30rem;
-    border-radius: 7rem;
-  }
+	@media only screen and (max-width: 600px) {
+		height: 50rem;
+		width: 30rem;
+		border-radius: 7rem;
+		background-color: transparent;
+		border: none;
+		box-shadow: none;
+	}
 
-  @media only screen and (max-height: 600px) {
-    margin-top: 6rem;
-    height: 40rem;
-    width: 30rem;
-    border-radius: 7rem;
-  }
+	@media only screen and (max-height: 750px) {
+		margin-top: 6rem;
+		height: 40rem;
+		width: 30rem;
+		border-radius: 7rem;
+	}
 }
 
 .logo-container {
-  position: absolute;
-  width: 30rem;
-  transform: translateY(-23rem);
+	position: absolute;
+	width: 30rem;
+	transform: translateY(-24.7rem);
 
-  @media only screen and (max-width: 600px) {
-    width: 20rem;
-    transform: translateY(-20rem);
-  }
+	@media only screen and (max-width: 600px) {
+		width: 20rem;
+		transform: translateY(-20rem);
+	}
 
-  @media only screen and (max-height: 600px) {
-    width: 18rem;
-    transform: translateY(-18rem);
-  }
+	@media only screen and (max-height: 600px) {
+		width: 18rem;
+		transform: translateY(-18rem);
+	}
 }
 
 .form-container {
-  margin-top: 20%;
-  width: 70%;
-  display: flex;
-  flex-flow: column;
-  justify-content: flex-end;
-  align-items: center;
+	margin-top: 20%;
+	width: 70%;
+	display: flex;
+	flex-flow: column;
+	justify-content: flex-end;
+	align-items: center;
 }
 
 .label-input {
-  margin: 2rem 0;
+	margin: 6rem 0 3rem 0;
 
-  &-last {
-    margin-bottom: 5rem;
-  }
-}
+	&-last {
+		margin: 0rem 0 3rem 0;
+	}
 
-.label {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-left: 2rem;
-}
-
-label + input:active {
-  background-color: red;
+	.label {
+		display: inline-block;
+		width: auto;
+		transform: translateY(-8rem);
+		font-size: 2rem;
+		margin-left: 1.8rem;
+		font-weight: bold;
+		transition: all 0.25s;
+	}
+	
+	.icon-input-container:focus-within + .label {
+		width: auto;
+		margin-left: 50%;
+		transform: translate(-50%, -8.1rem) scale(1.2);
+	}
 }

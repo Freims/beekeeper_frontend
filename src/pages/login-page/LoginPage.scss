@@ -1,8 +1,14 @@
-.login-page{
-    background: url('../../assets/images/login_background.svg');
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column;
+.login-page {
+	background: url('../../assets/images/login_background.svg');
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column;
+
+	@media only screen and (max-width: 600px) {
+		background: url('../../assets/images/login_mobile_background.svg');
+		background-size: cover;
+		background-position: bottom;
+	}
 }
