@@ -1,13 +1,16 @@
 .login-page {
-	background: url('../../assets/images/login_background.svg');
+	background: url('../../assets/svgs/web_backgrounds/login_background.svg');
 	background-size: cover;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-flow: column;
+	height: 100%;
+}
 
-	@media only screen and (max-width: 600px) {
-		background: url('../../assets/images/login_mobile_background.svg');
+@media only screen and (max-width: 600px) {
+	.login-page {
+		background: url('../../assets/svgs/mobile_backgrounds/login_background.svg');
 		background-size: cover;
 		background-position: bottom;
 	}

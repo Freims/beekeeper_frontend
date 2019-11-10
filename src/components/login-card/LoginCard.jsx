@@ -1,61 +1,52 @@
-import React, { useState } from "react";
-import "./LoginCard.scss";
-import { ReactComponent as Logo } from "../../assets/images/beekeeper_logo.svg";
-import CustomButton from "../custom-button/CustomButton";
-import IconInput from "../icon-input/IconInput";
-import { faUser, faKey } from "@fortawesome/free-solid-svg-icons";
+import React, { useState } from 'react'
+import './LoginCard.scss'
+import { ReactComponent as Logo } from '../../assets/svgs/beekeeper_logo.svg'
+import CustomButton from '../custom-button/CustomButton'
+import IconInput from '../icon-input/IconInput'
+import { faUser, faKey } from '@fortawesome/free-solid-svg-icons'
 
-const LoginCard = (props) => {
+const LoginCard = props => {
   const [userCredentials, setUserCredentials] = useState({
-    id: "",
-    password: ""
-  });
+    id: '',
+    password: ''
+  })
 
-  const { id, password } = userCredentials;
+  const { id, password } = userCredentials
 
   const handleSubmit = () => {
-    props.history.push("/freims");
-    console.log(id, password);
-    setTimeout(() => {}, 600000);
-  };
+    props.history.push('/freims')
+    setTimeout(() => {}, 600000)
+  }
 
   const handleChange = event => {
-    const { value, name } = event.target;
-    console.log("asdsd");
-    setUserCredentials({ ...userCredentials, [name]: value });
-  };
+    const { value, name } = event.target
+    setUserCredentials({ ...userCredentials, [name]: value })
+  }
 
   return (
-    <div className="login-card">
-      <div className="logo-container">
+    <div className='login-card'>
+      <div className='logo-container'>
         <Logo />
       </div>
-      <form onSubmit={handleSubmit} className="form-container">
-        <div className="label-input">
-          <IconInput
-            name="id"
-            value={id}
-            handleChange={handleChange}
-            type="text"
-            icon={faUser}
-            required
-          />
-          <label className="label">ID</label>
+      <form onSubmit={handleSubmit} className='form-container'>
+        <div className='label-input'>
+          <IconInput name='id' value={id} handleChange={handleChange} type='text' icon={faUser} required />
+          <label className='label'>ID</label>
         </div>
-        <div className="label-input label-input-last">
+        <div className='label-input label-input-last'>
           <IconInput
-            name="password"
+            name='password'
             value={password}
             handleChange={handleChange}
-            type="password"
+            type='password'
             icon={faKey}
             required
           />
-          <label className="label">Contraseña</label>
+          <label className='label'>Contraseña</label>
         </div>
-        <CustomButton type="submit" text="ACCEDER" width="65%" />
+        <CustomButton type='button' onClick={handleSubmit} text='ACCEDER' width='65%' />
       </form>
     </div>
-  );
-};
-export default LoginCard;
+  )
+}
+export default LoginCard

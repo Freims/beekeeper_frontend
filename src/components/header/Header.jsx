@@ -1,6 +1,6 @@
 import React from 'react'
 import './Header.scss'
-import { ReactComponent as Logo } from '../../assets/images/beekeeper_header.svg'
+import { ReactComponent as Logo } from '../../assets/svgs/beekeeper_header.svg'
 import SignOutButton from '../sign-out-button/SignOutButton'
 
 const Header = () => {

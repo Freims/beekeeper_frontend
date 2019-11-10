@@ -9,6 +9,7 @@ html, body {
   margin: 0;
   box-sizing: border-box;
   font-size: 10px;
+  overflow: hidden;
 }
 
 body > #root > div {
