@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div className='header-container'>
       <div className='header'>
-        <div className='content'>
+        <div className='header-content'>
           <Logo className='logo' />
           <SignOutButton />
         </div>

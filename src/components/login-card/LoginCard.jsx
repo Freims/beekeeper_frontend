@@ -13,9 +13,9 @@ const LoginCard = props => {
 
   const { id, password } = userCredentials
 
-  const handleSubmit = () => {
-    props.history.push('/freims')
-    setTimeout(() => {}, 600000)
+  const handleSubmit = event => {
+    event.preventDefault()
+    props.history.push('/pepe')
   }
 
   const handleChange = event => {
@@ -44,7 +44,7 @@ const LoginCard = props => {
           />
           <label className='label'>Contraseña</label>
         </div>
-        <CustomButton type='button' onClick={handleSubmit} text='ACCEDER' width='65%' />
+        <CustomButton type='submit' text='ACCEDER' width='65%' />
       </form>
     </div>
   )

@@ -1,0 +1,27 @@
+.user-details {
+	display: flex;
+	flex-direction: column;
+
+	.circle-avatar-container {
+		width: 100%;
+		margin: 1rem 0;
+	}
+
+	.name {
+		font-weight: 700;
+		font-size: 2rem;
+		margin: 1rem 0;
+	}
+
+	.id {
+		font-weight: lighter;
+		font-size: 2.2rem;
+		margin-bottom: 1rem;
+	}
+
+	.program {
+		font-weight: lighter;
+		font-size: 2.2rem;
+		margin-bottom: 1rem;
+	}
+}

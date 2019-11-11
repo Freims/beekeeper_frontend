@@ -10,18 +10,20 @@ const App = () => {
   let location = useLocation();
 
   return (
-      <Switch location={location}>
-        <Route exact path="/" component={LoginPage} />
-        <Route exact path="/pepe" component={Test} />
-        <Layout>
-          <Route exact path="/freims">
-            <Test pepe={"esto funciona freims!!!"} />
-          </Route>
-          <Route exact path="/freims2">
-            <Test pepe={"esto funciona freims!!!"} />
-          </Route>
-        </Layout>
-      </Switch>
+    <Switch location={location}>
+      <Route exact path="/" component={LoginPage} />
+      <Layout>
+        <Route exact path="/pepe" >
+          <Test pepe={"Inicio bro"} />
+        </Route>
+        <Route exact path="/freims">
+          <Test pepe={"Mis Clases bro"} />
+        </Route>
+        <Route exact path="/freims2">
+          <Test pepe={"esto funciona freims!!!"} />
+        </Route>
+      </Layout>
+    </Switch>
   )
 }
 export default App;

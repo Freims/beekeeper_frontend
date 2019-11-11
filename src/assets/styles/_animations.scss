@@ -21,22 +21,15 @@
 
 @keyframes angryShake {
 	0% {
+		margin-left: 0rem;
 	}
-
 	25% {
-		transform: translateX(-40%);
+		margin-left: 4rem;
 	}
-
-	50% {
-		outline: red 1px solid;
-		transform: translateX(0);
-	}
-
 	75% {
-        transform: translateX(40%);
+		margin-left: -4rem;
 	}
-    
 	100% {
-        transform: translateX(0%);
+		margin-left: 0rem;
 	}
 }

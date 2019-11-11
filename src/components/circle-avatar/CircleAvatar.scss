@@ -1,0 +1,9 @@
+@import '../../assets/styles/colors';
+
+.circle-avatar{
+    display: block;
+    width: 100%;
+    max-width: 20rem;
+    border-radius: 100%;
+    border: 1.5px solid $color-grey-dark;
+}
