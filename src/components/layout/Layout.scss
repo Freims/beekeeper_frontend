@@ -1,14 +1,12 @@
-@import '../../assets/styles/animations';
+@import "../../assets/styles/animations";
 
 .layout {
-	animation: appearOutOfNowhere 500ms;
-	display: flex;
-	height: 100%;
-	flex-flow: column;
+  animation: appearOutOfNowhere 500ms;
+  display: flex;
+  height: 100%;
+  flex-flow: column;
 }
-
 
 .shake {
-	animation: angryShake 500ms;
+  animation: angryShake 500ms;
 }
-
