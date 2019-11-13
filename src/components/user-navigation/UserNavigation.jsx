@@ -5,7 +5,6 @@ import NavItem from '../nav-item/NavItem'
 import UserDetails from '../user-details/UserDetails'
 
 const UserNavigation = () => {
-  
   let user = {
     name: 'Ted Evelyn Mosby',
     id: '1071614',
