@@ -15,7 +15,7 @@ const LoginCard = props => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    props.history.push('/pepe')
+    props.history.push('/')
   }
 
   const handleChange = event => {

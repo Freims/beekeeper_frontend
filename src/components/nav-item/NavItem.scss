@@ -1,26 +1,52 @@
 @import '../../assets/styles/colors';
 
 .nav-item-container {
-    height: 3rem;
-    display: block;
-    margin: 3.5rem 0;
-    transition: all 0.3s;
-    
+	font-size: 2.5vh;
+	height: 1em;
+	display: block;
+	transition: all 0.3s;
+
 	.nav-item {
 		text-decoration: none;
 		transition: all 0.3s;
 		font-weight: bold;
-		font-size: 2.2rem;
+		font-size: 0.95em;
 		color: $color-grey-disabled;
 
 		&:hover {
-            font-size: 2.7rem;
-
-        }
+			font-size: 1.15em;
+		}
 
 		&-active {
-			font-size: 2.7rem;
+			font-size: 1.15em;
 			color: $color-black;
+		}
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.nav-item-container {
+		font-size: 5vh;
+		width: auto;
+		height: 1.3em;
+		display: block;
+		transition: all 0.3s;
+
+		.nav-item {
+			text-decoration: none;
+			transition: all 0.3s;
+			font-weight: bold;
+			font-size: 0.9em;
+			color: $color-grey-dark;
+
+			&:hover {
+				font-size: 1.1em;
+			}
+
+			&-active {
+				font-size: 1.1em;
+				color: $color-black;
+			}
 		}
 	}
 }

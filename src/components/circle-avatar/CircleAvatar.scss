@@ -1,9 +1,13 @@
 @import '../../assets/styles/colors';
 
-.circle-avatar{
-    display: block;
-    width: 100%;
-    max-width: 20rem;
-    border-radius: 100%;
-    border: 1.5px solid $color-grey-dark;
+.circle-avatar {
+	width: 100%;
+	height: 100%;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: $color-grey;
+	shape-outside: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+	border: 0.15rem solid $color-grey-dark;
 }

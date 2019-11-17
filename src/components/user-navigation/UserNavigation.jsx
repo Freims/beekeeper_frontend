@@ -1,37 +1,33 @@
-import React from "react";
-import "./UserNavigation.scss";
+import React from 'react'
+import './UserNavigation.scss'
 
-import NavItem from "../nav-item/NavItem";
-import UserDetails from "../user-details/UserDetails";
+import UserDetails from '../user-details/UserDetails'
+import Navigation from '../navigation/Navigation'
 
-const UserNavigation = () => {
-  let user = {
-    name: "Ted Evelyn Mosby",
-    id: "1071614",
-    profileSrc: require("../../assets/images/professor.jpeg"),
-    program: "Arquitectura Neoclásica"
-  };
-
-  const tabs = [
-    <NavItem key="inicio" exact to={"/pepe"} title={"Inicio"} />,
-    <NavItem key="misClases" to={"/freims"} title={"Mis clases"} />
-  ];
+const UserNavigation = ({ user }) => {
+  user = {
+    name: 'Ted Evelyn Mosby',
+    id: '1071614',
+    profileSrc: require('../../assets/images/professor.jpeg'),
+    program: 'Arquitectura Neoclásica'
+  }
 
   return (
-    <div className="user-nav">
-      <div className="user-details-container">
+    <div className='user-nav'>
+      <div className='user-details-container'>
         <UserDetails user={user} />
       </div>
       <hr
         style={{
-          backgroundColor: "lightgray",
+          backgroundColor: 'lightgray',
           height: 2
         }}
       />
-
-      <div className="tabs">{tabs}</div>
+      <div className='tabs'>
+        <Navigation />
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default UserNavigation;
+export default UserNavigation

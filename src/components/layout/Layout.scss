@@ -1,12 +1,27 @@
-@import "../../assets/styles/animations";
+@import '../../assets/styles/animations';
 
 .layout {
-  animation: appearOutOfNowhere 500ms;
-  display: flex;
-  height: 100%;
-  flex-flow: column;
+	animation: appearOutOfNowhere 500ms;
+	display: flex;
+	height: 100%;
+	flex-flow: column;
+
+	& div:first-of-type + div + div {
+		display: none;
+	}
 }
 
 .shake {
-  animation: angryShake 500ms;
+	animation: angryShake 500ms;
+}
+
+@media only screen and (max-width: 600px) {
+  
+	& div:first-of-type + div {
+		display: none;
+	}
+
+	& div:first-of-type + div + div {
+		display: flex !important;
+	}
 }

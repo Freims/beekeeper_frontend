@@ -1,0 +1,31 @@
+@import '../../assets/styles/animations';
+
+.home-page {
+	animation: appearOutOfNowhere 500ms;
+
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 6rem;
+	transition: all 0.3s;
+}
+
+.home-page-mobile{
+	display: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+	.home-page {
+		flex-direction: column;
+		justify-content: space-evenly;
+	}
+
+	.home-page-mobile {
+		display: flex;
+		width: auto;
+		height: auto;
+		margin: 0 0.2em;
+	}
+}
