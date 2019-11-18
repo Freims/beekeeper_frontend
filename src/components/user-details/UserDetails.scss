@@ -40,7 +40,10 @@
 		font-size: 3.5vh;
 		
 		.circle-avatar-container {
-			margin-left: 0.5em;
+			display: flex;
+			justify-content: center;
+			align-content: center;
+
 			height: 4.2em;
 			width: 4.2em;
 		}
