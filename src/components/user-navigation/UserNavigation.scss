@@ -1,20 +1,22 @@
 .user-nav {
+  height: 100%;
   display: flex;
-  flex-basis: auto;
   flex-direction: column;
-  margin: 0 2rem;
+  margin: 2.5vh 1vw;
 }
 
 .user-details-container {
   display: flex;
-  flex: 1 1;
-  margin-bottom: 2rem;
+  margin-bottom: 2vh;
 }
 
 .tabs {
   display: flex;
-  justify-content: flex-start;
   flex-flow: column;
-  flex: 1 1;
+  justify-content: flex-start;
+  height: 100%;
 
+  & span {
+    margin: 3vh 0;
+  }
 }

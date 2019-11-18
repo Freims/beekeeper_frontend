@@ -1,52 +1,45 @@
 .login-card {
+  margin-top: 5%;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 3rem 4.5rem;
+
   box-sizing: border-box;
-  border-radius: 8.5rem;
+  border-radius: 11rem;
   background-color: white;
   border: solid 0.35rem rgba(0, 0, 0, 0.7);
   box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.1);
 
   @media only screen and (max-width: 600px) {
-    height: 50rem;
-    width: 30rem;
-    border-radius: 7rem;
     background-color: transparent;
     border: none;
     box-shadow: none;
   }
 }
 
-@media only screen and (max-height: 750px) {
-  .login-card {
-    margin-top: 6rem;
-    padding: 2.5rem 4rem;
-    border-radius: 7rem;
-  }
-
-}
-
 .logo-container {
-  position: absolute;
-  width: 20rem;
-  transform: translateY(-19rem);
+  width: 28vh;
+  min-width: 21rem;
+  max-width: 35rem;
+  margin-top: -30%;
 
   @media only screen and (max-width: 600px) {
-    width: 20rem;
-    transform: translateY(-22rem);
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    margin: 5% 0;
   }
 
-  @media only screen and (max-height: 700px) {
-    width: 20rem;
-    transform: translateY(-20rem);
+  @media only screen and (max-width: 1300px) {
+    width: 20vh;
   }
 }
 
 .form-container {
-  margin-top: 25%;
+  width: 70%;
+  padding: 6vh 3.5vw;
   display: flex;
   flex-flow: column;
   justify-content: flex-end;
@@ -54,17 +47,13 @@
 }
 
 .label-input {
-  margin: 6rem 0 3rem 0;
-
-  &-last {
-    margin: 0rem 0 0.5rem 0;
-  }
+  margin-bottom: 3rem;
 
   .label {
     display: inline-block;
     width: auto;
     transform: translateY(-8rem);
-    font-size: 1.7rem;
+    font-size: 2rem;
     margin-left: 1.8rem;
     font-weight: bold;
     transition: all 0.25s;
@@ -74,5 +63,13 @@
     width: auto;
     margin-left: 50%;
     transform: translate(-50%, -8.1rem) scale(1.2);
+  }
+
+  @media only screen and (max-width: 600px) {
+    &-last {
+      display: inline-block !important;
+
+      margin-bottom: 0rem;
+    }
   }
 }

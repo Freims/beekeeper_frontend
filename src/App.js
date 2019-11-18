@@ -5,25 +5,23 @@ import "./App.scss";
 import Layout from "./components/layout/Layout";
 import LoginPage from "../src/pages/login-page/LoginPage";
 import Test from "./components/test/Test";
+import HomePage from "./pages/home-page/HomePage";
+import ClassesPage from "./pages/classes-page/ClassesPage";
 
 const App = () => {
   let location = useLocation();
 
   return (
     <Switch location={location}>
-      <Route exact path="/" component={LoginPage} />
+      <Route exact path="/login" component={LoginPage} />
       <Layout>
-        <Route exact path="/pepe" >
-          <Test pepe={"Inicio bro"} />
-        </Route>
-        <Route exact path="/freims">
-          <Test pepe={"Mis Clases bro"} />
-        </Route>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/clases" component={ClassesPage} />
         <Route exact path="/freims2">
           <Test pepe={"esto funciona freims!!!"} />
         </Route>
       </Layout>
-    </Switch>
+    </Switch >
   )
 }
 export default App;

@@ -2,7 +2,7 @@ import React from 'react'
 import './CircleAvatar.scss'
 
 const CircleAvatar = ({ src }) => {
-  return <img className='circle-avatar' src={src} alt='avatar' />
+  return <div className='circle-avatar' style={{backgroundImage: `url(${src})`}} />
 }
 
 export default CircleAvatar

@@ -10,9 +10,11 @@ const UserDetails = ({ user }) => {
       <div className='circle-avatar-container'>
         <CircleAvatar src={profileSrc} />
       </div>
-      <div className='name'>{name}</div>
-      <div className='id'>{id}</div>
-      <div className='program'>{program}</div>
+      <div className='info'>
+        <div className='name'>{name}</div>
+        <div className='id'>{id}</div>
+        <div className='program'>{program}</div>
+      </div>
     </div>
   )
 }

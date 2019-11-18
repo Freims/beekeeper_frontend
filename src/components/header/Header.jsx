@@ -9,7 +9,7 @@ const Header = () => {
       <div className='header'>
         <div className='header-content'>
           <Logo className='logo' />
-          <SignOutButton />
+          <SignOutButton id="sign-out" />
         </div>
       </div>
     </div>
