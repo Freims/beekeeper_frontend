@@ -5,6 +5,7 @@ import UserDetails from '../../components/user-details/UserDetails'
 import CardMobile from '../../components/card-mobile/CardMobile'
 
 const HomePage = () => {
+  
   let user = {
     name: 'Ted Evelyn Mosby',
     id: '1071614',

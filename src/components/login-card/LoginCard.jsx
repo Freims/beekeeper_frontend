@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './LoginCard.scss'
+
 import { ReactComponent as Logo } from '../../assets/svgs/beekeeper_logo.svg'
 import CustomButton from '../custom-button/CustomButton'
 import IconInput from '../icon-input/IconInput'
@@ -15,6 +16,7 @@ const LoginCard = props => {
 
   const handleSubmit = event => {
     event.preventDefault()
+    props.setUser(userCredentials.id, 'student')
     props.history.push('/')
   }
 
@@ -22,6 +24,16 @@ const LoginCard = props => {
     const { value, name } = event.target
     setUserCredentials({ ...userCredentials, [name]: value })
   }
+
+  // const doLogin = async (id, password) => {
+  //   try {
+  //     let response = await fetch('')
+  //     let responseJson = await response.json()
+  //     return responseJson
+  //   } catch (error) {
+  //     console.error(error)
+  //   }
+  // }
 
   return (
     <div className='login-card'>
