@@ -10,6 +10,18 @@
 		text-decoration: none;
 		transition: all 0.3s;
 		font-weight: bold;
+<<<<<<< HEAD
+		font-size: 1.7rem;
+		color: $color-grey-disabled;
+
+		&:hover {
+            font-size: 2.2rem;
+
+        }
+
+		&-active {
+			font-size: 2.2rem;
+=======
 		font-size: 0.95em;
 		color: $color-grey-disabled;
 
@@ -19,6 +31,7 @@
 
 		&-active {
 			font-size: 1.15em;
+>>>>>>> 4591c5b9cd7b3777ce641f8c1c064ee70f787085
 			color: $color-black;
 		}
 	}

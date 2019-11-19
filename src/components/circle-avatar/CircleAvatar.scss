@@ -1,5 +1,13 @@
 @import '../../assets/styles/colors';
 
+<<<<<<< HEAD
+.circle-avatar{
+    display: block;
+    max-width: 100%;
+    border-radius: 100%;
+    border: 1.5px solid $color-grey-dark;
+}
+=======
 .circle-avatar {
 	box-sizing: border-box;
 	width: 100%;
@@ -11,3 +19,4 @@
 	border-radius: 100%;
 	border: 0.15rem solid $color-grey-dark;
 }
+>>>>>>> 4591c5b9cd7b3777ce641f8c1c064ee70f787085
