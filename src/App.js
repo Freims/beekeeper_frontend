@@ -17,16 +17,18 @@ const App = () => {
       <AuthGuard>
         <Route exact path="/login" component={LoginPage} />
         <CurrentUserContext.Consumer>
-          {({ isLoggedIn }) =>
-            isLoggedIn ? 
-            <Layout>
-              <Route exact path="/" component={HomePage} />
-              <Route exact path="/clases" component={ClassesPage} />
-              <Route exact path="/freims2">
-                <Test pepe={"esto funciona freims!!!"} />
-              </Route>
-            </Layout>
-            : <Redirect to='/login' />
+          {({ isLoggedIn, user, userDetails }) =>
+            isLoggedIn ?
+              <Layout userDetails={userDetails}>
+                <Route exact path="/">
+                  <HomePage userDetails={userDetails} />
+                </Route>
+                <Route exact path="/clases" component={ClassesPage} />
+                <Route exact path="/freims2">
+                  <Test pepe={"esto funciona freims!!!"} />
+                </Route>
+              </Layout>
+              : <Redirect to='/login' />
           }
         </CurrentUserContext.Consumer>
       </AuthGuard>

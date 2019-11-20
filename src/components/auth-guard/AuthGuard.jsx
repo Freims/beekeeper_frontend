@@ -7,6 +7,12 @@ const AuthGuard = ({ children }) => {
     type: ''
   })
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [userDetails, setUserDetails] = useState({
+    id: '',
+    firstName: '',
+    lastName: '',
+    program: 'Ingeniería de Software'
+  })
 
   useEffect(
     () => {
@@ -26,7 +32,9 @@ const AuthGuard = ({ children }) => {
     user,
     logout,
     setUserInfo,
-    isLoggedIn
+    isLoggedIn,
+    userDetails,
+    setUserDetails
   }
 
   return <CurrentUserContext.Provider value={value}>{children}</CurrentUserContext.Provider>

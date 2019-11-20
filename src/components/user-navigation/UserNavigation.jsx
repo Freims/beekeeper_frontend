@@ -4,14 +4,15 @@ import './UserNavigation.scss'
 import UserDetails from '../user-details/UserDetails'
 import Navigation from '../navigation/Navigation'
 
-const UserNavigation = ({ user }) => {
-  user = {
-    name: 'Ted Evelyn Mosby',
-    id: '1071614',
-    profileSrc: require('../../assets/images/professor.jpeg'),
-    program: 'Arquitectura Neoclásica'
+const UserNavigation = ({ userDetails }) => {
+  
+  let user = {
+    id: userDetails.id,
+    name: `${userDetails.firstName} ${userDetails.lastName}`,
+    // profileSrc: require('../../assets/images/professor.jpeg'),
+    profileSrc: 'https://i.ibb.co/GdyX9VY/frames.jpg',
+    program: userDetails.program
   }
-
   return (
     <div className='user-nav'>
       <div className='user-details-container'>

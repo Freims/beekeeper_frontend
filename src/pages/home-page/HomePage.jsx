@@ -4,13 +4,14 @@ import './HomePage.scss'
 import UserDetails from '../../components/user-details/UserDetails'
 import CardMobile from '../../components/card-mobile/CardMobile'
 
-const HomePage = () => {
-  
+const HomePage = ({ userDetails }) => {
+
+  console.log(userDetails)
   let user = {
-    name: 'Ted Evelyn Mosby',
-    id: '1071614',
+    id: userDetails.id,
+    name: `${userDetails.firstName} ${userDetails.lastName}`,
     profileSrc: require('../../assets/images/professor.jpeg'),
-    program: 'Arquitectura Neoclásica'
+    program: userDetails.program
   }
 
   return (

@@ -31,12 +31,6 @@
 	}
 }
 
-<<<<<<< HEAD
-	.program {
-		font-weight: lighter;
-		font-size: 1.7rem;
-		margin-bottom: 1rem;
-=======
 @media only screen and (max-width: 600px) {
 	.user-details {
 		display: flex !important;
@@ -48,14 +42,14 @@
 		.circle-avatar-container {
 			display: flex;
 			justify-content: center;
-			align-content: center;
-
+			align-items: center;
 			height: 4.2em;
 			width: 4.2em;
 		}
 		.info {
-			display: inline;
-			margin-left: 0.5em;
+			display: flex;
+			flex-flow: column;
+			margin-left: 0.3em;
 			.name {
 				font-weight: 700;
 				font-size: 0.8em;
@@ -74,7 +68,6 @@
 				margin-bottom: 1rem;
 			}
 		}
->>>>>>> 4591c5b9cd7b3777ce641f8c1c064ee70f787085
 	}
 }
 

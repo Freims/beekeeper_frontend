@@ -11,13 +11,27 @@ const LoginCard = props => {
     id: '',
     password: ''
   })
-
+  const [invalidCredentials, setInvalidCredentials] = useState('')
   const { id, password } = userCredentials
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault()
-    props.setUser(userCredentials.id, 'student')
-    props.history.push('/')
+    let response = await doLogin()
+    if (response.success) {
+      props.setUser(response.resultData.studentId, 'student')
+      let resultData = response.resultData
+      props.history.push('/')
+      console.log(response.resultData.studentId)
+      props.setUserDetails({
+        id: resultData.intecStudentId,
+        firstName: resultData.firstName,
+        lastName: resultData.lastName,
+        program: 'Ingeniería de Software'
+      })
+    } else {
+      alert('Credenciales inválidas.')
+      setInvalidCredentials('error')
+    }
   }
 
   const handleChange = event => {
@@ -25,15 +39,26 @@ const LoginCard = props => {
     setUserCredentials({ ...userCredentials, [name]: value })
   }
 
-  // const doLogin = async (id, password) => {
-  //   try {
-  //     let response = await fetch('')
-  //     let responseJson = await response.json()
-  //     return responseJson
-  //   } catch (error) {
-  //     console.error(error)
-  //   }
-  // }
+  const doLogin = async () => {
+    try {
+      console.log(id)
+
+      let response = await fetch(
+        `https://cors-anywhere.herokuapp.com/https://beekeeperrestapi20191118113312.azurewebsites.net/Login/${id}/${password}`,
+        {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+      let responseJson = await response.json()
+      return responseJson
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   return (
     <div className='login-card'>
@@ -53,11 +78,13 @@ const LoginCard = props => {
             type='password'
             icon={faKey}
             required
+            error={invalidCredentials}
           />
           <label className='label'>Contraseña</label>
         </div>
         <CustomButton type='submit' text='ACCEDER' width='65%' />
       </form>
+      <button onClick={doLogin}>dologin</button>
     </div>
   )
 }
