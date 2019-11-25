@@ -6,26 +6,33 @@
 	height: 100%;
 	display: flex;
 	justify-content: center;
+	flex-flow: column;
 	align-items: center;
 	font-size: 6rem;
 	transition: all 0.3s;
 }
 
-.home-page-mobile{
+.home-page-mobile {
 	display: none;
 }
 
+.home-page-web {
+	display: flex;
+}
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1024px) {
 	.home-page {
 		flex-direction: column;
 		justify-content: space-evenly;
 	}
 
 	.home-page-mobile {
-		display: flex;
+		display: flex !important;
 		width: auto;
 		height: auto;
 		margin: 0 0.2em;
+	}
+	.home-page-web {
+		display: none;
 	}
 }

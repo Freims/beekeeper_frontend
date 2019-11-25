@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import CurrentUserContext from '../../contexts/current-user/CurrentUserContext'
+import { withRouter } from 'react-router-dom'
 
-const AuthGuard = ({ children }) => {
+const AuthGuard = ({ children, history }) => {
   const [user, setUser] = useState({
     id: '',
     type: ''
@@ -17,8 +18,9 @@ const AuthGuard = ({ children }) => {
   useEffect(
     () => {
       if (user.id !== '') setIsLoggedIn(true)
+      // else history.push('/login')
     },
-    [user]
+    [user, history]
   )
   const logout = () => {
     setUser({ id: '', type: '' })
@@ -40,4 +42,4 @@ const AuthGuard = ({ children }) => {
   return <CurrentUserContext.Provider value={value}>{children}</CurrentUserContext.Provider>
 }
 
-export default AuthGuard
+export default withRouter(AuthGuard)

@@ -1,0 +1,30 @@
+@import './src/assets/styles/colors';
+
+.today-summary {
+	width: 100%;
+	border: 1px solid $color-grey-font;
+	border-radius: 1.5rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	overflow: hidden;
+	font-size: 3vh;
+
+	.intecClass {
+		border-radius: 0;
+		box-sizing: border-box;
+		background-color: indianred;
+		color: white;
+		padding: 0.5em 2em;
+	}
+
+	.today-info {
+		width: 50%;
+		margin-right: 2vw;
+		display: flex;
+		box-sizing: border-box;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+}

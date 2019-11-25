@@ -3,9 +3,9 @@ import './HomePage.scss'
 
 import UserDetails from '../../components/user-details/UserDetails'
 import CardMobile from '../../components/card-mobile/CardMobile'
+import Schedule from '../../components/schedule/Schedule'
 
 const HomePage = ({ userDetails }) => {
-
   console.log(userDetails)
   let user = {
     id: userDetails.id,
@@ -16,9 +16,13 @@ const HomePage = ({ userDetails }) => {
 
   return (
     <div className='home-page'>
+      <div className='home-page-web'>
+        <Schedule />
+      </div>
       <div className='home-page-mobile'>
         <CardMobile>
           <UserDetails user={user} />
+          <Schedule />
         </CardMobile>
       </div>
       Inicio

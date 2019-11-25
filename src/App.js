@@ -17,8 +17,8 @@ const App = () => {
       <AuthGuard>
         <Route exact path="/login" component={LoginPage} />
         <CurrentUserContext.Consumer>
-          {({ isLoggedIn, user, userDetails }) =>
-            isLoggedIn ?
+          {({ isLoggedIn, userDetails }) =>
+            // isLoggedIn ?
               <Layout userDetails={userDetails}>
                 <Route exact path="/">
                   <HomePage userDetails={userDetails} />
@@ -28,7 +28,7 @@ const App = () => {
                   <Test pepe={"esto funciona freims!!!"} />
                 </Route>
               </Layout>
-              : <Redirect to='/login' />
+              // : <Redirect to='/login' />
           }
         </CurrentUserContext.Consumer>
       </AuthGuard>

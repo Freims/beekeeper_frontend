@@ -2,11 +2,10 @@
 
 .test {
 	animation: appearOutOfNowhere 500ms;
-
-	height: 100%;
 	display: flex;
+	flex-flow: column;
 	justify-content: center;
 	align-items: center;
-	font-size: 6rem;
-	transition: all 0.3s;
+	text-align: center;
+	margin: 10px;
 }

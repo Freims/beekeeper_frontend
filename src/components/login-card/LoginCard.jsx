@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import './LoginCard.scss'
-
+import ReactNotification from 'react-notifications-component'
 import { ReactComponent as Logo } from '../../assets/svgs/beekeeper_logo.svg'
 import CustomButton from '../custom-button/CustomButton'
 import IconInput from '../icon-input/IconInput'
 import { faUser, faKey } from '@fortawesome/free-solid-svg-icons'
+
+import { InvalidCredentials, ConnectionError } from '../../utils/notifications'
+import Loading from '../loading/Loading'
 
 const LoginCard = props => {
   const [userCredentials, setUserCredentials] = useState({
@@ -12,25 +15,30 @@ const LoginCard = props => {
     password: ''
   })
   const [invalidCredentials, setInvalidCredentials] = useState('')
+  const [loading, setLoading] = useState('hidden')
   const { id, password } = userCredentials
 
   const handleSubmit = async event => {
     event.preventDefault()
     let response = await doLogin()
-    if (response.success) {
-      props.setUser(response.resultData.studentId, 'student')
-      let resultData = response.resultData
-      props.history.push('/')
-      console.log(response.resultData.studentId)
-      props.setUserDetails({
-        id: resultData.intecStudentId,
-        firstName: resultData.firstName,
-        lastName: resultData.lastName,
-        program: 'Ingeniería de Software'
-      })
+    if (response) {
+      if (response.success) {
+        props.setUser(response.resultData.studentId, 'student')
+        let resultData = response.resultData
+        props.history.push('/')
+        console.log(response.resultData.studentId)
+        props.setUserDetails({
+          id: resultData.intecStudentId,
+          firstName: resultData.firstName,
+          lastName: resultData.lastName,
+          program: 'Ingeniería de Software'
+        })
+      } else {
+        setInvalidCredentials('error')
+        InvalidCredentials()
+      }
     } else {
-      alert('Credenciales inválidas.')
-      setInvalidCredentials('error')
+      ConnectionError()
     }
   }
 
@@ -40,9 +48,8 @@ const LoginCard = props => {
   }
 
   const doLogin = async () => {
+    setLoading('')
     try {
-      console.log(id)
-
       let response = await fetch(
         `https://cors-anywhere.herokuapp.com/https://beekeeperrestapi20191118113312.azurewebsites.net/Login/${id}/${password}`,
         {
@@ -57,17 +64,30 @@ const LoginCard = props => {
       return responseJson
     } catch (error) {
       console.error(error)
+      setLoading('hidden')
     }
+    setLoading('hidden')
   }
 
   return (
     <div className='login-card'>
+      <div className='loader'>
+        <Loading hidden={loading} />
+      </div>
       <div className='logo-container'>
         <Logo />
       </div>
       <form onSubmit={handleSubmit} className='form-container'>
         <div className='label-input'>
-          <IconInput name='id' value={id} handleChange={handleChange} type='text' icon={faUser} required />
+          <IconInput
+            name='id'
+            value={id}
+            handleChange={handleChange}
+            type='text'
+            icon={faUser}
+            error={invalidCredentials}
+            required
+          />
           <label className='label'>ID</label>
         </div>
         <div className='label-input label-input-last'>
@@ -84,7 +104,7 @@ const LoginCard = props => {
         </div>
         <CustomButton type='submit' text='ACCEDER' width='65%' />
       </form>
-      <button onClick={doLogin}>dologin</button>
+      <ReactNotification />
     </div>
   )
 }
