@@ -1,5 +1,5 @@
-import React from 'react'
-import './HomePage.scss'
+import React from "react";
+import "./HomePage.scss";
 
 import UserDetails from '../../components/user-details/UserDetails'
 import CardMobile from '../../components/card-mobile/CardMobile'
@@ -10,9 +10,9 @@ const HomePage = ({ userDetails }) => {
   let user = {
     id: userDetails.id,
     name: `${userDetails.firstName} ${userDetails.lastName}`,
-    profileSrc: require('../../assets/images/professor.jpeg'),
+    profileSrc: "https://i.ibb.co/GdyX9VY/frames.jpg",
     program: userDetails.program
-  }
+  };
 
   return (
     <div className='home-page'>
@@ -27,7 +27,7 @@ const HomePage = ({ userDetails }) => {
       </div>
       Inicio
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
