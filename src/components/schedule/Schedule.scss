@@ -3,7 +3,7 @@
 .schedule {
 	text-align: center;
 	overflow: hidden;
-	width: 100%;
+	flex-grow: 1;
 	box-sizing: border-box;
 	border-spacing: 0;
 	font-size: 3.5vw;
@@ -20,13 +20,13 @@
 		font-size: 0;
 
 		&::first-letter {
-			font-size: 2vh;
+			font-size: 3.2vw;
 		}
 	}
 	td {
 		word-wrap: break-word;
 		padding: 4px 2px;
-		font-size: 1em;
+		font-size: 0.9em;
 		border: none;
 		background-color: white;
 		color: $color-grey-font;
@@ -40,16 +40,16 @@
 @media (min-width: 1025px) {
 	.schedule {
 		overflow: hidden;
-		max-width: 100%;
+		flex-grow: 1;
 		box-sizing: border-box;
 		border-spacing: 0;
 		font-size: 1rem;
-		border-radius: 1.5em;
-		border: 0.2em solid $color-grey-borders;
+		border-radius: 1em;
+		border: 0.12em solid $color-grey-borders;
 
 		th {
 			font-size: 2.5vh;
-			padding: 0.3em 0.1em;
+			padding: 0.5em 0.2em;
 			border: none;
 			color: black;
 		}

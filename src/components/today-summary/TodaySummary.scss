@@ -2,29 +2,61 @@
 
 .today-summary {
 	width: 100%;
-	border: 1px solid $color-grey-font;
+	border: 1px solid $color-grey-borders;
 	border-radius: 1.5rem;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
 	align-items: center;
 	overflow: hidden;
 	font-size: 3vh;
 
-	.intecClass {
+	.intec-class {
 		border-radius: 0;
 		box-sizing: border-box;
 		background-color: indianred;
 		color: white;
 		padding: 0.5em 2em;
+		width: 40%;
 	}
 
 	.today-info {
-		width: 50%;
+		flex-grow: 1;
 		margin-right: 2vw;
+		color: $color-black;
 		display: flex;
 		box-sizing: border-box;
 		flex-direction: row;
-		justify-content: space-around;
+		justify-content: space-evenly;
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+	.today-summary {
+		width: 100%;
+		border: 1px solid $color-grey-borders;
+		border-radius: 0.5rem;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		overflow: hidden;
+		font-size: 0.8rem;
+
+		.intecClass {
+			border-radius: 0;
+			box-sizing: border-box;
+			background-color: indianred;
+			color: white;
+			width: 40%;
+		}
+
+		.today-info {
+			flex-grow: 1;
+			margin-right: 2vw;
+			color: $color-black;
+			display: flex;
+			box-sizing: border-box;
+			flex-direction: row;
+			justify-content: space-evenly;
+		}
 	}
 }

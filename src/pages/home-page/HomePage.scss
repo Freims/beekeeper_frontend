@@ -1,4 +1,5 @@
 @import '../../assets/styles/animations';
+@import './src/assets/styles/colors';
 
 .home-page {
 	animation: appearOutOfNowhere 500ms;
@@ -18,6 +19,31 @@
 
 .home-page-web {
 	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	height: 100%;
+	width: 100%;
+}
+
+.for-today {
+	padding: 2rem;
+	border: 1px solid $color-grey-borders;
+	border-radius: 1rem;
+}
+
+.today-is {
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	font-size: 2rem;
+	margin-bottom: 2rem;
+}
+
+.little-card {
+	margin: 10px;
+	background-color: white;
+	height: 20;
+	width: 100%;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -27,12 +53,22 @@
 	}
 
 	.home-page-mobile {
+		flex-direction: column;
+		justify-content: space-evenly;
 		display: flex !important;
 		width: auto;
-		height: auto;
+		height: 100%;
 		margin: 0 0.2em;
 	}
 	.home-page-web {
 		display: none;
+	}
+
+	.today-is {
+		font-weight: bold;
+		display: flex;
+		justify-content: center;
+		font-size: 1.2rem;
+		margin-bottom: 2rem;
 	}
 }

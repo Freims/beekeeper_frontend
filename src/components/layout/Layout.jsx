@@ -13,8 +13,12 @@ const Layout = ({ history, children }) => {
     return (
       <div className='layout'>
         <Header />
-        <ContentContainer>{children}</ContentContainer>
-        <MobileContentContainer>{children}</MobileContentContainer>
+        <section id='web'>
+          <ContentContainer>{children}</ContentContainer>
+        </section>
+        <section id='mobile'>
+          <MobileContentContainer>{children}</MobileContentContainer>
+        </section>
       </div>
     )
   }

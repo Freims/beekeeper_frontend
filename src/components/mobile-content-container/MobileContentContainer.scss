@@ -8,16 +8,16 @@
 	flex-flow: column;
 	justify-content: center;
 	height: 100%;
+	width: 100%;
 }
 
-.mobile-content{
+.mobile-content {
 	height: 90%;
 	width: 100%;
 }
 
-.mobile-tabs{
+.mobile-tabs {
 	display: flex !important;
 	flex-direction: row;
 	justify-content: space-evenly;
-
 }

@@ -3,10 +3,12 @@ import './TodaySummary.scss'
 
 const TodaySummary = () => (
   <div className='today-summary'>
-    <div className='intecClass'>Economía Política</div>
+    <div className='intec-class'>
+      Calculo Integral
+    </div>
     <div className='today-info'>
-      <span>07/11</span>
-      <span>DP 401</span>
+      <span>18/20</span>
+      <span>GC 312</span>
     </div>
   </div>
 )

@@ -6,22 +6,26 @@
 	height: 100%;
 	flex-flow: column;
 
-	& div:first-of-type + div + div {
+	#mobile {
 		display: none;
 	}
-}
 
-.shake {
-	animation: angryShake 500ms;
+	#web {
+		height: 100%;
+		width: 100%;
+	}
 }
 
 @media only screen and (max-width: 1024px) {
-  
-	& div:first-of-type + div {
-		display: none;
-	}
+	.layout {
+		#web {
+			display: none;
+		}
 
-	& div:first-of-type + div + div {
-		display: flex !important;
+		#mobile {
+			display: flex !important;
+			height: 100%;
+			width: 100%;
+		}
 	}
 }
