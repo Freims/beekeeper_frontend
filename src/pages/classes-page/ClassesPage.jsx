@@ -24,7 +24,7 @@ const ClassesPage = () => {
     <div className='classes-page'>
       <div className='class-container'>
         {classes.map(intecclass => (
-          <div className='class-component'>
+          <div key={intecclass.name} className='class-component'>
             <IntecClass intecclass={intecclass} />
           </div>
         ))}

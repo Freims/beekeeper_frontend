@@ -15,7 +15,7 @@ const LoginCard = props => {
     password: ''
   })
   const [invalidCredentials, setInvalidCredentials] = useState('')
-  const [loading, setLoading] = useState('hidden')
+  const [loading, setLoading] = useState(false)
   const { id, password } = userCredentials
 
   const handleSubmit = async event => {
@@ -24,6 +24,7 @@ const LoginCard = props => {
     if (response) {
       if (response.success) {
         props.setUser(response.resultData.studentId, 'student')
+        localStorage.setItem('id', id)
         let resultData = response.resultData
         props.history.push('/')
         console.log(response.resultData.studentId)
@@ -36,6 +37,7 @@ const LoginCard = props => {
       } else {
         setInvalidCredentials('error')
         InvalidCredentials()
+        setLoading(false)
       }
     } else {
       ConnectionError()
@@ -48,10 +50,10 @@ const LoginCard = props => {
   }
 
   const doLogin = async () => {
-    setLoading('')
+    setLoading(true)
     try {
       let response = await fetch(
-        `https://cors-anywhere.herokuapp.com/https://beekeeperrestapi20191118113312.azurewebsites.net/Login/${id}/${password}`,
+        `https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/Login/${id}/${password}`,
         {
           method: 'POST',
           headers: {
@@ -64,9 +66,9 @@ const LoginCard = props => {
       return responseJson
     } catch (error) {
       console.error(error)
-      setLoading('hidden')
+      setLoading(false)
     }
-    setLoading('hidden')
+    setLoading(false)
   }
 
   return (

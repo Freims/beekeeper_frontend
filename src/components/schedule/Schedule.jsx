@@ -22,28 +22,32 @@ const Schedule = ({ classes }) => {
 
   return (
     <table className='schedule'>
-      <tr className='header-row'>
-        <th>Asignatura</th>
-        <th>Lunes</th>
-        <th>Martes</th>
-        <th>Miércoles</th>
-        <th>Jueves</th>
-        <th>Viernes</th>
-        <th>Sábados</th>
-        <th></th>
-      </tr>
-      {classes.map(intecClass => (
-        <tr>
-          <td>{intecClass.course}</td>
-          <td>{intecClass.schedule[0]}</td>
-          <td>{intecClass.schedule[1]}</td>
-          <td>{intecClass.schedule[2]}</td>
-          <td>{intecClass.schedule[3]}</td>
-          <td>{intecClass.schedule[4]}</td>
-          <td>{intecClass.schedule[5]}</td>
-          <td>{intecClass.room}</td>
+      <thead>
+        <tr className='header-row'>
+          <th>Asignatura</th>
+          <th>Lunes</th>
+          <th>Martes</th>D
+          <th>Miércoles</th>
+          <th>Jueves</th>
+          <th>Viernes</th>
+          <th>Sábados</th>
+          <th />
         </tr>
-      ))}
+      </thead>
+      <tbody>
+        {classes.map(intecClass => (
+          <tr key={intecClass.course}>
+            <td>{intecClass.course}</td>
+            <td>{intecClass.schedule[0]}</td>
+            <td>{intecClass.schedule[1]}</td>
+            <td>{intecClass.schedule[2]}</td>
+            <td>{intecClass.schedule[3]}</td>
+            <td>{intecClass.schedule[4]}</td>
+            <td>{intecClass.schedule[5]}</td>
+            <td>{intecClass.room}</td>
+          </tr>
+        ))}
+      </tbody>
     </table>
   )
 }

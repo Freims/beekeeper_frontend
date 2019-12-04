@@ -32,6 +32,7 @@
 		height: 95%;
 
 		.class-container {
+			overflow-y: visible;
 			display: flex;
 			flex-flow: row;
 			justify-content: center;

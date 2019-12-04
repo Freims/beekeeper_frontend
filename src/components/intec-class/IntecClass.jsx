@@ -1,11 +1,16 @@
 import React from 'react'
 import './IntecClass.scss'
+import { withRouter } from 'react-router-dom'
 
-const IntecClass = ({ intecclass }) => {
+const IntecClass = ({ intecclass, history }) => {
   const { name, absence, notices } = intecclass
 
+  const goToDetails = () => {
+    history.push(`clases/${name.replace(/\s/g, '').toLowerCase()}`)
+  }
+
   return (
-    <div className='intec-class-component '>
+    <div className='intec-class-component ' onClick={goToDetails}>
       <div className='name'>{name}</div>
       <div className='info'>
         <div className='text-around'>
@@ -20,4 +25,4 @@ const IntecClass = ({ intecclass }) => {
     </div>
   )
 }
-export default IntecClass
+export default withRouter(IntecClass)

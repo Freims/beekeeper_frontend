@@ -1,0 +1,40 @@
+@import './src/assets/styles/colors';
+
+.notification-pill {
+	box-sizing: border-box;
+	font-size: 2.5vh;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 4rem;
+	border: 1px solid $color-grey-borders;
+	background-color: indianred;
+	padding: 0.5rem;
+	width: 100%;
+	cursor: pointer;
+
+	.view-more {
+		align-self: flex-end;
+		font-size: 2vh;
+		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 2.5vh;
+		width: 2.5vh;
+		border-radius: 50%;
+		color: $color-grey-dark;
+		background: white;
+		border: 1px solid $color-grey-borders;
+		padding: 0.5rem;
+		transform: translate(50%, 20%);
+		transition: 600ms;
+
+		&:hover {
+			transform: translate(50%, 20%) scale(1.1);
+			cursor: pointer;
+		}
+	}
+}

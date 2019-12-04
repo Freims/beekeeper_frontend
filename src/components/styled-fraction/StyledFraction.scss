@@ -1,0 +1,27 @@
+@import './src/assets/styles/colors';
+
+
+.styled-fraction{
+    font-size: 4rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    height: 10rem;
+
+    .numerator{
+        transform: translate(1rem, -2rem);
+    }
+
+    .denominator{
+        transform: translate(-1rem, 2rem);
+    }
+
+    .divider{
+        margin: 0 1rem;
+        height: 6rem;
+        width: 0.3rem;
+        background-color: $color-grey-dark;
+        transform: rotate(45deg);
+    }
+
+}
