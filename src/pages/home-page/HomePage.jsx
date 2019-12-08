@@ -8,43 +8,40 @@ import TodaySummary from '../../components/today-summary/TodaySummary'
 import getToday from '../../utils/spanish-date'
 
 const HomePage = ({ userDetails }) => {
-  console.log(userDetails)
   let user = {
+    dbid: userDetails.dbid,
     id: userDetails.id,
     name: `${userDetails.firstName} ${userDetails.lastName}`,
     profileSrc: 'https://i.ibb.co/GdyX9VY/frames.jpg',
     program: userDetails.program
   }
 
-  const fetchSchedule = async () => {
-    try {
-      let response = await fetch(
-        `https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/GetStudentSchedule/2`,
-        {
-          method: 'GET',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          }
-        }
+  const [schedule, setSchedule] = useState(undefined)
+
+  useEffect(
+    () => {
+      console.log(user)
+      fetch(
+        `https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/GetStudentSchedule/${userDetails.dbid}`
       )
-      let responseJson = await response.json()
-      console.log(responseJson)
-
-      return responseJson
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
-  useEffect(() => {
-    fetchSchedule()
-  }, [])
+        .then(res => res.json())
+        .then(response => {
+          if (response.ok) {
+            setSchedule(response.resultData.courseList)
+            console.log(response.resultData.courseList)
+          } else {
+            throw new Error('Connection error')
+          }
+        })
+        .catch(error => console.log(error))
+    },
+    [userDetails]
+  )
 
   return (
     <div className='home-page'>
       <div className='home-page-web'>
-        <Schedule />
+        <Schedule schedule={schedule} />
         <div>
           <span className='today-is'>{getToday()}</span>
           <div className='for-today'>

@@ -9,6 +9,7 @@ import HomePage from "./pages/home-page/HomePage";
 import ClassesPage from "./pages/classes-page/ClassesPage";
 import AuthGuard from "./components/auth-guard/AuthGuard";
 import CurrentUserContext from "./contexts/current-user/CurrentUserContext";
+import ClassPage from "./pages/class-page/ClassPage";
 
 const App = () => {
 
@@ -19,16 +20,17 @@ const App = () => {
         <CurrentUserContext.Consumer>
           {({ isLoggedIn, userDetails }) =>
             // isLoggedIn ?
-              <Layout userDetails={userDetails}>
-                <Route exact path="/">
-                  <HomePage userDetails={userDetails} />
-                </Route>
-                <Route exact path="/clases" component={ClassesPage} />
-                <Route exact path="/freims2">
-                  <Test pepe={"esto funciona freims!!!"} />
-                </Route>
-              </Layout>
-              // : <Redirect to='/login' />
+            <Layout userDetails={userDetails}>
+              <Route exact path="/">
+                <HomePage userDetails={userDetails} />
+              </Route>
+              <Route exact path="/clases" component={ClassesPage} />
+              <Route path="/clases/:classId" component={ClassPage} />
+              <Route exact path="/freims2">
+                <Test pepe={"esto funciona freims!!!"} />
+              </Route>
+            </Layout>
+            // : <Redirect to='/login' />
           }
         </CurrentUserContext.Consumer>
       </AuthGuard>

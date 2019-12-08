@@ -1,7 +1,7 @@
 @import './src/assets/styles/colors';
 
 .intec-class-component {
-    margin: 1rem;
+	margin: 1rem;
 	box-sizing: border-box;
 	font-size: 2.5rem;
 	width: 100%;
@@ -9,14 +9,13 @@
 	flex-flow: column;
 	border-radius: 2rem;
 	border: solid 0.2rem $color-grey-borders;
-    overflow: hidden;
-    max-width: 20rem;
-    max-height: 20rem;
+	overflow: hidden;
+	max-width: 20rem;
+	max-height: 20rem;
 
 	.name {
 		padding: 1rem 0rem;
-        text-align: center;
-		background-color: indianred;
+		text-align: center;
 		color: white;
 		border-bottom: solid 0.2rem $color-grey-borders;
 	}
@@ -27,10 +26,23 @@
 		justify-content: space-evenly;
 
 		.text-around {
-            padding: 1rem 0;
+			padding: 1rem 0;
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
 		}
+	}
+}
+
+.nav-link-remove-styles {
+	text-decoration: none;
+
+	&:focus,
+	&:hover,
+	&:visited,
+	&:link,
+	&:active {
+		text-decoration: none;
+		color: inherit;
 	}
 }

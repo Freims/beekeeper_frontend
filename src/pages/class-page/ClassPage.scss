@@ -1,0 +1,134 @@
+@import './src/assets/styles/colors';
+@import '../../assets/styles/animations';
+
+.class-page {
+	animation: appearOutOfNowhere 500ms;
+	margin: 1rem;
+	box-sizing: border-box;
+	font-size: 2.5rem;
+	height: 95%;
+	display: flex;
+	flex-flow: column;
+	border-radius: 2rem;
+	border: solid 0.1rem $color-grey-borders;
+	background-color: white;
+
+	.class-title {
+		display: flex;
+		justify-content: center;
+
+		.title {
+			font-weight: bold;
+			padding: 1rem;
+			font-size: 3rem;
+		}
+	}
+	.class-item {
+		margin-top: 1rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.class-divider {
+		margin: 0.5rem 0;
+		height: 0.1rem;
+		width: 70%;
+		background-color: $color-grey-borders;
+	}
+	.class-notification-container {
+		width: 65%;
+		div {
+			margin: 0.8rem 0;
+		}
+	}
+	.class-code-container {
+		width: 60%;
+		max-width: 30rem;
+		input{
+			padding-left: 1em;
+			letter-spacing: 2rem;
+			text-align: center;
+			font-size: 2rem;
+		}
+	}
+	.class-buttons {
+		margin-top: 1.2rem;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		width: 80%;
+	}
+}
+
+@media (min-width: 1025px) {
+	.class-page {
+		animation: appearOutOfNowhere 500ms;
+		margin: 1rem;
+		box-sizing: border-box;
+		font-size: 2.5rem;
+		height: 95%;
+		display: flex;
+		flex-flow: column;
+		border-radius: 2rem;
+		border: solid 0.1rem $color-grey-borders;
+		background-color: white;
+
+		.class-title {
+			display: flex;
+			justify-content: center;
+
+			.title {
+				font-weight: bold;
+				padding: 1rem 3.5rem;
+				background: white;
+				font-size: 3rem;
+				transform: translateY(-3rem);
+			}
+		}
+		.class-content {
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: center;
+			.class-item {
+				margin-top: 1rem;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				flex-grow: 1;
+			}
+
+			.class-divider {
+				margin: 0.5rem 0;
+				height: 0.1rem;
+				width: 70%;
+				background-color: $color-grey-borders;
+			}
+			.class-notification-container {
+				width: 65%;
+				overflow-y: scroll;
+				max-height: 10rem;
+				div {
+					margin: 0.8rem 0;
+				}
+				&::-webkit-scrollbar {
+					width: 0px;
+					background: transparent; /* make scrollbar transparent */
+				}
+			}
+		}
+		.class-code-container {
+			width: 30%;
+			margin-top: 2rem;
+		}
+		.class-buttons {
+			margin-top: 1.2rem;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			width: 30%;
+		}
+	}
+}

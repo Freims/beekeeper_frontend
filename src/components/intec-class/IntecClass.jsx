@@ -1,28 +1,32 @@
 import React from 'react'
 import './IntecClass.scss'
-import { withRouter } from 'react-router-dom'
+import { NavLink, useRouteMatch } from 'react-router-dom'
 
-const IntecClass = ({ intecclass, history }) => {
+import generateColor from '../../utils/color-from-string'
+
+const IntecClass = ({ intecclass }) => {
   const { name, absence, notices } = intecclass
-
-  const goToDetails = () => {
-    history.push(`clases/${name.replace(/\s/g, '').toLowerCase()}`)
-  }
+  let { path } = useRouteMatch()
+  let color = generateColor(`${name.replace(/\s/g, '').toLowerCase()}`)
 
   return (
-    <div className='intec-class-component ' onClick={goToDetails}>
-      <div className='name'>{name}</div>
-      <div className='info'>
-        <div className='text-around'>
-          <span>Ausencias</span>
-          <span>{absence}</span>
+    <div className='intec-class-component '>
+      <NavLink to={`${path}/${name.replace(/\s/g, '').toLowerCase()}`} className='nav-link-remove-styles'>
+        <div className='name' style={{ backgroundColor: color }}>
+          {name}
         </div>
-        <div className='text-around'>
-          <span>Avisos</span>
-          <span>{notices}</span>
+        <div className='info'>
+          <div className='text-around'>
+            <span>Ausencias</span>
+            <span>{absence}</span>
+          </div>
+          <div className='text-around'>
+            <span>Avisos</span>
+            <span>{notices}</span>
+          </div>
         </div>
-      </div>
+      </NavLink>
     </div>
   )
 }
-export default withRouter(IntecClass)
+export default IntecClass

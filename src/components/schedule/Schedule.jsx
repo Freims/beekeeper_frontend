@@ -1,24 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Schedule.scss'
+import { mapClassToRow } from '../../utils/data-mapping'
 
-const Schedule = ({ classes }) => {
-  classes = [
-    {
-      course: 'Calculo Integral',
-      schedule: ['18/20', '', '18/20', '', '18/19', ''],
-      room: 'GC312'
+const Schedule = ({ schedule }) => {
+  useEffect(
+    () => {
+      console.log('refreshed')
     },
-    {
-      course: 'Biología IV',
-      schedule: ['', '07/09', '', '14/16', '18/19', ''],
-      room: 'ER206'
-    },
-    {
-      course: 'Ergonomia',
-      schedule: ['', '07/11', '', '', '11/12', '09/13'],
-      room: 'AJ202'
-    }
-  ]
+    [schedule]
+  )
 
   return (
     <table className='schedule'>
@@ -26,7 +16,7 @@ const Schedule = ({ classes }) => {
         <tr className='header-row'>
           <th>Asignatura</th>
           <th>Lunes</th>
-          <th>Martes</th>D
+          <th>Martes</th>
           <th>Miércoles</th>
           <th>Jueves</th>
           <th>Viernes</th>
@@ -35,18 +25,34 @@ const Schedule = ({ classes }) => {
         </tr>
       </thead>
       <tbody>
-        {classes.map(intecClass => (
-          <tr key={intecClass.course}>
-            <td>{intecClass.course}</td>
-            <td>{intecClass.schedule[0]}</td>
-            <td>{intecClass.schedule[1]}</td>
-            <td>{intecClass.schedule[2]}</td>
-            <td>{intecClass.schedule[3]}</td>
-            <td>{intecClass.schedule[4]}</td>
-            <td>{intecClass.schedule[5]}</td>
-            <td>{intecClass.room}</td>
+        {schedule ? (
+          schedule.map(intecClass => {
+            let row = mapClassToRow(intecClass)
+            return (
+              <tr key={intecClass.name}>
+                <td>{intecClass.name}</td>
+                <td>{row[1]}</td>
+                <td>{row[2]}</td>
+                <td>{row[3]}</td>
+                <td>{row[4]}</td>
+                <td>{row[5]}</td>
+                <td>{row[6]}</td>
+                <td>{row[7]}</td>
+              </tr>
+            )
+          })
+        ) : (
+          <tr>
+            <td />
+            <td />
+            <td />
+            <td />
+            <td />
+            <td />
+            <td />
+            <td />
           </tr>
-        ))}
+        )}
       </tbody>
     </table>
   )

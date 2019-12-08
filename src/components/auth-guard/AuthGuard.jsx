@@ -10,9 +10,10 @@ const AuthGuard = ({ children, history }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [userDetails, setUserDetails] = useState({
     id: '',
+    dbid: '',
     firstName: '',
     lastName: '',
-    program: 'Ingeniería de Software'
+    program: ''
   })
 
   useEffect(

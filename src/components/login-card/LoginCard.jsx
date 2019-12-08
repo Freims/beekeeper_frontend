@@ -23,17 +23,21 @@ const LoginCard = props => {
     let response = await doLogin()
     if (response) {
       if (response.success) {
+
         props.setUser(response.resultData.studentId, 'student')
+        
         localStorage.setItem('id', id)
         let resultData = response.resultData
-        props.history.push('/')
-        console.log(response.resultData.studentId)
+        console.log(response.resultData)
+        
         props.setUserDetails({
+          dbid: resultData.studentId,
           id: resultData.intecStudentId,
           firstName: resultData.firstName,
           lastName: resultData.lastName,
-          program: 'Ingeniería de Software'
+          program: resultData.careerName
         })
+        props.history.push('/')
       } else {
         setInvalidCredentials('error')
         InvalidCredentials()
@@ -89,6 +93,7 @@ const LoginCard = props => {
             icon={faUser}
             error={invalidCredentials}
             required
+            login
           />
           <label className='label'>ID</label>
         </div>
@@ -101,10 +106,11 @@ const LoginCard = props => {
             icon={faKey}
             required
             error={invalidCredentials}
+            login
           />
           <label className='label'>Contraseña</label>
         </div>
-        <CustomButton type='submit' text='ACCEDER' width='65%' />
+        <CustomButton login type='submit' text='ACCEDER' width='65%' />
       </form>
       <ReactNotification />
     </div>
