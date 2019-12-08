@@ -6,25 +6,25 @@ const currentDay = date => {
 
     switch (day) {
         case 0:
-            spanishDay = "Domingo"
+            spanishDay = "domingo"
             break;
         case 1:
-            spanishDay = "Lunes"
+            spanishDay = "lunes"
             break;
         case 2:
-            spanishDay = "Martes"
+            spanishDay = "martes"
             break;
         case 3:
-            spanishDay = "Miércoles"
+            spanishDay = "miércoles"
             break;
         case 4:
-            spanishDay = "Jueves"
+            spanishDay = "jueves"
             break;
         case 5:
-            spanishDay = "Viernes"
+            spanishDay = "viernes"
             break;
         case 6:
-            spanishDay = "Sábado"
+            spanishDay = "sábado"
             break;
         default: spanishDay = "error"
             break;
@@ -39,40 +39,40 @@ const currentMonth = date => {
 
     switch (month) {
         case 0:
-            spanishMonth = "Enero"
+            spanishMonth = "enero"
             break;
         case 1:
-            spanishMonth = "Febrero"
+            spanishMonth = "febrero"
             break;
         case 2:
-            spanishMonth = "Marzo"
+            spanishMonth = "marzo"
             break;
         case 3:
-            spanishMonth = "Abril"
+            spanishMonth = "abril"
             break;
         case 4:
-            spanishMonth = "Mayo"
+            spanishMonth = "mayo"
             break;
         case 5:
-            spanishMonth = "Junio"
+            spanishMonth = "junio"
             break;
         case 6:
-            spanishMonth = "Julio"
+            spanishMonth = "julio"
             break;
         case 7:
-            spanishMonth = "Agosto"
+            spanishMonth = "agosto"
             break;
         case 8:
-            spanishMonth = "Septiembre"
+            spanishMonth = "septiembre"
             break;
         case 9:
-            spanishMonth = "Octubre"
+            spanishMonth = "octubre"
             break;
         case 10:
-            spanishMonth = "Noviembre"
+            spanishMonth = "noviembre"
             break;
         case 11:
-            spanishMonth = "Diciembre"
+            spanishMonth = "diciembre"
             break;
         default: spanishMonth = "error"
             break;

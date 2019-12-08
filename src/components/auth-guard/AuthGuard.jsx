@@ -1,46 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import CurrentUserContext from '../../contexts/current-user/CurrentUserContext'
-import { withRouter } from 'react-router-dom'
+import React from 'react'
+import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-const AuthGuard = ({ children, history }) => {
-  const [user, setUser] = useState({
-    id: '',
-    type: ''
-  })
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [userDetails, setUserDetails] = useState({
-    id: '',
-    dbid: '',
-    firstName: '',
-    lastName: '',
-    program: ''
-  })
+const AuthGuard = ({ currentUser, children }) => (currentUser.id ? children : <Redirect to={'/login'} />)
 
-  useEffect(
-    () => {
-      if (user.id !== '') setIsLoggedIn(true)
-      // else history.push('/login')
-    },
-    [user, history]
-  )
-  const logout = () => {
-    setUser({ id: '', type: '' })
-  }
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser
+})
 
-  const setUserInfo = (id, type) => {
-    setUser({ id, type })
-  }
-
-  const value = {
-    user,
-    logout,
-    setUserInfo,
-    isLoggedIn,
-    userDetails,
-    setUserDetails
-  }
-
-  return <CurrentUserContext.Provider value={value}>{children}</CurrentUserContext.Provider>
-}
-
-export default withRouter(AuthGuard)
+export default connect(mapStateToProps)(AuthGuard)

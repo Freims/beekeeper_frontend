@@ -11,3 +11,14 @@ export function mapClassToRow(intecClass) {
 
     return schedule;
 }
+
+export function mapUser(user) {
+    let currentUser = {
+        id: user.intecStudentId,
+        dbId: user.studentId,
+        name: user.firstName + " " + user.lastName,
+        program: user.career.name,
+        role: "student"
+    }
+    return currentUser
+}

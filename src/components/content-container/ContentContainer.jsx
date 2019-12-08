@@ -3,18 +3,16 @@ import './ContentContainer.scss'
 
 import UserNavigation from '../user-navigation/UserNavigation'
 
-import CurrentUserContext from '../../contexts/current-user/CurrentUserContext'
 
-const ContentContainer = ({ children }) => (
+const ContentContainer = ({ children}) => (
   <div className='content-container'>
     <div className='card'>
       <div className='nav'>
-        <CurrentUserContext.Consumer>
-          {({ userDetails }) => <UserNavigation userDetails={userDetails}/>}
-        </CurrentUserContext.Consumer>
+        <UserNavigation/>
       </div>
       <div className='content-body'>{children}</div>
     </div>
   </div>
 )
+
 export default ContentContainer

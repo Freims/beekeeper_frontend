@@ -5,11 +5,14 @@ import { ReactComponent as Logo } from '../../assets/svgs/beekeeper_logo.svg'
 import CustomButton from '../custom-button/CustomButton'
 import IconInput from '../icon-input/IconInput'
 import { faUser, faKey } from '@fortawesome/free-solid-svg-icons'
+import { handleLoginResponse } from '../../utils/response-handler'
 
-import { InvalidCredentials, ConnectionError } from '../../utils/notifications'
 import Loading from '../loading/Loading'
 
-const LoginCard = props => {
+import { connect } from 'react-redux'
+import { setCurrentUser } from '../../redux/user/user-actions'
+
+const LoginCard = ({ setCurrentUser, loginSuccess }) => {
   const [userCredentials, setUserCredentials] = useState({
     id: '',
     password: ''
@@ -21,31 +24,7 @@ const LoginCard = props => {
   const handleSubmit = async event => {
     event.preventDefault()
     let response = await doLogin()
-    if (response) {
-      if (response.success) {
-
-        props.setUser(response.resultData.studentId, 'student')
-        
-        localStorage.setItem('id', id)
-        let resultData = response.resultData
-        console.log(response.resultData)
-        
-        props.setUserDetails({
-          dbid: resultData.studentId,
-          id: resultData.intecStudentId,
-          firstName: resultData.firstName,
-          lastName: resultData.lastName,
-          program: resultData.careerName
-        })
-        props.history.push('/')
-      } else {
-        setInvalidCredentials('error')
-        InvalidCredentials()
-        setLoading(false)
-      }
-    } else {
-      ConnectionError()
-    }
+    handleLoginResponse(response, setCurrentUser, loginSuccess, setInvalidCredentials, setLoading)
   }
 
   const handleChange = event => {
@@ -116,4 +95,12 @@ const LoginCard = props => {
     </div>
   )
 }
-export default LoginCard
+
+const mapDispatchToProps = dispatch => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+})
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(LoginCard)

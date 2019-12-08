@@ -7,22 +7,18 @@ import Schedule from '../../components/schedule/Schedule'
 import TodaySummary from '../../components/today-summary/TodaySummary'
 import getToday from '../../utils/spanish-date'
 
-const HomePage = ({ userDetails }) => {
-  let user = {
-    dbid: userDetails.dbid,
-    id: userDetails.id,
-    name: `${userDetails.firstName} ${userDetails.lastName}`,
-    profileSrc: 'https://i.ibb.co/GdyX9VY/frames.jpg',
-    program: userDetails.program
-  }
+import { connect } from 'react-redux'
 
+const HomePage = ({ currentUser }) => {
   const [schedule, setSchedule] = useState(undefined)
 
   useEffect(
     () => {
-      console.log(user)
+      console.log(currentUser)
       fetch(
-        `https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/GetStudentSchedule/${userDetails.dbid}`
+        `https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/GetStudentSchedule/${
+          currentUser.dbId
+        }`
       )
         .then(res => res.json())
         .then(response => {
@@ -35,7 +31,7 @@ const HomePage = ({ userDetails }) => {
         })
         .catch(error => console.log(error))
     },
-    [userDetails]
+    [currentUser]
   )
 
   return (
@@ -51,7 +47,7 @@ const HomePage = ({ userDetails }) => {
       </div>
       <div className='home-page-mobile'>
         <CardMobile>
-          <UserDetails user={user} />
+          <UserDetails user={currentUser} />
           <Schedule />
         </CardMobile>
         <CardMobile>
@@ -65,4 +61,8 @@ const HomePage = ({ userDetails }) => {
   )
 }
 
-export default HomePage
+const mapStateToProps = ({user}) => ({
+  currentUser: user.currentUser
+})
+
+export default connect(mapStateToProps)(HomePage)

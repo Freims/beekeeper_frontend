@@ -1,9 +1,10 @@
 import React from 'react'
 import './UserDetails.scss'
 import CircleAvatar from '../circle-avatar/CircleAvatar'
+import { connect } from 'react-redux'
 
-const UserDetails = ({ user }) => {
-  const { name, id, profileSrc, program } = user
+const UserDetails = ({ currentUser }) => {
+  const { name, id, profileSrc, program } = currentUser
 
   return (
     <div className='user-details'>
@@ -18,5 +19,8 @@ const UserDetails = ({ user }) => {
     </div>
   )
 }
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser
+})
 
-export default UserDetails
+export default connect(mapStateToProps)(UserDetails)
