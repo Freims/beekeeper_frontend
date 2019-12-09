@@ -39,7 +39,7 @@ const ClassPage = () => {
           <span>Avisos</span>
           <div className='class-divider' />
           <div className='class-notification-container'>
-            {notifications.map((notification, index) => (
+          {notifications.map((notification, index) => (
               <NotificationPill key={index} notification={notification} color={color} />
             ))}
           </div>
