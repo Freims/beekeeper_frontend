@@ -1,15 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './Schedule.scss'
 import { mapClassToRow } from '../../utils/data-mapping'
 
-const Schedule = ({ schedule }) => {
-  useEffect(
-    () => {
-      console.log('refreshed')
-    },
-    [schedule]
-  )
-
+const Schedule = ({ data }) => {
   return (
     <table className='schedule'>
       <thead>
@@ -25,32 +18,33 @@ const Schedule = ({ schedule }) => {
         </tr>
       </thead>
       <tbody>
-        {schedule ? (
-          schedule.map(intecClass => {
-            let row = mapClassToRow(intecClass)
-            return (
-              <tr key={intecClass.name}>
-                <td>{intecClass.name}</td>
-                <td>{row[1]}</td>
-                <td>{row[2]}</td>
-                <td>{row[3]}</td>
-                <td>{row[4]}</td>
-                <td>{row[5]}</td>
-                <td>{row[6]}</td>
-                <td>{row[7]}</td>
-              </tr>
-            )
-          })
+        {data ? (
+          data.length > 0 ? (
+            data.map(intecClass => {
+              let row = mapClassToRow(intecClass)
+              return (
+                <tr key={intecClass.name}>
+                  <td>{intecClass.name}</td>
+                  <td>{row[1]}</td>
+                  <td>{row[2]}</td>
+                  <td>{row[3]}</td>
+                  <td>{row[4]}</td>
+                  <td>{row[5]}</td>
+                  <td>{row[6]}</td>
+                  <td>{row[7]}</td>
+                </tr>
+              )
+            })
+          ) : (
+            <tr>
+              <td colSpan='7'>
+                <h4>No tienes materias inscritas</h4>
+              </td>
+            </tr>
+          )
         ) : (
           <tr>
-            <td />
-            <td />
-            <td />
-            <td />
-            <td />
-            <td />
-            <td />
-            <td />
+            <td colSpan='7'>. . .</td>
           </tr>
         )}
       </tbody>

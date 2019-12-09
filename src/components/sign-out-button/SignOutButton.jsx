@@ -11,6 +11,9 @@ const SignOutButton = ({ removeCurrentUser, ...props }) => {
   const logout = () => {
     removeCurrentUser()
     localStorage.setItem("currentUser", JSON.stringify({}))
+    localStorage.setItem("schedule", null)
+    localStorage.setItem("todaySummary", null)
+
   }
   return (
     <NavLink to='/login' onClick={logout} className='sign-out-button' {...props}>

@@ -10,7 +10,6 @@ import { faCopy } from '@fortawesome/free-solid-svg-icons'
 import { useParams } from 'react-router-dom'
 import generateColor from '../../utils/color-from-string'
 
-
 const ClassPage = () => {
   const { classId } = useParams()
   let notifications = [
@@ -23,7 +22,7 @@ const ClassPage = () => {
       msg: 'hola'
     }
   ]
-  let color = generateColor(classId);
+  let color = generateColor(classId)
 
   return (
     <div className='class-page'>
@@ -40,8 +39,8 @@ const ClassPage = () => {
           <span>Avisos</span>
           <div className='class-divider' />
           <div className='class-notification-container'>
-            {notifications.map(notification => (
-              <NotificationPill notification={notification} color={color} />
+            {notifications.map((notification, index) => (
+              <NotificationPill key={index} notification={notification} color={color} />
             ))}
           </div>
         </div>
@@ -50,7 +49,7 @@ const ClassPage = () => {
         <span>Asistencia</span>
         <div className='class-divider' />
         <div className='class-code-container'>
-          <IconInput maxLength={6} icon={faCopy}  />
+          <IconInput maxLength={6} icon={faCopy} />
         </div>
         <div className='class-buttons'>
           <CustomButton color={color} width='auto' text='Enviar' />

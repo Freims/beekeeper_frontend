@@ -2,9 +2,9 @@ import 'react-notifications-component/dist/theme.css'
 import 'animate.css'
 import { store } from 'react-notifications-component'
 
-const InvalidCredentials = () => (
+export const invalidCredentials = () => (
     store.addNotification({
-        title: 'Credenciales Inválidas',
+        title: 'Credenciales Incorrectas',
         message: 'Por favor intenta de nuevo.',
         type: 'danger',
         insert: 'top',
@@ -18,7 +18,7 @@ const InvalidCredentials = () => (
     })
 )
 
-const ConnectionError = () => (
+export const connectionError = () => (
     store.addNotification({
         title: 'Error de conexión',
         message: 'Ha ocurrido un error con la conexión ☹️',
@@ -33,8 +33,3 @@ const ConnectionError = () => (
         }
     })
 )
-
-export {
-    InvalidCredentials,
-    ConnectionError
-}

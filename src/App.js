@@ -17,7 +17,6 @@ const App = ({ setCurrentUser, currentUser }) => {
   useEffect(() => {
     let user = localStorage.getItem('currentUser');
     user = JSON.parse(user);
-    console.log("localStorage user", user)
     if (user != null) {
       setCurrentUser({
         id: user.id,

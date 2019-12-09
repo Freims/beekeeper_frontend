@@ -1,16 +1,26 @@
 import React from 'react'
 import './TodaySummary.scss'
 
-const TodaySummary = () => (
-  <div className='today-summary'>
-    <div className='intec-class'>
-      Calculo Integral
-    </div>
-    <div className='today-info'>
-      <span>18/20</span>
-      <span>GC 312</span>
-    </div>
-  </div>
-)
+const TodaySummary = ({ data }) =>
+  data ? (
+    data.length > 0 ? (
+      data.map(todaySummary => (
+        <div key={todaySummary.name} className='today-summary'>
+          <div className='intec-class'>{todaySummary.name}</div>
+          <div className='today-info'>
+            <span>{todaySummary.schedule}</span>
+            <span>{todaySummary.building}</span>
+          </div>
+        </div>
+      ))
+    ) : (
+      <span role='img' aria-label='smile' className='free-day'>
+        {' '}
+        Día Libre &#128513;
+      </span>
+    )
+  ) : (
+    <span>. . .</span>
+  )
 
 export default TodaySummary

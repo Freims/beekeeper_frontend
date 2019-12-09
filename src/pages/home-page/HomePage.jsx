@@ -8,28 +8,16 @@ import TodaySummary from '../../components/today-summary/TodaySummary'
 import getToday from '../../utils/spanish-date'
 
 import { connect } from 'react-redux'
+import { fetchSchedule, fetchTodaySummary } from '../../utils/response-handler'
 
 const HomePage = ({ currentUser }) => {
   const [schedule, setSchedule] = useState(undefined)
+  const [todaySummaryList, setTodaySummaryList] = useState(undefined)
 
   useEffect(
     () => {
-      console.log(currentUser)
-      fetch(
-        `https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/GetStudentSchedule/${
-          currentUser.dbId
-        }`
-      )
-        .then(res => res.json())
-        .then(response => {
-          if (response.ok) {
-            setSchedule(response.resultData.courseList)
-            console.log(response.resultData.courseList)
-          } else {
-            throw new Error('Connection error')
-          }
-        })
-        .catch(error => console.log(error))
+      fetchSchedule(currentUser.dbId, setSchedule)
+      fetchTodaySummary(currentUser.dbId, setTodaySummaryList)
     },
     [currentUser]
   )
@@ -37,23 +25,23 @@ const HomePage = ({ currentUser }) => {
   return (
     <div className='home-page'>
       <div className='home-page-web'>
-        <Schedule schedule={schedule} />
+        <Schedule data={schedule} />
         <div>
           <span className='today-is'>{getToday()}</span>
           <div className='for-today'>
-            <TodaySummary />
+            <TodaySummary data={todaySummaryList} />
           </div>
         </div>
       </div>
       <div className='home-page-mobile'>
         <CardMobile>
           <UserDetails user={currentUser} />
-          <Schedule />
+          <Schedule data={schedule} />
         </CardMobile>
         <CardMobile>
           <span className='today-is'>{getToday()}</span>
           <div className='for-today'>
-            <TodaySummary />
+            <TodaySummary data={todaySummaryList} />
           </div>
         </CardMobile>
       </div>
@@ -61,7 +49,7 @@ const HomePage = ({ currentUser }) => {
   )
 }
 
-const mapStateToProps = ({user}) => ({
+const mapStateToProps = ({ user }) => ({
   currentUser: user.currentUser
 })
 
