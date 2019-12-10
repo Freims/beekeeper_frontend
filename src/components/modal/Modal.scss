@@ -1,0 +1,57 @@
+@import '../../assets/styles/animations';
+
+.modal {
+	animation: appearOutOfNowhere 300ms;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.1);
+
+	.modal-content {
+		border-radius: 2rem;
+		background-color: #fefefe;
+		margin: 15% auto; /* 15% from the top and centered */
+		padding: 20px;
+		border: 1px solid rgba(136, 136, 136, 0.25);
+		width: 80%;
+	}
+}
+
+@media (min-width: 1025px) {
+	.modal {
+		animation: appearOutOfNowhere 300ms;
+		display: none;
+		position: fixed;
+		justify-content: center;
+		z-index: 1;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		background-color: rgba(0, 0, 0, 0.1);
+
+		.modal-content {
+			border-radius: 2rem;
+			background-color: #fefefe;
+			margin: 15% auto; /* 15% from the top and centered */
+			padding: 20px;
+			border: 1px solid rgba(136, 136, 136, 0.25);
+			width: 60%;
+			max-width: 100rem;
+		}
+	}
+}
+
+.goOut{
+    transform: scale(1.05);
+    opacity: 0;
+    transition: all 300ms;
+}

@@ -4,7 +4,7 @@ import './UserNavigation.scss'
 import UserDetails from '../user-details/UserDetails'
 import Navigation from '../navigation/Navigation'
 
-const UserNavigation = ({ currentUser }) => {
+const UserNavigation = () => {
   return (
     <div className='user-nav'>
       <div className='user-details-container'>

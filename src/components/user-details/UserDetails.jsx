@@ -4,13 +4,14 @@ import CircleAvatar from '../circle-avatar/CircleAvatar'
 import { connect } from 'react-redux'
 
 const UserDetails = ({ currentUser }) => {
-  const { name, id, program } = currentUser
-  let profileSrc = 'https://i.ibb.co/ySRnZ7J/Whats-App-Image-2019-12-03-at-9-28-19-PM.jpg'
-
+  const { name, id, program, img } = currentUser
+  console.log("user",currentUser)
+  console.log("userdtails", img)
+  
   return (
     <div className='user-details'>
       <div className='circle-avatar-container'>
-        <CircleAvatar src={profileSrc} />
+        <CircleAvatar src={img} />
       </div>
       <div className='info'>
         <div className='name'>{name}</div>

@@ -18,6 +18,7 @@ export function mapUser(user) {
         dbId: user.studentId,
         name: user.firstName + " " + user.lastName,
         program: user.career.name,
+        img: 'https://marcosblob.blob.core.windows.net/xamarin-blob/leanthony.jpeg',
         role: "student"
     }
     return currentUser

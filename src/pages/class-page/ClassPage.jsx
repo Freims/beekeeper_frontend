@@ -15,11 +15,11 @@ const ClassPage = () => {
   let notifications = [
     {
       date: '11/02/2019',
-      msg: 'hola'
+      msg: 'hola como estan chicos'
     },
     {
       date: '22/02/2019',
-      msg: 'hola'
+      msg: 'hola k onda muchahos'
     }
   ]
   let color = generateColor(classId)
@@ -52,8 +52,8 @@ const ClassPage = () => {
           <IconInput maxLength={6} icon={faCopy} />
         </div>
         <div className='class-buttons'>
-          <CustomButton color={color} width='auto' text='Enviar' />
-          <CustomButton color={color} width='auto' text='Crear Excusa' />
+          <CustomButton color={color} width='auto' text='Enviar código' />
+          <CustomButton color={color} width='auto' text='Crear excusa' />
         </div>
       </div>
     </div>

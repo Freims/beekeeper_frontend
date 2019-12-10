@@ -6,14 +6,11 @@ import { removeCurrentUser } from '../../redux/user/user-actions'
 import { connect } from 'react-redux'
 
 import { NavLink } from 'react-router-dom'
+import { logoutUser } from '../../utils/response-handler'
 
 const SignOutButton = ({ removeCurrentUser, ...props }) => {
   const logout = () => {
-    removeCurrentUser()
-    localStorage.setItem("currentUser", JSON.stringify({}))
-    localStorage.setItem("schedule", null)
-    localStorage.setItem("todaySummary", null)
-
+    logoutUser(removeCurrentUser)
   }
   return (
     <NavLink to='/login' onClick={logout} className='sign-out-button' {...props}>

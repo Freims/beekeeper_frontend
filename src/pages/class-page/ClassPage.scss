@@ -39,14 +39,15 @@
 	}
 	.class-notification-container {
 		width: 65%;
-		div {
-			margin: 0.8rem 0;
-		}
+		height: 7rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
 	}
 	.class-code-container {
 		width: 60%;
 		max-width: 30rem;
-		input{
+		input {
 			padding-left: 1em;
 			letter-spacing: 2rem;
 			text-align: center;
@@ -58,7 +59,7 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-evenly;
-		width: 80%;
+		width: 90%;
 	}
 }
 
@@ -108,11 +109,13 @@
 			}
 			.class-notification-container {
 				width: 65%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-evenly;
 				overflow-y: scroll;
 				max-height: 10rem;
-				div {
-					margin: 0.8rem 0;
-				}
+				height: 100%;
+
 				&::-webkit-scrollbar {
 					width: 0px;
 					background: transparent; /* make scrollbar transparent */

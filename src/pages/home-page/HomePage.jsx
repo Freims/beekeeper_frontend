@@ -35,7 +35,7 @@ const HomePage = ({ currentUser }) => {
       </div>
       <div className='home-page-mobile'>
         <CardMobile>
-          <UserDetails user={currentUser} />
+          <UserDetails />
           <Schedule data={schedule} />
         </CardMobile>
         <CardMobile>

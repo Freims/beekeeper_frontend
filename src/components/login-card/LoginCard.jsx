@@ -23,8 +23,9 @@ const LoginCard = ({ setCurrentUser, loginSuccess }) => {
 
   const handleSubmit = async event => {
     event.preventDefault()
-    let response = await doLogin()
-    handleLoginResponse(response, setCurrentUser, loginSuccess, setInvalidCredentials, setLoading)
+    await doLogin().then(response =>
+      handleLoginResponse(response, setCurrentUser, loginSuccess, setInvalidCredentials, setLoading)
+    )
   }
 
   const handleChange = event => {

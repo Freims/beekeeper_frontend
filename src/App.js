@@ -10,40 +10,27 @@ import HomePage from "./pages/home-page/HomePage";
 import ClassesPage from "./pages/classes-page/ClassesPage";
 import ClassPage from "./pages/class-page/ClassPage";
 import { setCurrentUser } from "./redux/user/user-actions";
-import AuthGuard from "./components/auth-guard/AuthGuard";
+import { fetchUserSession } from "./utils/response-handler";
+import ProtectedRoute from "./components/protected-route/ProtectedRoute";
 
 const App = ({ setCurrentUser, currentUser }) => {
 
   useEffect(() => {
-    let user = localStorage.getItem('currentUser');
-    user = JSON.parse(user);
-    if (user != null) {
-      setCurrentUser({
-        id: user.id,
-        dbId: user.dbId,
-        name: user.name,
-        program: user.program,
-        role: user.role
-      })
-    }
+    fetchUserSession(setCurrentUser)
   }, [setCurrentUser])
 
   return (
     <Switch>
-      <Route exact path="/login"
-        render={() => currentUser.id ? (<Redirect to='/' />) : (<LoginPage />)}
-      />
+      <Route exact path="/login">
+        {currentUser.id ? (<Redirect to='/' />) : (<LoginPage />)}
+      </Route>
       <Layout>
-        <AuthGuard>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
-          <Route exact path="/clases" component={ClassesPage} />
-          <Route path="/clases/:classId" component={ClassPage} />
-          <Route exact path="/freims2">
-            <Test pepe={"esto funciona freims!!!"} />
-          </Route>
-        </AuthGuard>
+        <ProtectedRoute exact path="/" component={HomePage} />
+        <ProtectedRoute exact path="/clases" component={ClassesPage} />
+        <ProtectedRoute exact path="/clases/:classId" component={ClassPage} />
+        <ProtectedRoute exact path="/test">
+          <Test pepe={"esto funciona freims!!!"} />
+        </ProtectedRoute>
       </Layout>
     </Switch >
   )

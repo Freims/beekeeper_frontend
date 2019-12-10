@@ -6,9 +6,8 @@ export function handleLoginResponse(response, setCurrentUser, loginSuccess, setI
     if (response) {
         if (response.success) {
             let user = mapUser(response.resultData)
-            setCurrentUser(user)
             localStorage.setItem('currentUser', JSON.stringify(user))
-            console.log(user)
+            setCurrentUser(user)
             loginSuccess()
         } else {
             setInvalidCredentials('error')
@@ -19,6 +18,28 @@ export function handleLoginResponse(response, setCurrentUser, loginSuccess, setI
         connectionError()
     }
 
+}
+
+export async function fetchUserSession(setCurrentUser) {
+    let user = localStorage.getItem('currentUser');
+    user = JSON.parse(user);
+    if (user != null) {
+        setCurrentUser({
+            id: user.id,
+            dbId: user.dbId,
+            name: user.name,
+            program: user.program,
+            role: user.role,
+            img: user.img
+        })
+    }
+}
+
+export function logoutUser(removeCurrentUser) {
+    removeCurrentUser()
+    localStorage.removeItem("currentUser")
+    localStorage.removeItem("schedule")
+    localStorage.removeItem("todaySummary")
 }
 
 export async function fetchSchedule(dbId, setSchedule) {
@@ -54,18 +75,18 @@ export async function fetchTodaySummary(dbId, setTodaySummaryList) {
         setTodaySummaryList(todaySummaryInStorage)
     }
     else {
-    fetch(`https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/GetTodayStudentSchedule/${dbId}`)
-        .then(res => res.json())
-        .then(response => {
-            if (response.resultData) {
-                console.log(response.resultData.todaySchedulesCourse)
-                setTodaySummaryList(response.resultData.todaySchedulesCourse)
-                localStorage.setItem("todaySummary", JSON.stringify(response.resultData.todaySchedulesCourse))
-            } else {
-                connectionError()
-                throw new Error('Connection error')
-            }
-        })
-        .catch(error => { console.log(error); setTodaySummaryList({}) })
+        fetch(`https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/GetTodayStudentSchedule/${dbId}`)
+            .then(res => res.json())
+            .then(response => {
+                if (response.resultData) {
+                    console.log(response.resultData.todaySchedulesCourse)
+                    setTodaySummaryList(response.resultData.todaySchedulesCourse)
+                    localStorage.setItem("todaySummary", JSON.stringify(response.resultData.todaySchedulesCourse))
+                } else {
+                    connectionError()
+                    throw new Error('Connection error')
+                }
+            })
+            .catch(error => { console.log(error); setTodaySummaryList({}) })
     }
 }
