@@ -11,11 +11,6 @@ import Modal from '../modal/Modal'
 const NotificationPill = ({ notification, color = '#FECD1C' }) => {
   const { date, msg } = notification
   const [visible, setVisible] = useState(false)
-
-  const hideModal = () => {
-    setVisible(false)
-  }
-
   return (
     <Fragment>
       <div
@@ -28,22 +23,20 @@ const NotificationPill = ({ notification, color = '#FECD1C' }) => {
           <FontAwesomeIcon icon={faPlus} />
         </span>
       </div>
-      <Modal
-        visible={visible}
-        setVisible={setVisible}
-        content={
-          <div className='notification-content'>
-            <div className='notification-content-header'>{date}</div>
-            <div className='horizontal-line' />
-            <div className='notification-content-body'>
-              {msg}
-              <div className='notification-dismiss'>
-                <CustomButton value='OK' color={color} width={'6rem'} onClick={hideModal} />
-              </div>
+      <Modal visible={visible} setVisible={setVisible}>
+        {closeModal =>
+        <div className='notification-content'>
+          <div className='notification-content-header'>{date}</div>
+          <div className='horizontal-line' />
+          <div className='notification-content-body'>
+            {msg}
+            <div className='notification-dismiss'>
+              <CustomButton value='OK' color={color} width={'6rem'} onClick={closeModal} />
             </div>
           </div>
+        </div>
         }
-      />
+      </Modal>
     </Fragment>
   )
 }
