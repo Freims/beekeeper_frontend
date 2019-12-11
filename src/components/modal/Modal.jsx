@@ -1,25 +1,35 @@
-import React, { useState, useEffect } from 'react'
-import './Modal.scss'
+import React, { useState, useEffect } from "react";
+import "./Modal.scss";
 
 const Modal = ({ visible, setVisible, children }) => {
-  useEffect(() => {}, [])
+  useEffect(() => {}, [visible]);
 
-  const [exiting, setExiting] = useState(false)
+  const [exiting, setExiting] = useState(false);
   const closeModal = () => {
-    setExiting(true)
-    setTimeout(() => {
-      setExiting(false)
-      setVisible(false)
-    }, 300)
-  }
+    setExiting(true);
+  };
+
+  const closeModalForReal = () => {
+    console.log("closing for realsies");
+    if (exiting) {
+      setExiting(false);
+      setVisible(false);
+    }
+  };
 
   return (
-    <div className={`modal ${exiting && 'goOut'}`} onClick={closeModal} style={{ display: visible ? 'flex' : 'none' }}>
-      <div onClick={e => e.stopPropagation()} className='modal-content'>
-        {children(closeModal)}
+    visible && (
+      <div
+        className={`modal ${exiting && "goOut"}`}
+        onAnimationEnd={closeModalForReal}
+        onClick={closeModal}
+      >
+        <div onClick={e => e.stopPropagation()} className="modal-content">
+          {children(closeModal)}
+        </div>
       </div>
-    </div>
-  )
-}
+    )
+  );
+};
 
-export default Modal
+export default Modal;

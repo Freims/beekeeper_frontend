@@ -1,73 +1,70 @@
 @import './src/assets/styles/colors';
-
 .today-summary {
-	width: 100%;
-	border: 1px solid $color-grey-borders;
-	border-radius: 1.5rem;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	overflow: hidden;
-	font-size: 3vh;
-
-	.intec-class {
-		border-radius: 0;
-		box-sizing: border-box;
-		background-color: indianred;
-		color: white;
-		padding: 0.3em 0.3em;
-		text-align: center;
-		width: 40%;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
-
-	.today-info {
-		flex-grow: 1;
-		margin-right: 2vw;
-		color: $color-black;
-		display: flex;
-		box-sizing: border-box;
-		flex-direction: row;
-		justify-content: space-evenly;
-	}
+    width: 100%;
+    border: 1px solid $color-grey-borders;
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    font-size: 3vh;
+    .intec-class {
+        border-radius: 0;
+        box-sizing: border-box;
+        background-color: indianred;
+        color: white;
+        padding: 0.3em 0.3em;
+        text-align: center;
+        width: 50%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .today-info {
+        flex-grow: 1;
+        margin-right: 2vw;
+        color: $color-black;
+        display: flex;
+        box-sizing: border-box;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
 }
+
 .free-day {
-	display: flex;
-	justify-content: center;
-	font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
 }
+
 @media only screen and (max-width: 1024px) {
-	.today-summary {
-		width: 100%;
-		border: 1px solid $color-grey-borders;
-		border-radius: 1rem;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		overflow: hidden;
-		font-size: 2vh;
-
-		.intecClass {
-			border-radius: 0;
-			box-sizing: border-box;
-			background-color: indianred;
-			color: white;
-			width: 40%;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
-
-		.today-info {
-			flex-grow: 1;
-			margin-right: 2vw;
-			color: $color-black;
-			display: flex;
-			box-sizing: border-box;
-			flex-direction: row;
-			justify-content: space-evenly;
-		}
-	}
+    .today-summary {
+        width: 100%;
+        border: 1px solid $color-grey-borders;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow: hidden;
+        font-size: 2vh;
+        .intecClass {
+            border-radius: 0;
+            box-sizing: border-box;
+            background-color: indianred;
+            color: white;
+            width: 40%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .today-info {
+            flex-grow: 1;
+            margin-right: 2vw;
+            color: $color-black;
+            display: flex;
+            box-sizing: border-box;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+    }
 }

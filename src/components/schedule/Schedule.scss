@@ -1,77 +1,68 @@
 @import './src/assets/styles/colors';
-
 .schedule {
-	text-align: center;
-	overflow: hidden;
-	flex-grow: 1;
-	box-sizing: border-box;
-	border-spacing: 0;
-	font-size: 3.5vw;
-	border-radius: 0.5em;
-	border: 0.06em solid $color-grey-borders;
-
-	th {
-		padding: 10px 2px;
-		border: none;
-		color: black;
-	}
-
-	th:not(:first-child) {
-		font-size: 0;
-
-		&::first-letter {
-			font-size: 3.2vw;
-		}
-	}
-	td {
-		word-wrap: break-word;
-		padding: 4px 2px;
-		font-size: 0.9em;
-		border: none;
-		background-color: white;
-		color: $color-grey-font;
-	}
-
-	.header-row {
-		background-color: $primary-color;
-	}
+    max-width: 95%;
+    text-align: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-spacing: 0;
+    font-size: 1rem;
+    border-radius: 0.5em;
+    border: 0.1rem solid $color-grey-borders;
+    th {
+        padding: 10px 2px;
+        border: none;
+        color: black;
+    }
+    th:not(:first-child) {
+        font-size: 0;
+        &::first-letter {
+            font-size: 3.2vw;
+        }
+    }
+    td {
+        word-wrap: break-word;
+        padding: 4px 2px;
+        font-size: 0.9em;
+        border: none;
+        background-color: white;
+        color: $color-grey-font;
+    }
+    .header-row {
+        background-color: $primary-color;
+    }
 }
 
 @media (min-width: 1025px) {
-	.schedule {
-		overflow: hidden;
-		flex-grow: 1;
-		box-sizing: border-box;
-		border-spacing: 0;
-		font-size: 0.8rem;
-		border-radius: 1em;
-		border: 0.12em solid $color-grey-borders;
-
-		th {
-			font-size: 2.5vh;
-			padding: 0.5em 0.2em;
-			border: none;
-			color: black;
-		}
-
-		th:not(:first-child) {
-			font-size: 2.5vh;
-
-			&::first-letter {
-				font-size: 2.5vh;
-			}
-		}
-		td {
-			word-wrap: break-word;
-			padding: 0.6rem 1.5rem;
-			font-size: 2em;
-			border: none;
-			background-color: white;
-			color: $color-grey-font;
-		}
-
-		.header-row {
-			background-color: $primary-color;
-		}
-	}
+    .schedule {
+        overflow: hidden;
+        flex-grow: 1;
+        box-sizing: border-box;
+        border-spacing: 0;
+        font-size: 0.8rem;
+        border-radius: 1em;
+        border: 0.1rem solid $color-grey-borders;
+        th {
+            font-size: 2.5vh;
+            padding: 0.5em 0.2em;
+            border: none;
+            color: black;
+        }
+        th:not(:first-child) {
+            font-size: 2.5vh;
+            &::first-letter {
+                font-size: 2.5vh;
+            }
+        }
+        td {
+            word-wrap: break-word;
+            padding: 0.6rem 1.5rem;
+            font-size: 2em;
+            border: none;
+            background-color: white;
+            color: $color-grey-font;
+        }
+        .header-row {
+            background-color: $primary-color;
+        }
+    }
 }
