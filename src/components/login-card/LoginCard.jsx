@@ -73,6 +73,8 @@ const LoginCard = ({ setCurrentUser, loginSuccess }) => {
             icon={faUser}
             error={invalidCredentials}
             required
+            maxlength="7"
+            minlength="7"
             login
           />
           <label className='label'>ID</label>
@@ -85,6 +87,7 @@ const LoginCard = ({ setCurrentUser, loginSuccess }) => {
             type='password'
             icon={faKey}
             required
+            minlength="4"
             error={invalidCredentials}
             login
           />

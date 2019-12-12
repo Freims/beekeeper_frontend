@@ -1,5 +1,5 @@
-@import './src/assets/styles/colors';
-@import '../../assets/styles/animations';
+@import "./src/assets/styles/colors";
+@import "../../assets/styles/animations";
 .class-page {
     animation: appearOutOfNowhere 500ms;
     margin: 1rem;
@@ -11,6 +11,7 @@
     border-radius: 2rem;
     border: solid 0.1rem $color-grey-borders;
     background-color: white;
+    box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.15);
     .class-title {
         display: flex;
         justify-content: center;
@@ -71,6 +72,7 @@
         border-radius: 2rem;
         border: solid 0.1rem $color-grey-borders;
         background-color: white;
+        box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0);
         .class-title {
             display: flex;
             justify-content: center;
@@ -103,15 +105,19 @@
             .class-notification-container {
                 width: 65%;
                 display: flex;
+                box-sizing: border-box;
+                padding-top: 4rem;
                 flex-direction: column;
                 justify-content: space-evenly;
                 overflow-y: scroll;
-                max-height: 10rem;
-                height: 100%;
+                height: 9rem;
                 &::-webkit-scrollbar {
                     width: 0px;
                     background: transparent;
                     /* make scrollbar transparent */
+                }
+                .notification-individual-container {
+                    padding: 0.5rem 0;
                 }
             }
         }

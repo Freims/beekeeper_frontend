@@ -20,6 +20,10 @@ const ClassPage = () => {
     {
       date: '22/02/2019',
       msg: 'hola k onda muchahos'
+    },
+    {
+      date: '22/02/2019',
+      msg: 'hola k onda muchahos'
     }
   ]
   let color = generateColor(classId)
@@ -40,7 +44,9 @@ const ClassPage = () => {
           <div className='class-divider' />
           <div className='class-notification-container'>
           {notifications.map((notification, index) => (
+            <div className="notification-individual-container">
               <NotificationPill key={index} notification={notification} color={color} />
+              </div>
             ))}
           </div>
         </div>

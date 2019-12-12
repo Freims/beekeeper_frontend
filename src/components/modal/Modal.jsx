@@ -5,6 +5,7 @@ const Modal = ({ visible, setVisible, children }) => {
   useEffect(() => {}, [visible]);
 
   const [exiting, setExiting] = useState(false);
+  
   const closeModal = () => {
     setExiting(true);
   };

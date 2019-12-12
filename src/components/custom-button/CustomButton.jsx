@@ -1,7 +1,7 @@
 import React from 'react'
 import './CustomButton.scss'
 import { LightenDarkenColor } from 'lighten-darken-color'
-// import calculateFontColor from '../../utils/font-color-calculator'
+import calculateFontColor from '../../utils/font-color-calculator'
 
 const CustomButton = ({ color = '#FECD1C', text, width = '100%', type = 'button', login, ...props }) =>
   login ? (
@@ -17,10 +17,10 @@ const CustomButton = ({ color = '#FECD1C', text, width = '100%', type = 'button'
       type={type}
       className='custom-button'
       style={{
-        // color: calculateFontColor(color),
+        color: calculateFontColor(color),
         backgroundColor: color,
         width: `${width}`,
-        borderColor: `${LightenDarkenColor(color, -100)}`
+        borderColor: `${LightenDarkenColor(color, -40)}`
       }}
       value={text}
       {...props}

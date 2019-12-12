@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./HomePage.scss";
 
 import UserDetails from "../../components/user-details/UserDetails";
-import CardMobile from "../../components/card-mobile/CardMobile";
 import Schedule from "../../components/schedule/Schedule";
 import TodaySummary from "../../components/today-summary/TodaySummary";
 import getToday from "../../utils/spanish-date";

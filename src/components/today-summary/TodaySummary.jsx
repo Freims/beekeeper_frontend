@@ -1,12 +1,12 @@
 import React from 'react'
 import './TodaySummary.scss'
 
-const TodaySummary = ({ data }) =>
+const TodaySummary = ({ data, color="indianred" }) =>
   data ? (
     data.length > 0 ? (
       data.map(todaySummary => (
         <div key={todaySummary.name} className='today-summary'>
-          <div className='intec-class'>{todaySummary.name}</div>
+          <div className='intec-class' style={{backgroundColor: `${color}`}}>{todaySummary.name}</div>
           <div className='today-info'>
             <span>{todaySummary.schedule}</span>
             <span>{todaySummary.building}</span>
