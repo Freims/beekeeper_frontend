@@ -27,7 +27,7 @@ const App = ({ setCurrentUser, currentUser }) => {
       <Layout>
         <ProtectedRoute exact path="/" component={HomePage} />
         <ProtectedRoute exact path="/clases" component={ClassesPage} />
-        <ProtectedRoute exact path="/clases/:sectionId" component={ClassPage} />
+        <ProtectedRoute exact path="/clases/:courseName" component={ClassPage} />
         <ProtectedRoute exact path="/test">
           <Test pepe={"esto funciona freims!!!"} />
         </ProtectedRoute>

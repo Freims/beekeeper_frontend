@@ -2,12 +2,13 @@ import React from 'react'
 import './TodaySummary.scss'
 import generateColor from '../../utils/color-from-string'
 import calculateFontColor from '../../utils/font-color-calculator'
+import { withRouter } from 'react-router-dom'
 
-const TodaySummary = ({ data, color = 'indianred' }) =>
+const TodaySummary = ({ data, history }) =>
   data ? (
     data.length > 0 ? (
       data.map(todaySummary => (
-        <div key={todaySummary.name} className='today-summary'>
+        <div key={todaySummary.name} className='today-summary' onClick={()=> history.push(`/clases/${todaySummary.name}`)}>
           <div
             className='intec-class'
             style={{
@@ -32,4 +33,4 @@ const TodaySummary = ({ data, color = 'indianred' }) =>
     <span>. . .</span>
   )
 
-export default TodaySummary
+export default withRouter(TodaySummary)

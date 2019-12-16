@@ -13,22 +13,20 @@ import generateColor from '../../utils/color-from-string'
 import { fetchClassDetails } from '../../utils/response-handler'
 
 const ClassPage = ({ currentClasses }) => {
-  const { sectionId } = useParams()
+  const { courseName } = useParams()
   const [currentClass, setCurrentClass] = useState({ noticesList: [] })
   const [classHead, setClassHead] = useState({})
   const [color, setColor] = useState("white")
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log('CURRENTCLASSES', currentClasses, sectionId)
-      let searchedClass = await currentClasses.find(cour => cour.sectionId === parseInt(sectionId))
-      console.log('SEARCHED', searchedClass)
+      let searchedClass = await currentClasses.find(cour => cour.course === courseName)
       fetchClassDetails(setCurrentClass, searchedClass.sectionId)
       setClassHead(searchedClass)
       setColor(generateColor(`${searchedClass.course}1`))
     }
     fetchData();
-  }, [currentClasses, sectionId])
+  }, [currentClasses, courseName])
 
   return (
     <div className='class-page'>
