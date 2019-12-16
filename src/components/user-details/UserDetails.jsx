@@ -5,8 +5,6 @@ import { connect } from 'react-redux'
 
 const UserDetails = ({ currentUser }) => {
   const { name, id, program, img } = currentUser
-  console.log("user",currentUser)
-  console.log("userdtails", img)
   
   return (
     <div className='user-details'>

@@ -1,36 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './ClassesPage.scss'
 import IntecClass from '../../components/intec-class/IntecClass'
+import { connect } from 'react-redux'
+import { setCurrentClasses } from '../../redux/classes/classes-actions'
+import { fetchClasses } from '../../utils/response-handler'
 
-const ClassesPage = () => {
-  const classes = [
-    {
-      name: 'Calculo Integral',
-      absence: 0,
-      notices: 0
-    },
-    {
-      name: 'Biología IV',
-      absence: 0,
-      notices: 0
-    },
-    {
-      name: 'Ergonomía',
-      absence: 0,
-      notices: 0
-    }
-  ]
+const ClassesPage = ({ currentUser, classes, setCurrentClasses }) => {
+
+  const [intecClasses, setIntecClasses] = useState([])
+
+  useEffect(() => {
+    fetchClasses(setIntecClasses, currentUser.dbId, setCurrentClasses)
+  }, [classes, setCurrentClasses, currentUser.dbId])
+
   return (
     <div className='classes-page'>
       <div className='class-container'>
-        {classes.map(intecclass => (
-          <div key={intecclass.name} className='class-component'>
-            <IntecClass intecclass={intecclass} />
-          </div>
-        ))}
+        {intecClasses && intecClasses.map(
+          intecclass =>
+            intecclass ?(
+              <div key={intecclass.course} className='class-component'>
+                <IntecClass intecclass={intecclass} />
+              </div>
+            ): ""
+        )}
       </div>
     </div>
   )
 }
 
-export default ClassesPage
+const mapStateToProps = ({ user}) => ({
+  currentUser: user.currentUser,
+})
+
+const mapDispatchToProps = dispatch => ({
+  setCurrentClasses: classes => dispatch(setCurrentClasses(classes))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ClassesPage)

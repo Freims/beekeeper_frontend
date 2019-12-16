@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
 import './ClassPage.scss'
 
 import StyledFraction from '../../components/styled-fraction/StyledFraction'
@@ -9,43 +10,48 @@ import { faCopy } from '@fortawesome/free-solid-svg-icons'
 
 import { useParams } from 'react-router-dom'
 import generateColor from '../../utils/color-from-string'
+import { fetchClassDetails } from '../../utils/response-handler'
 
-const ClassPage = () => {
-  const { classId } = useParams()
-  let notifications = [
-    {
-      date: '11/02/2019',
-      msg: 'hola como estan chicos'
-    },
-    {
-      date: '22/02/2019',
-      msg: 'hola k onda muchahos'
-    },
-    {
-      date: '22/02/2019',
-      msg: 'hola k onda muchahos'
+const ClassPage = ({ currentClasses }) => {
+  const { sectionId } = useParams()
+  const [currentClass, setCurrentClass] = useState({ noticesList: [] })
+  const [classHead, setClassHead] = useState({})
+  const [color, setColor] = useState("white")
+
+  useEffect(() => {
+    const fetchData = async () => {
+      console.log('CURRENTCLASSES', currentClasses, sectionId)
+      let searchedClass = await currentClasses.find(cour => cour.sectionId === parseInt(sectionId))
+      console.log('SEARCHED', searchedClass)
+      fetchClassDetails(setCurrentClass, searchedClass.sectionId)
+      setClassHead(searchedClass)
+      setColor(generateColor(`${searchedClass.course}1`))
     }
-  ]
-  let color = generateColor(classId)
+    fetchData();
+  }, [currentClasses, sectionId])
 
   return (
     <div className='class-page'>
       <div className='class-title'>
-        <span className='title'>{classId}</span>
+        <span className='title'>{currentClass.course}</span>
       </div>
       <div className='class-content'>
         <div className='class-item'>
           <span>Ausencias</span>
           <div className='class-divider' />
-          <StyledFraction color={color} numerator={1} denominator={2} />
+          <StyledFraction color={color} numerator={classHead.absences} denominator={currentClass.credits} />
         </div>
         <div className='class-item'>
           <span>Avisos</span>
           <div className='class-divider' />
           <div className='class-notification-container'>
-          {notifications.map((notification, index) => (
-            <div className="notification-individual-container">
-              <NotificationPill key={index} notification={notification} color={color} />
+            {currentClass.noticesList.map((notification, index) => (
+              <div className='notification-individual-container'>
+                <NotificationPill
+                  key={index}
+                  notification={notification}
+                  color={color}
+                />
               </div>
             ))}
           </div>
@@ -66,4 +72,8 @@ const ClassPage = () => {
   )
 }
 
-export default ClassPage
+const mapStateToProps = ({ classes }) => ({
+  currentClasses: classes.currentClasses
+})
+
+export default connect(mapStateToProps)(ClassPage)

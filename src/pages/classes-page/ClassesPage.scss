@@ -17,6 +17,10 @@
         flex-flow: column;
         align-items: center;
         width: 95%;
+
+        .class-component{
+            max-width: 80%;
+        }
     }
 }
 

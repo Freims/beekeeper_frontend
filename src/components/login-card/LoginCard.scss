@@ -23,9 +23,8 @@
 
 .logo-container {
     display: block !important;
-    width: 28vh;
-    min-width: 21rem;
-    max-width: 35rem;
+    min-width: 18rem;
+    max-width: 30rem;
     margin-top: -30%;
     @media only screen and (max-width: 1024px) {
         background-color: transparent;
@@ -39,8 +38,9 @@
 }
 
 .form-container {
+    margin-top: 10%;
     width: 70%;
-    padding: 6vh 3.5vw;
+    padding: 2rem 3rem;
     display: flex;
     flex-flow: column;
     justify-content: flex-end;
@@ -48,7 +48,7 @@
 }
 
 .label-input {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     .label {
         display: inline-block;
         width: auto;

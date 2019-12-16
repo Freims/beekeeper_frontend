@@ -6,7 +6,7 @@ export function handleLoginResponse(response, setCurrentUser, loginSuccess, setI
     if (response) {
         if (response.success) {
             let user = mapUser(response.resultData)
-            localStorage.setItem('currentUser', JSON.stringify(user))
+            sessionStorage.setItem('currentUser', JSON.stringify(user))
             setCurrentUser(user)
             loginSuccess()
         } else {
@@ -21,7 +21,7 @@ export function handleLoginResponse(response, setCurrentUser, loginSuccess, setI
 }
 
 export async function fetchUserSession(setCurrentUser) {
-    let user = localStorage.getItem('currentUser');
+    let user = sessionStorage.getItem('currentUser');
     user = JSON.parse(user);
     if (user != null) {
         setCurrentUser({
@@ -35,16 +35,45 @@ export async function fetchUserSession(setCurrentUser) {
     }
 }
 
-export function logoutUser(removeCurrentUser) {
+export async function fetchClasses(setIntecClasses, userDbId, setCurrentClasses) {
+
+    let classesInStorage = await JSON.parse(sessionStorage.getItem("currentClasses"));
+
+    if (classesInStorage) {
+        setIntecClasses(classesInStorage)
+    }
+    else {
+        fetch(`https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/GetStudentAbsencesNoticesPerCourse/${userDbId}`)
+            .then(res => res.json())
+            .then(response => {
+                console.log(response)
+                if (response.success) {
+                    console.log(response.resultData)
+                    setCurrentClasses(response.resultData)
+                    setIntecClasses(response.resultData)
+                    sessionStorage.setItem("currentClasses", JSON.stringify(response.resultData))
+                } else {
+                    connectionError()
+                    throw new Error('Connection error')
+                }
+            })
+            .catch(error => { console.log(error); setCurrentClasses({}) })
+    }
+
+}
+
+export function logoutUser(removeCurrentUser, removeCurrentClasses) {
     removeCurrentUser()
-    localStorage.removeItem("currentUser")
-    localStorage.removeItem("schedule")
-    localStorage.removeItem("todaySummary")
+    removeCurrentClasses()
+    sessionStorage.removeItem("currentUser")
+    sessionStorage.removeItem("schedule")
+    sessionStorage.removeItem("todaySummary")
+    sessionStorage.removeItem("currentClasses")
 }
 
 export async function fetchSchedule(dbId, setSchedule) {
 
-    let scheduleInStorage = await JSON.parse(localStorage.getItem("schedule"));
+    let scheduleInStorage = await JSON.parse(sessionStorage.getItem("schedule"));
 
     if (scheduleInStorage) {
         setSchedule(scheduleInStorage)
@@ -57,7 +86,7 @@ export async function fetchSchedule(dbId, setSchedule) {
                 if (response.resultData) {
                     console.log(response.resultData.courseList)
                     setSchedule(response.resultData.courseList)
-                    localStorage.setItem("schedule", JSON.stringify(response.resultData.courseList))
+                    sessionStorage.setItem("schedule", JSON.stringify(response.resultData.courseList))
                 } else {
                     connectionError()
                     throw new Error('Connection error')
@@ -69,7 +98,7 @@ export async function fetchSchedule(dbId, setSchedule) {
 
 export async function fetchTodaySummary(dbId, setTodaySummaryList) {
 
-    let todaySummaryInStorage = await JSON.parse(localStorage.getItem("todaySummary"));
+    let todaySummaryInStorage = await JSON.parse(sessionStorage.getItem("todaySummary"));
 
     if (todaySummaryInStorage) {
         setTodaySummaryList(todaySummaryInStorage)
@@ -78,10 +107,11 @@ export async function fetchTodaySummary(dbId, setTodaySummaryList) {
         fetch(`https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/GetTodayStudentSchedule/${dbId}`)
             .then(res => res.json())
             .then(response => {
-                if (response.resultData) {
-                    console.log(response.resultData.todaySchedulesCourse)
-                    setTodaySummaryList(response.resultData.todaySchedulesCourse)
-                    localStorage.setItem("todaySummary", JSON.stringify(response.resultData.todaySchedulesCourse))
+                if (response.success) {
+                    if (response.resultData) {
+                        setTodaySummaryList(response.resultData.todaySchedulesCourse)
+                        sessionStorage.setItem("todaySummary", JSON.stringify(response.resultData.todaySchedulesCourse))
+                    }
                 } else {
                     connectionError()
                     throw new Error('Connection error')
@@ -89,4 +119,21 @@ export async function fetchTodaySummary(dbId, setTodaySummaryList) {
             })
             .catch(error => { console.log(error); setTodaySummaryList({}) })
     }
+}
+
+export async function fetchClassDetails(setCurrentClass, courseId){
+
+    fetch(`https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/GetNoticesBySection/${courseId}`)
+    .then(res => res.json())
+    .then(response => {
+        if (response.success) {
+            if (response.resultData) {
+                setCurrentClass(response.resultData)
+            }
+        } else {
+            connectionError()
+            throw new Error('Connection error')
+        }
+    })
+    .catch(error => { console.log(error); setCurrentClass({}) })
 }

@@ -3,22 +3,24 @@ import './IntecClass.scss'
 import { NavLink, useRouteMatch } from 'react-router-dom'
 
 import generateColor from '../../utils/color-from-string'
+import calculateFontColor from '../../utils/font-color-calculator'
 
 const IntecClass = ({ intecclass }) => {
-  const { name, absence, notices } = intecclass
+  const { sectionId, course, absences, notices } = intecclass
   let { path } = useRouteMatch()
-  let color = generateColor(`${name.replace(/\s/g, '').toLowerCase()}`)
+  let color = generateColor(`${course}1`)
+  let fontColor = calculateFontColor(color);
 
   return (
     <div className='intec-class-component '>
-      <NavLink to={`${path}/${name.replace(/\s/g, '').toLowerCase()}`} className='nav-link-remove-styles'>
-        <div className='name' style={{ backgroundColor: color }}>
-          {name}
+      <NavLink to={`${path}/${sectionId}`} className='nav-link-remove-styles'>
+        <div className='name' style={{ backgroundColor: color, color: fontColor }}>
+          {course}
         </div>
         <div className='info'>
           <div className='text-around'>
             <span>Ausencias</span>
-            <span>{absence}</span>
+            <span>{absences}</span>
           </div>
           <div className='text-around'>
             <span>Avisos</span>
