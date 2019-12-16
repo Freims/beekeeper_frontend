@@ -25,7 +25,6 @@ const TodaySummary = ({ data, color = 'indianred' }) =>
       ))
     ) : (
       <span role='img' aria-label='smile' className='free-day'>
-        {' '}
         Día Libre &#128513;
       </span>
     )

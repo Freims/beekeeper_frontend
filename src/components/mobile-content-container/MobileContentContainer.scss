@@ -1,24 +1,24 @@
 .mobile-container {
-	background: url('../../assets/svgs/mobile_backgrounds/default_background.svg');
-	background-size: cover;
-	background-position: bottom;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	display: flex;
-	flex-flow: column;
-	justify-content: center;
-	height: 100%;
-	width: 100%;
+    background: url('../../assets/svgs/mobile_backgrounds/default_background.svg');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
 }
 
 .mobile-content {
-	height: 80%;
-	width: 100%;
+    height: 93%;
+    width: 100%;
 }
 
 .mobile-tabs {
-	height: 10%;
-	display: flex !important;
-	flex-direction: row;
-	justify-content: space-evenly;
+    height: 7%;
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
