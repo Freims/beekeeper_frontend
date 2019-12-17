@@ -1,88 +1,78 @@
 @import '../../index.css';
 @import './src/assets/styles/colors';
-
 .icon-input-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	overflow: hidden;
-	font-family: 'BAHNSCHRIFT';
-	overflow: hidden;
-
-	box-sizing: border-box;
-	margin: 0.1rem;
-	width: 100%;
-	padding: 0 1rem;
-	border-radius: 2rem;
-	border: 0.3rem solid black;
-
-	background-color: white;
-
-	transition: all 0.3s;
-
-	&:focus-within {
-		transform: scale(1.05) translateY(-0.2rem);
-		filter: blur(0px);
-	}
-
-	&:hover {
-		cursor: text;
-	}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'BAHNSCHRIFT';
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 0.1rem;
+    width: 100%;
+    padding: 0 1rem;
+    border-radius: 2rem;
+    border: 0.3rem solid black;
+    background-color: white;
+    transition: all 0.3s;
+    &:focus-within {
+        transform: scale(1.05) translateY(-0.2rem);
+        filter: blur(0px);
+    }
+    &:hover {
+        cursor: text;
+    }
 }
 
 .icon-input-container-normal {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	overflow: hidden;
-	font-family: 'BAHNSCHRIFT';
-
-	box-sizing: border-box;
-	margin: 0.1rem;
-	width: 100%;
-	padding: 0 1rem;
-	border-radius: 2rem;
-	border: 0.1rem solid $color-grey-dark;
-	background-color: white;
-	color: $color-grey-dark;
-	transition: all 0.3s;
-
-	&:focus-within {
-		transform: scale(1.05) translateY(-0.2rem);
-		filter: blur(0px);
-	}
-
-	&:hover {
-		cursor: text;
-	}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'BAHNSCHRIFT';
+    box-sizing: border-box;
+    margin: 0.1rem;
+    width: 100%;
+    padding: 0 1rem;
+    border-radius: 2rem;
+    border: 0.1rem solid $color-grey-dark;
+    background-color: white;
+    color: $color-grey-dark;
+    transition: all 0.3s;
+    &:focus-within {
+        transform: scale(1.05) translateY(-0.2rem);
+        filter: blur(0px);
+    }
+    &:hover {
+        cursor: text;
+    }
 }
 
 .icon {
-	font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
 .input {
-	overflow: hidden;
-	width: 80%;
-	padding: 1.2rem 0;
-	font-size: 1.4rem;
-	font-family: inherit;
-	text-align: center;
-	outline: none;
-	margin-right: 2rem;
+    overflow: hidden;
+    width: 80%;
+    padding: 1rem 0;
+    font-size: 1.2rem;
+    font-family: inherit;
+    text-align: center;
+    outline: none;
+    margin-right: 2rem;
 }
 
 .error {
-	border: 0.3rem solid darkred;
-	box-sizing: border-box;
-	color: rgb(75, 0, 0);
+    border: 0.3rem solid darkred;
+    box-sizing: border-box;
+    color: rgb(75, 0, 0);
 }
 
 //REMOVING AUTOCOMPLETE BACKGROUND COLOR
-
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-	box-shadow: 0 0 0 30px white inset !important;
+    box-shadow: 0 0 0 30px white inset !important;
 }

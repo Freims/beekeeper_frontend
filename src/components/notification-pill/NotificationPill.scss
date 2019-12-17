@@ -1,7 +1,7 @@
 @import './src/assets/styles/colors';
 .notification-pill {
     box-sizing: border-box;
-    font-size: 2.5vh;
+    font-size: 1.5rem;
     color: white;
     display: flex;
     flex-direction: column;
@@ -41,7 +41,7 @@
     align-items: center;
     font-size: 1.5rem;
     @media (min-width: 1025px) {
-        font-size: 2rem;
+        font-size: 1.3rem;
     }
     height: 100%;
     .notification-content-header {

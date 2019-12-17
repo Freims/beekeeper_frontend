@@ -1,26 +1,26 @@
 .sign-out-button {
-	text-decoration: none;
-	color: black;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	letter-spacing: 0.1rem;
-	font-size: 2rem;
-	&:hover {
-		cursor: pointer;
-		color: darkslategray;
-	}
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    letter-spacing: 0.1rem;
+    font-size: 1.5rem;
+    &:hover {
+        cursor: pointer;
+        color: darkslategray;
+    }
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .text {
-	font-weight: 700;
-	letter-spacing: 0.2rem;
-	margin-bottom: -0.8rem;
-	margin-right: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    margin-bottom: -0.8rem;
+    margin-right: 0.8rem;
 }

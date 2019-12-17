@@ -8,7 +8,7 @@
     box-sizing: border-box;
     border-radius: 12vh;
     background-color: white;
-    border: solid 0.35rem rgba(0, 0, 0, 0.7);
+    border: solid 0.25rem rgba(0, 0, 0, 0.7);
     box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.1);
     .loader {
         position: absolute;
@@ -52,8 +52,8 @@
     .label {
         display: inline-block;
         width: auto;
-        transform: translateY(-8rem);
-        font-size: 2rem;
+        transform: translateY(-6.5rem);
+        font-size: 1.8rem;
         margin-left: 1.8rem;
         font-weight: bold;
         transition: all 0.25s;
@@ -61,7 +61,7 @@
     .icon-input-container:focus-within+.label {
         width: auto;
         margin-left: 50%;
-        transform: translate(-50%, -8.1rem) scale(1.2);
+        transform: translate(-50%, -7rem) scale(1.1);
     }
     @media only screen and (max-width: 1024px) {
         &-last {

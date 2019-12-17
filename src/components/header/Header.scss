@@ -1,44 +1,38 @@
 @import './src/assets/styles/colors';
-
 .logo {
-	height: 5rem;
-	margin-top: 0.2rem;
+    height: 4.2rem;
+    margin-top: 0.2rem;
 }
 
 .header-container {
-	position: relative;
-	background-color: $primary-color;
-	box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.15);
+    position: relative;
+    background-color: $primary-color;
+    box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .header {
-	width: 80%;
-	margin: 0 auto;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .header-content {
-	display: flex;
-	width: 100%;
-	justify-content: space-between;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
 
 @media only screen and (max-width: 1024px) {
-	.logo {
-		height: 5.5rem;
-
-	}
-
-	// .header-container {
-	// }
-
-	// .header {
-	// }
-
-	.header-content {
-		justify-content: center;
-	}
-
-	#sign-out{
-		display: none;
-	}
+    .logo {
+        height: 5.5rem;
+    }
+    // .header-container {
+    // }
+    // .header {
+    // }
+    .header-content {
+        justify-content: center;
+    }
+    #sign-out {
+        display: none;
+    }
 }

@@ -1,0 +1,83 @@
+.excuse-container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    font-size: 1.5rem;
+    @media (min-width: 1025px) {
+        font-size: 2rem;
+    }
+    height: 100%;
+    .excuse-content-header {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        width: 95%;
+        height: 2rem;
+        @media (min-width: 1025px) {
+            flex-direction: row;
+            width: 80%;
+        }
+        input {
+            border: none;
+            overflow: auto;
+            outline: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+        }
+        .excuse-title {
+            display: block;
+            width: 90%;
+            font-family: "BAHNSCHRIFT";
+            font-size: 1.3rem;
+            @media (min-width: 1025px) {
+                padding-left: 1rem;
+                width: 100%;
+            }
+        }
+    }
+    .horizontal-line {
+        margin: auto;
+        height: 0.2rem;
+        width: 90%;
+        background-color: gray;
+    }
+    .excuse-content-body {
+        padding-top: 2rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        .excuse-body {
+            box-sizing: border-box;
+            font-family: "BAHNSCHRIFT";
+            font-size: 1.3rem;
+            padding: 1rem;
+            border: 0.1rem lightgray solid;
+            border-radius: 1rem;
+            text-align: left;
+            min-height: 15rem;
+            width: 80%;
+        }
+        .send-excuse {
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: row;
+            padding-top: 1rem;
+            width: 100%;
+            @media (min-width: 1025px) {
+                width: 40%;
+            }
+        }
+        textarea {
+            border: none;
+            overflow: auto;
+            outline: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+            max-width: 80rem;
+        }
+    }
+}

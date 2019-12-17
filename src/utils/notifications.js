@@ -33,3 +33,18 @@ export const connectionError = () => (
         }
     })
 )
+
+export const successfulExcuse = () => (
+    store.addNotification({
+        message: 'Tu excusa ha sido creada.',
+        type: 'success',
+        insert: 'top',
+        container: 'top-right',
+        animationIn: ['animated', 'bounceIn'],
+        animationOut: ['animated', 'bounceOut'],
+        dismiss: {
+            duration: 4000,
+            onScreen: true
+        }
+    })
+)

@@ -23,6 +23,14 @@
         }
     }
     .class-item {
+        width: 50%;
+        margin-top: 0.8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .single-class-item {
         margin-top: 0.8rem;
         display: flex;
         justify-content: center;
@@ -63,6 +71,12 @@
         justify-content: space-evenly;
         width: 90%;
     }
+    .class-no-notices {
+        display: inline-block;
+        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
 }
 
 @media (min-width: 1025px) {
@@ -86,7 +100,7 @@
                 padding: 1rem 3.5rem;
                 background: white;
                 font-size: 2rem;
-                transform: translateY(-3rem);
+                transform: translateY(-2.2rem);
             }
         }
         .class-content {
@@ -136,6 +150,12 @@
                     padding: 0.5rem 0;
                 }
             }
+        }
+        .class-no-notices {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            direction: ltr;
         }
         .class-code-container {
             width: 40%;
