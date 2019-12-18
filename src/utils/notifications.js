@@ -18,7 +18,8 @@ export const invalidCredentials = () => (
     })
 )
 
-export const connectionError = () => (
+export const connectionError = () => {
+    console.log("connectionError")
     store.addNotification({
         title: 'Error de conexión',
         message: 'Ha ocurrido un error con la conexión ☹️',
@@ -32,7 +33,7 @@ export const connectionError = () => (
             onScreen: true
         }
     })
-)
+}
 
 export const successfulExcuse = () => (
     store.addNotification({

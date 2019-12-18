@@ -5,18 +5,20 @@ import UserDetails from "../../components/user-details/UserDetails";
 import Schedule from "../../components/schedule/Schedule";
 import TodaySummary from "../../components/today-summary/TodaySummary";
 import getToday from "../../utils/spanish-date";
+import { setCurrentClasses } from '../../redux/classes/classes-actions'
 
 import { connect } from "react-redux";
-import { fetchSchedule, fetchTodaySummary } from "../../utils/response-handler";
+import { fetchSchedule, fetchTodaySummary, fetchClasses } from "../../utils/response-handler";
 
-const HomePage = ({ currentUser }) => {
+const HomePage = ({ currentUser, setCurrentClasses }) => {
   const [schedule, setSchedule] = useState(undefined);
   const [todaySummaryList, setTodaySummaryList] = useState(undefined);
 
   useEffect(() => {
     fetchSchedule(currentUser.dbId, setSchedule);
     fetchTodaySummary(currentUser.dbId, setTodaySummaryList);
-  }, [currentUser]);
+    fetchClasses(currentUser.dbId, setCurrentClasses)
+  }, [currentUser, setCurrentClasses]);
 
   return (
     <div className="home-page">
@@ -51,4 +53,9 @@ const mapStateToProps = ({ user }) => ({
   currentUser: user.currentUser
 });
 
-export default connect(mapStateToProps)(HomePage);
+const mapDispatchToProps = dispatch => ({
+  setCurrentClasses: classes => dispatch(setCurrentClasses(classes))
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

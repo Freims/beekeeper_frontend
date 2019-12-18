@@ -1,7 +1,7 @@
 import { ClassesActionTypes } from './classes-types'
 
 const INITIAL_STATE = {
-    currentClasses: [{}]
+    currentClasses: null
 }
 
 const classesReducer = (state = INITIAL_STATE, action) => {
@@ -13,7 +13,7 @@ const classesReducer = (state = INITIAL_STATE, action) => {
             }
         case ClassesActionTypes.REMOVE_CURRENT_CLASSES:
             return{
-                currentClasses: {}
+                currentClasses: null
             }
         default:
             return state;

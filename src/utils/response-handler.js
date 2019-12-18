@@ -39,17 +39,13 @@ export async function fetchUserSession(setCurrentUser) {
   }
 }
 
-export async function fetchClasses(
-  setIntecClasses,
-  userDbId,
-  setCurrentClasses
-) {
+export async function fetchClasses(userDbId, setCurrentClasses) {
   let classesInStorage = await JSON.parse(
     sessionStorage.getItem("currentClasses")
   );
 
   if (classesInStorage) {
-    setIntecClasses(classesInStorage);
+    return;
   } else {
     fetch(
       `https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/GetStudentAbsencesNoticesPerCourse/${userDbId}`
@@ -58,9 +54,8 @@ export async function fetchClasses(
       .then(response => {
         console.log(response);
         if (response.success) {
-          console.log(response.resultData);
+          console.log("Classes", response.resultData);
           setCurrentClasses(response.resultData);
-          setIntecClasses(response.resultData);
           sessionStorage.setItem(
             "currentClasses",
             JSON.stringify(response.resultData)

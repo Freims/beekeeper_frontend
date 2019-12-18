@@ -1,40 +1,26 @@
-import React, { useEffect, useState } from 'react'
-import './ClassesPage.scss'
-import IntecClass from '../../components/intec-class/IntecClass'
-import { connect } from 'react-redux'
-import { setCurrentClasses } from '../../redux/classes/classes-actions'
-import { fetchClasses } from '../../utils/response-handler'
+import React from "react";
+import "./ClassesPage.scss";
+import IntecClass from "../../components/intec-class/IntecClass";
+import { connect } from "react-redux";
 
-const ClassesPage = ({ currentUser, classes, setCurrentClasses }) => {
-
-  const [intecClasses, setIntecClasses] = useState([])
-
-  useEffect(() => {
-    fetchClasses(setIntecClasses, currentUser.dbId, setCurrentClasses)
-  }, [classes, setCurrentClasses, currentUser.dbId])
-
-  return (
-    <div className='classes-page'>
-      <div className='class-container'>
-        {intecClasses && intecClasses.map(
-          intecclass =>
-            intecclass ?(
-              <div key={intecclass.course} className='class-component'>
-                <IntecClass intecclass={intecclass} />
-              </div>
-            ): ""
-        )}
-      </div>
+const ClassesPage = ({ currentClasses }) => (
+  <div className="classes-page">
+    <div className="class-container">
+      {currentClasses.map(intecclass =>
+        intecclass ? (
+          <div key={intecclass.course} className="class-component">
+            <IntecClass intecclass={intecclass} />
+          </div>
+        ) : (
+          "No tienes materias inscritas."
+        )
+      )}
     </div>
-  )
-}
+  </div>
+);
 
-const mapStateToProps = ({ user}) => ({
-  currentUser: user.currentUser,
-})
+const mapStateToProps = ({ classes }) => ({
+  currentClasses: classes.currentClasses
+});
 
-const mapDispatchToProps = dispatch => ({
-  setCurrentClasses: classes => dispatch(setCurrentClasses(classes))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(ClassesPage)
+export default connect(mapStateToProps)(ClassesPage);

@@ -7,26 +7,31 @@ import StyledFraction from "../../components/styled-fraction/StyledFraction";
 import NotificationPill from "../../components/notification-pill/NotificationPill";
 import IconInput from "../../components/icon-input/IconInput";
 import CustomButton from "../../components/custom-button/CustomButton";
+import Loading from "../../components/loading/Loading";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
 
 import { useParams } from "react-router-dom";
 import generateColor from "../../utils/color-from-string";
 import { fetchClassDetails } from "../../utils/response-handler";
 import ExcuseModal from "../../components/excuse-modal/ExcuseModal";
-import { connectionError, successfulExcuse } from "../../utils/notifications";
+
 const ClassPage = ({ currentClasses }) => {
   const { courseName } = useParams();
   const [currentClass, setCurrentClass] = useState({ noticesList: [] });
   const [classHead, setClassHead] = useState({});
   const [color, setColor] = useState("white");
   const [createExcuse, setCreateExcuse] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       let searchedClass = await currentClasses.find(
         cour => cour.course === courseName
       );
-      fetchClassDetails(setCurrentClass, searchedClass.sectionId);
+      fetchClassDetails(setCurrentClass, searchedClass.sectionId).then(
+        setLoading(false)
+      );
       setClassHead(searchedClass);
       setColor(generateColor(`${searchedClass.course}1`));
     };
@@ -35,6 +40,7 @@ const ClassPage = ({ currentClasses }) => {
 
   return (
     <div className="class-page">
+      <ReactNotification />
       <div className="class-title">
         <span className="title">{currentClass.course}</span>
       </div>
@@ -54,9 +60,8 @@ const ClassPage = ({ currentClasses }) => {
           <div className="class-notification-container">
             {currentClass.noticesList ? (
               currentClass.noticesList.map((notification, index) => (
-                <div className="notification-individual-container">
+                <div key={index} className="notification-individual-container">
                   <NotificationPill
-                    key={index}
                     notification={notification}
                     color={color}
                   />
@@ -77,7 +82,11 @@ const ClassPage = ({ currentClasses }) => {
           <IconInput maxLength={6} icon={faCopy} />
         </div>
         <div className="class-buttons">
-          <CustomButton color={color} width="auto" text="Enviar código" />
+          <CustomButton
+            color={color}
+            width="auto"
+            text="Enviar código"
+          />
           <CustomButton
             color={color}
             width="auto"
@@ -89,11 +98,10 @@ const ClassPage = ({ currentClasses }) => {
             setVisible={setCreateExcuse}
             color={color}
             id={classHead.sectionId}
-            trigger={connectionError}
           />
         </div>
       </div>
-      <ReactNotification/>
+      <Loading visible={loading} />
     </div>
   );
 };

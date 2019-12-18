@@ -58,7 +58,7 @@ const LoginCard = ({ setCurrentUser, loginSuccess }) => {
   return (
     <div className='login-card'>
       <div className='loader'>
-        <Loading hidden={loading} />
+        <Loading visible={loading} />
       </div>
       <div className='logo-container'>
         <Logo />
