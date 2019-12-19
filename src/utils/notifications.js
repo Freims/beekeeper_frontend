@@ -37,7 +37,8 @@ export const connectionError = () => {
 
 export const successfulExcuse = () => (
     store.addNotification({
-        message: 'Tu excusa ha sido creada.',
+        title: 'Creación Satisfactoria',
+        message: 'Tu excusa ha sido enviada correctamente.',
         type: 'success',
         insert: 'top',
         container: 'top-right',
