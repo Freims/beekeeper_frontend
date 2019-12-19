@@ -1,7 +1,7 @@
 @import './src/assets/styles/colors';
 .logo {
-    height: 4.2rem;
-    margin-top: 0.2rem;
+    height: 5.5rem;
+    margin-top: 0.4rem;
 }
 
 .header-container {
@@ -23,12 +23,8 @@
 
 @media only screen and (max-width: 1024px) {
     .logo {
-        height: 5.5rem;
+        height: 5.2rem;
     }
-    // .header-container {
-    // }
-    // .header {
-    // }
     .header-content {
         justify-content: center;
     }

@@ -72,7 +72,7 @@
     font-weight: bold;
     display: flex;
     justify-content: center;
-    font-size: 1.6rem;
+    font-size: 2.2rem;
     margin: 2rem 0;
 }
 
@@ -96,6 +96,15 @@
         width: 98%;
         height: 100%;
         margin: 0 0.2em;
+        .details-container {
+            background-color: white;
+            border: solid 1px rgba(211, 211, 211, 0.582);
+            display: flex;
+            min-width: 80%;
+            flex-direction: column;
+            border-radius: 2.5rem;
+            box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.2);
+        }
     }
     .home-page-web {
         display: none;
@@ -111,5 +120,17 @@
         padding: 0rem;
         border: 0px solid $color-grey-borders;
         border-radius: 0rem;
+    }
+    .for-today-container {
+        display: flex;
+        background-color: white;
+        border: solid 1px rgba(211, 211, 211, 0.582);
+        flex-direction: column;
+        border-radius: 2.5rem;
+        box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.2);
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 0.5rem 1rem;
+        min-width: 80%;
     }
 }

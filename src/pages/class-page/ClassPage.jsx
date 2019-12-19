@@ -14,6 +14,7 @@ import { useParams } from "react-router-dom";
 import generateColor from "../../utils/color-from-string";
 import { fetchClassDetails } from "../../utils/response-handler";
 import ExcuseModal from "../../components/excuse-modal/ExcuseModal";
+import { connectionError } from "../../utils/notifications";
 
 const ClassPage = ({ currentClasses }) => {
   const { courseName } = useParams();
@@ -86,6 +87,7 @@ const ClassPage = ({ currentClasses }) => {
             color={color}
             width="auto"
             text="Enviar código"
+            onClick={connectionError}
           />
           <CustomButton
             color={color}

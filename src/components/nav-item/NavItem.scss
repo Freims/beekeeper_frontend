@@ -1,20 +1,19 @@
 @import '../../assets/styles/colors';
 .nav-item-container {
-    font-size: 2.5vh;
-    height: 1em;
+    height: 3rem;
     display: block;
     transition: all 0.3s;
     .nav-item {
         text-decoration: none;
         transition: all 0.3s;
         font-weight: bold;
-        font-size: 1.7rem;
+        font-size: 2.3rem;
         color: $color-grey-disabled;
         &:hover {
-            font-size: 2.2rem;
+            font-size: 2.9rem;
         }
         &-active {
-            font-size: 2.2rem;
+            font-size: 2.9rem;
             color: $color-black;
         }
     }
@@ -22,10 +21,11 @@
 
 @media only screen and (max-width: 1024px) {
     .nav-item-container {
-        font-size: 2.8rem;
-        width: auto;
+        font-size: 2.5rem;
+        width: 100%;
         height: 1.3em;
-        display: block;
+        display: flex;
+        justify-content: center;
         transition: all 0.3s;
         .nav-item {
             text-decoration: none;

@@ -1,7 +1,7 @@
 .user-details {
     display: flex;
     flex-direction: column;
-    font-size: 1.5rem;
+    font-size: 2rem;
     .circle-avatar-container {
         height: 8.5em;
         width: 8.5em;
@@ -30,7 +30,7 @@
 @media only screen and (max-width: 1024px) {
     .user-details {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
         flex-direction: row;
         font-size: 2.1rem;
@@ -40,6 +40,7 @@
             align-items: center;
             height: 4.2em;
             width: 4.2em;
+            margin-right: 1em;
         }
         .info {
             max-width: 50%;

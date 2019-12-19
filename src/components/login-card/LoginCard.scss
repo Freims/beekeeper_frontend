@@ -6,9 +6,9 @@
     align-items: center;
     flex-direction: column;
     box-sizing: border-box;
-    border-radius: 12vh;
+    border-radius: 7rem;
     background-color: white;
-    border: solid 0.25rem rgba(0, 0, 0, 0.7);
+    border: solid 0.25rem rgba(0, 0, 0, 0.5);
     box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.1);
     .loader {
         position: absolute;
@@ -23,8 +23,8 @@
 
 .logo-container {
     display: block !important;
-    min-width: 18rem;
-    max-width: 30rem;
+    min-width: 22rem;
+    max-width: 42rem;
     margin-top: -30%;
     @media only screen and (max-width: 1024px) {
         background-color: transparent;
@@ -40,7 +40,7 @@
 .form-container {
     margin-top: 10%;
     width: 70%;
-    padding: 2rem 3rem;
+    padding: 3rem 5rem;
     display: flex;
     flex-flow: column;
     justify-content: flex-end;
@@ -48,15 +48,15 @@
 }
 
 .label-input {
-    margin-bottom: 2rem;
+    margin-bottom: 2.8rem;
     .label {
         display: inline-block;
         width: auto;
         transform: translateY(-6.5rem);
-        font-size: 1.8rem;
-        margin-left: 1.8rem;
+        font-size: 2.2rem;
+        margin-left: 2.2rem;
         font-weight: bold;
-        transition: all 0.25s;
+        transition: all 0.3s;
     }
     .icon-input-container:focus-within+.label {
         width: auto;
@@ -65,8 +65,11 @@
     }
     @media only screen and (max-width: 1024px) {
         &-last {
-            display: inline-block !important;
+            display: inline-block;
             margin-bottom: 0rem;
         }
+    }
+    &-last {
+        margin-bottom: 1rem;
     }
 }

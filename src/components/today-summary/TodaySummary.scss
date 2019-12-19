@@ -1,4 +1,4 @@
-@import './src/assets/styles/colors';
+@import "./src/assets/styles/colors";
 .today-summary {
     width: 100%;
     border: 1px solid $color-grey-borders;
@@ -8,8 +8,9 @@
     flex-direction: row;
     align-items: center;
     overflow: hidden;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     .intec-class {
+        width: 40%;
         border-radius: 0;
         box-sizing: border-box;
         padding: 0.4em 0.8em;

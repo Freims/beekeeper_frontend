@@ -1,27 +1,21 @@
 @import './src/assets/styles/colors';
-
-
-.styled-fraction{
-    font-size: 4rem;
+.styled-fraction {
+    font-size: 5.6rem;
     font-weight: bold;
     display: flex;
     align-items: center;
-    height: 10rem;
-
-    .numerator{
-        transform: translate(1rem, -2rem);
+    height: 14rem;
+    .numerator {
+        transform: translate(1.4rem, -2.8rem);
     }
-
-    .denominator{
-        transform: translate(-1rem, 2rem);
+    .denominator {
+        transform: translate(-1.4rem, 2.8rem);
     }
-
-    .divider{
+    .divider {
         margin: 0 1rem;
-        height: 6rem;
-        width: 0.3rem;
+        height: 8.4rem;
+        width: 0.4rem;
         background-color: $color-grey-dark;
         transform: rotate(45deg);
     }
-
 }
