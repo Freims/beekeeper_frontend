@@ -8,11 +8,11 @@
     align-items: center;
     height: 95%;
     .class-container {
+        box-sizing: border-box;
         display: flex;
         flex-flow: column;
         align-items: center;
-        justify-content: center;
-        overflow-y: scroll;
+        overflow-y: auto;
         height: 100%;
         margin-top: 1.5rem;
         border-radius: 2.2rem;
@@ -20,7 +20,7 @@
         background-color: white;
         width: 95%;
         .class-component {
-            max-width: 80%;
+            width: 80%;
         }
     }
 }
@@ -32,7 +32,7 @@
         display: flex;
         height: 95%;
         .class-container {
-            overflow-y: scroll;
+            overflow-y: auto;
             display: flex;
             flex-flow: row wrap;
             justify-content: center;
@@ -42,7 +42,31 @@
             background-color: white;
             width: 95%;
             .class-component {
+                width: auto;
                 margin: 1.5rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .classes-page {
+        animation: appearOutOfNowhere 500ms;
+        transition: all 0.3s;
+        display: flex;
+        height: 95%;
+        .class-container {
+            overflow-y: auto;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: flex-start;
+            height: 100%;
+            border-radius: 2rem;
+            border: solid 1px $color-grey-borders;
+            background-color: white;
+            width: 95%;
+            .class-component {
+                width: auto;
             }
         }
     }

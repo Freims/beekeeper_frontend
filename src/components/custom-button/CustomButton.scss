@@ -1,6 +1,6 @@
 .custom-button-login {
     box-sizing: border-box;
-    font-family: 'BAHNSCHRIFT';
+    font-family: "BAHNSCHRIFT";
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -29,7 +29,7 @@
 
 .custom-button {
     box-sizing: border-box;
-    font-family: 'BAHNSCHRIFT';
+    font-family: "BAHNSCHRIFT";
     font-weight: lighter;
     display: flex;
     color: white;
@@ -54,5 +54,11 @@
     &:active {
         transform: translateY(-0.1rem);
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+    }
+}
+
+@media (min-width: 900px) {
+    .custom-button {
+        font-size: 2rem;
     }
 }

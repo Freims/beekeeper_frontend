@@ -1,5 +1,5 @@
-@import '../../assets/styles/animations';
-@import './src/assets/styles/colors';
+@import "../../assets/styles/animations";
+@import "./src/assets/styles/colors";
 .home-page {
     animation: appearOutOfNowhere 500ms;
     height: 100%;
@@ -132,5 +132,28 @@
         box-sizing: border-box;
         padding: 0.5rem 1rem;
         min-width: 80%;
+    }
+}
+
+@media (max-width: 900px) {
+    .home-page-mobile {
+        .details-container {
+            max-width: 90%;
+        }
+    }
+    .today-is {
+        font-size: 1.5rem;
+    }
+    .for-today-container {
+        display: flex;
+        background-color: white;
+        border: solid 1px rgba(211, 211, 211, 0.582);
+        flex-direction: column;
+        border-radius: 2.5rem;
+        box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.2);
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 0.5rem 1rem;
+        min-width: 90%;
     }
 }

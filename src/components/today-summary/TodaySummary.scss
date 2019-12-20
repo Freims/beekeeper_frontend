@@ -66,3 +66,12 @@
         }
     }
 }
+
+@media (max-width: 900px) {
+    .today-summary {
+        font-size: 1.4rem;
+        .intec-class {
+            width: 50%;
+        }
+    }
+}
