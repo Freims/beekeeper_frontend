@@ -18,8 +18,8 @@ export function mapUser(user) {
         dbId: user.studentId,
         name: user.firstName + " " + user.lastName,
         program: user.career.name,
-        img: user.studentPhotoUrl,
-        role: "student"
+        img: user.userUrlPhoto,
+        role: user.rol
     }
     return currentUser
 }
