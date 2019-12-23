@@ -1,6 +1,6 @@
 import React from "react";
 import "./ClassesPage.scss";
-import IntecClass from "../../components/intec-class/IntecClass";
+import Course from "../../components/course/Course";
 import { connect } from "react-redux";
 
 const ClassesPage = ({ currentClasses }) => (
@@ -9,7 +9,7 @@ const ClassesPage = ({ currentClasses }) => (
       {currentClasses.map(intecclass =>
         intecclass ? (
           <div key={intecclass.course} className="class-component">
-            <IntecClass intecclass={intecclass} />
+            <Course data={intecclass} />
           </div>
         ) : (
           "No tienes materias inscritas."

@@ -1,12 +1,12 @@
 import React from 'react'
-import './IntecClass.scss'
+import './Course.scss'
 import { NavLink, useRouteMatch } from 'react-router-dom'
 
 import generateColor from '../../utils/color-from-string'
 import calculateFontColor from '../../utils/font-color-calculator'
 
-const IntecClass = ({ intecclass }) => {
-  const { course, absences, notices } = intecclass
+const Course = ({ data }) => {
+  const { course, absences, notices } = data
   let { path } = useRouteMatch()
   let color = generateColor(`${course}1`)
   let fontColor = calculateFontColor(color);
@@ -31,4 +31,4 @@ const IntecClass = ({ intecclass }) => {
     </div>
   )
 }
-export default IntecClass
+export default Course

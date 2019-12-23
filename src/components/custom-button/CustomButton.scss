@@ -35,7 +35,7 @@
     color: white;
     justify-content: center;
     align-items: center;
-    font-size: 2.2rem;
+    font-size: 2rem;
     border: 0.2rem solid;
     border-radius: 2rem;
     padding: 0.7rem 1.2rem;
@@ -54,11 +54,5 @@
     &:active {
         transform: translateY(-0.1rem);
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
-    }
-}
-
-@media (min-width: 900px) {
-    .custom-button {
-        font-size: 2rem;
     }
 }
