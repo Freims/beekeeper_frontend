@@ -81,14 +81,14 @@ export function logoutUser(removeCurrentUser, removeCurrentClasses) {
   sessionStorage.removeItem("currentClasses");
 }
 
-export async function fetchSchedule(dbId, setSchedule) {
+export async function fetchSchedule(dbId, setSchedule, role) {
   let scheduleInStorage = await JSON.parse(sessionStorage.getItem("schedule"));
 
   if (scheduleInStorage) {
     setSchedule(scheduleInStorage);
   } else {
     fetch(
-      `https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/GetStudentSchedule/${dbId}`
+      `https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/Get${role}Schedule/${dbId}`
     )
       .then(res => res.json())
       .then(response => {
