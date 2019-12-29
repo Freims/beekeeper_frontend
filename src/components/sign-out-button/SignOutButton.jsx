@@ -7,7 +7,7 @@ import { removeCurrentClasses } from '../../redux/classes/classes-actions'
 import { connect } from 'react-redux'
 
 import { NavLink } from 'react-router-dom'
-import { logoutUser } from '../../utils/response-handler'
+import { logoutUser } from '../../utils/fetch-handler'
 
 const SignOutButton = ({ removeCurrentUser, removeCurrentClasses, ...props }) => {
   const logout = () => {

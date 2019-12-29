@@ -14,8 +14,8 @@ export function mapClassToRow(intecClass) {
 
 export function mapUser(user) {
     let currentUser = {
-        id: user.intecStudentId,
-        dbId: user.studentId,
+        id: user.intecUserId,
+        dbId: user.userId,
         name: user.firstName + " " + user.lastName,
         program: user.career.name,
         img: user.userUrlPhoto,

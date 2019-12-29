@@ -5,7 +5,7 @@ import { ReactComponent as Logo } from '../../assets/svgs/beekeeper_logo.svg'
 import CustomButton from '../custom-button/CustomButton'
 import IconInput from '../icon-input/IconInput'
 import { faUser, faKey } from '@fortawesome/free-solid-svg-icons'
-import { handleLoginResponse } from '../../utils/response-handler'
+import { handleLoginResponse } from '../../utils/fetch-handler'
 
 import Loading from '../loading/Loading'
 

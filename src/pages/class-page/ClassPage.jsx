@@ -12,7 +12,7 @@ import { faCopy } from '@fortawesome/free-solid-svg-icons'
 
 import { useParams } from 'react-router-dom'
 import generateColor from '../../utils/color-from-string'
-import { fetchClassDetails } from '../../utils/response-handler'
+import { fetchClassDetails } from '../../utils/fetch-handler'
 import ExcuseModal from '../../components/excuse-modal/ExcuseModal'
 import { connectionError } from '../../utils/notifications'
 
