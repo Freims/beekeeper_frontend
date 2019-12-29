@@ -24,21 +24,20 @@ const ClassPage = ({ currentClasses }) => {
   const [createExcuse, setCreateExcuse] = useState(false)
   const [loading, setLoading] = useState(true)
 
-  const fetchData = async () => {
-    setLoading(true)
-    let searchedClass = await currentClasses.find(
-      cour => cour.course === courseName
-    )
-    fetchClassDetails(setCurrentClass, searchedClass.sectionId).then(
-      setLoading(false)
-    )
-    setClassHead(searchedClass)
-    setColor(generateColor(`${searchedClass.course}1`))
-  }
-
   useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true)
+      let searchedClass = await currentClasses.find(
+        cour => cour.course === courseName
+      )
+      fetchClassDetails(setCurrentClass, searchedClass.sectionId).then(
+        setLoading(false)
+      )
+      setClassHead(searchedClass)
+      setColor(generateColor(`${searchedClass.course}1`))
+    }
     fetchData()
-  }, [])
+  }, [currentClasses, courseName])
 
   return (
     <div className='class-page'>
