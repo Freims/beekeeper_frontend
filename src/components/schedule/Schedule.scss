@@ -1,4 +1,6 @@
 @import "./src/assets/styles/colors";
+@import '../../assets/styles/mixins';
+
 .schedule {
     max-width: 95%;
     font-size: 1rem;
@@ -34,7 +36,7 @@
     }
 }
 
-@media (min-width: 1025px) {
+@include respond(desktop) {
     .schedule {
         overflow: hidden;
         flex-grow: 1;
@@ -69,7 +71,7 @@
     }
 }
 
-@media (max-width: 900px) {
+@include respond(tab-port) {
     .schedule {
         font-size: 1.4rem;
         th {

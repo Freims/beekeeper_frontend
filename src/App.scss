@@ -11,7 +11,7 @@ html {
 	font-size: 62.5% !important;
 	scroll-behavior: smooth;
 	@include respond(tab-land) {
-		font-size: 70% !important;
+		font-size: 100% !important;
 	}
 	@include respond(tab-port) {
 		font-size: 75% !important;
@@ -21,6 +21,9 @@ html {
 	}
 	@include respond(small-phone) {
 		font-size: 50% !important;
+	}
+	@include respond(desktop) {
+		font-size: 48.5% !important;
 	}
 	@include respond(big-desktop) {
 		font-size: 62.5% !important;

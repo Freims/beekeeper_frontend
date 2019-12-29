@@ -1,4 +1,6 @@
 @import '../../assets/styles/animations';
+@import './src/assets/styles/mixins';
+
 .modal {
     animation: appearOutOfNowhere 300ms;
     display: flex;
@@ -22,7 +24,7 @@
     }
 }
 
-@media (min-width: 1025px) {
+@include respond(desktop) {
     .modal {
         animation: appearOutOfNowhere 300ms;
         position: fixed;

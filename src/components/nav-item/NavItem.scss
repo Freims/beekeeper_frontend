@@ -1,4 +1,6 @@
 @import '../../assets/styles/colors';
+@import './src/assets/styles/mixins';
+
 .nav-item-container {
     height: 3rem;
     display: block;
@@ -19,7 +21,7 @@
     }
 }
 
-@media only screen and (max-width: 1024px) {
+@include respond(tab-land) {
     .nav-item-container {
         font-size: 2.5rem;
         width: 100%;

@@ -1,3 +1,5 @@
+@import './src/assets/styles/mixins';
+
 .login-card {
     margin-top: 5%;
     position: relative;
@@ -14,7 +16,7 @@
         position: absolute;
         z-index: 10;
     }
-    @media only screen and (max-width: 1024px) {
+    @include respond(tab-land) {
         background-color: transparent;
         border: none;
         box-shadow: none;
@@ -26,13 +28,11 @@
     min-width: 22rem;
     max-width: 42rem;
     margin-top: -30%;
-    @media only screen and (max-width: 1024px) {
+    @include respond(tab-land) {
         background-color: transparent;
         border: none;
         box-shadow: none;
         margin: 5% 0;
-    }
-    @media only screen and (max-width: 1300px) {
         width: 20vh;
     }
 }
@@ -63,7 +63,7 @@
         margin-left: 50%;
         transform: translate(-50%, -7rem) scale(1.1);
     }
-    @media only screen and (max-width: 1024px) {
+    @include respond(tab-land) {
         &-last {
             display: inline-block;
             margin-bottom: 0rem;

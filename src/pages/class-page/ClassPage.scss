@@ -1,5 +1,6 @@
 @import './src/assets/styles/colors';
 @import '../../assets/styles/animations';
+@import '../../assets/styles/mixins';
 .class-page {
     animation: appearOutOfNowhere 500ms;
     margin: 1rem;
@@ -87,7 +88,7 @@
     }
 }
 
-@media (min-width: 1025px) {
+@include respond(tab-land) {
     .class-page {
         animation: appearOutOfNowhere 500ms;
         margin: 1.4rem;
@@ -188,7 +189,7 @@
     }
 }
 
-@media (min-width: 900px) {
+@include respond(tab-port) {
     .class-notification-container {
         width: 50%;
     }

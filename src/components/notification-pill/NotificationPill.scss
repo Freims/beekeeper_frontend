@@ -1,4 +1,6 @@
 @import './src/assets/styles/colors';
+@import './src/assets/styles/mixins';
+
 .notification-pill {
     box-sizing: border-box;
     font-size: 2rem;
@@ -40,7 +42,7 @@
     flex-flow: column;
     align-items: center;
     font-size: 1.5rem;
-    @media (min-width: 1025px) {
+    @include respond(desktop) {
         font-size: 2rem;
     }
     height: 100%;
@@ -49,7 +51,7 @@
         flex-direction: row-reverse;
         justify-content: space-between;
         width: 95%;
-        @media (min-width: 1025px) {
+        @include respond(desktop) {
             flex-direction: row;
             width: 80%;
         }

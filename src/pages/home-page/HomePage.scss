@@ -1,5 +1,7 @@
 @import "../../assets/styles/animations";
 @import "./src/assets/styles/colors";
+@import "./src/assets/styles/mixins";
+
 .home-page {
     animation: appearOutOfNowhere 500ms;
     height: 100%;
@@ -83,7 +85,7 @@
     width: 100%;
 }
 
-@media only screen and (max-width: 1024px) {
+@include respond(tab-land) {
     .home-page {
         flex-direction: column;
         justify-content: space-evenly;
@@ -135,7 +137,7 @@
     }
 }
 
-@media (max-width: 900px) {
+@include respond(tab-port) {
     .home-page-mobile {
         .details-container {
             max-width: 90%;

@@ -17,7 +17,7 @@ export function mapUser(user) {
         id: user.intecUserId,
         dbId: user.userId,
         name: user.firstName + " " + user.lastName,
-        program: user.career.name,
+        program: user.careerName,
         img: user.userUrlPhoto,
         role: user.rol
     }

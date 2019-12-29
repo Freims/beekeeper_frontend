@@ -1,4 +1,6 @@
 @import '../../assets/styles/animations';
+@import './src/assets/styles/mixins';
+
 .layout {
     animation: appearOutOfNowhere 500ms;
     display: flex;
@@ -13,7 +15,7 @@
     }
 }
 
-@media only screen and (max-width: 1024px) {
+@include respond(tab-land) {
     .layout {
         #web {
             display: none;

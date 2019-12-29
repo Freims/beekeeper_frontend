@@ -1,3 +1,5 @@
+@import '../../assets/styles/mixins';
+
 .user-details {
     display: flex;
     flex-direction: column;
@@ -27,7 +29,7 @@
     }
 }
 
-@media only screen and (max-width: 1024px) {
+@include respond(tab-land) {
     .user-details {
         display: flex;
         justify-content: center;
@@ -38,8 +40,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 4.2em;
-            width: 4.2em;
+            height: 5.2em;
+            width: 5.2em;
             margin-right: 1em;
         }
         .info {

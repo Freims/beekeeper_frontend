@@ -1,5 +1,7 @@
 @import '../../assets/styles/animations';
 @import './src/assets/styles/colors';
+@import '../../assets/styles/mixins';
+
 .classes-page {
     animation: appearOutOfNowhere 300ms;
     transition: all 0.3s;
@@ -10,7 +12,8 @@
     .class-container {
         box-sizing: border-box;
         display: flex;
-        flex-flow: column;
+        justify-content: center;
+        flex-flow: row wrap;
         align-items: center;
         overflow-y: auto;
         height: 100%;
@@ -20,12 +23,12 @@
         background-color: white;
         width: 95%;
         .class-component {
-            width: 80%;
+            justify-content: center;
         }
     }
 }
 
-@media (min-width: 1025px) {
+@include respond(tab-land) {
     .classes-page {
         animation: appearOutOfNowhere 500ms;
         transition: all 0.3s;
@@ -42,14 +45,13 @@
             background-color: white;
             width: 95%;
             .class-component {
-                width: auto;
                 margin: 1.5rem;
             }
         }
     }
 }
 
-@media (max-width: 900px) {
+@include respond(tab-port)  {
     .classes-page {
         animation: appearOutOfNowhere 500ms;
         transition: all 0.3s;
@@ -58,15 +60,16 @@
         .class-container {
             overflow-y: auto;
             display: flex;
-            flex-flow: column wrap;
-            justify-content: flex-start;
+            flex-flow: row wrap;
+            justify-content: center;
             height: 100%;
+            max-height: 85vh;
             border-radius: 2rem;
             border: solid 1px $color-grey-borders;
             background-color: white;
             width: 95%;
             .class-component {
-                width: auto;
+                justify-content: center;
             }
         }
     }

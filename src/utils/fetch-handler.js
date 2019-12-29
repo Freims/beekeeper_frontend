@@ -1,5 +1,6 @@
 import { mapUser } from "./data-mapping";
 import { invalidCredentials, connectionError } from "./notifications";
+import { getUrl, urlTypes } from "./url-resolver";
 
 export function handleLoginResponse(
   response,
@@ -48,7 +49,7 @@ export async function fetchClasses(userDbId, setCurrentClasses) {
     return;
   } else {
     fetch(
-      `https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/GetStudentAbsencesNoticesPerCourse/${userDbId}`
+      getUrl(urlTypes.classes) + userDbId
     )
       .then(res => res.json())
       .then(response => {
@@ -88,7 +89,7 @@ export async function fetchSchedule(dbId, setSchedule) {
     setSchedule(scheduleInStorage);
   } else {
     fetch(
-      `https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/GetStudentSchedule/${dbId}`
+      getUrl(urlTypes.schedule) + dbId
     )
       .then(res => res.json())
       .then(response => {
@@ -121,7 +122,7 @@ export async function fetchTodaySummary(dbId, setTodaySummaryList) {
     setTodaySummaryList(todaySummaryInStorage);
   } else {
     fetch(
-      `https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/GetTodayStudentSchedule/${dbId}`
+      getUrl(urlTypes.todaySummary) + dbId
     )
       .then(res => res.json())
       .then(response => {
@@ -150,7 +151,7 @@ export async function fetchTodaySummary(dbId, setTodaySummaryList) {
 
 export async function fetchClassDetails(setCurrentClass, courseId) {
   fetch(
-    `https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/GetNoticesBySection/${courseId}`
+    getUrl(urlTypes.classDetail) + courseId
   )
     .then(res => res.json())
     .then(response => {
