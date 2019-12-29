@@ -29,7 +29,7 @@ export const connectionError = () => {
         animationIn: ['animated', 'bounceIn'],
         animationOut: ['animated', 'bounceOut'],
         dismiss: {
-            duration: 400000000,
+            duration: 4000,
             onScreen: true
         }
     })
