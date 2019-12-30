@@ -82,7 +82,7 @@ export function logoutUser(removeCurrentUser, removeCurrentClasses) {
   sessionStorage.removeItem("currentClasses");
 }
 
-export async function fetchSchedule(dbId, setSchedule, role) {
+export async function fetchSchedule(dbId, setSchedule) {
   let scheduleInStorage = await JSON.parse(sessionStorage.getItem("schedule"));
 
   if (scheduleInStorage) {

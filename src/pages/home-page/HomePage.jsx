@@ -15,9 +15,9 @@ const HomePage = ({ currentUser, setCurrentClasses }) => {
   const [todaySummaryList, setTodaySummaryList] = useState(undefined);
 
   useEffect(() => {
-    fetchSchedule(currentUser.dbId, setSchedule, currentUser.role);
-    fetchTodaySummary(currentUser.dbId, setTodaySummaryList);
     fetchClasses(currentUser.dbId, setCurrentClasses);
+    fetchSchedule(currentUser.dbId, setSchedule);
+    fetchTodaySummary(currentUser.dbId, setTodaySummaryList);
   }, [currentUser, setCurrentClasses]);
 
 return (

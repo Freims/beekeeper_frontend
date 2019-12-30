@@ -9,7 +9,7 @@ const studentUrls = {
 }
 
 const professorUrls = {
-    classes: "https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/GetStudentAbsencesNoticesPerCourse/",
+    classes: "https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/GetProfessorAbsencesNoticesPerCourse/",
     schedule: "https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/GetProfessorSchedule/",
     todaySummary: "https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/GetTodayProfessorSchedule/",
     classDetail: "https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/GetNoticesBySection/"

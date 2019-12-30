@@ -1,19 +1,22 @@
 @import '../../assets/styles/colors';
+@import '../../assets/styles/mixins';
 .circle-avatar {
-    display: block;
-    max-width: 100%;
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: $color-grey;
-    border-radius: 100%;
-    border: 0.15rem solid $color-grey-dark;
-    box-shadow: 0 0 0.5rem 0.3rem rgba(0, 0, 0, 0.2);
-    transition: all .3s;
-    &:hover {
-        transform: scale(1.1);
-    }
+	display: block;
+	max-width: 100%;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: $color-grey;
+	border-radius: 100%;
+	border: 0.15rem solid $color-grey-dark;
+	@include respond(desktop) {
+		box-shadow: 0 0 0.5rem 0.3rem rgba(0, 0, 0, 0.2);
+	}
+	transition: all 0.3s;
+	&:hover {
+		transform: scale(1.1);
+	}
 }
