@@ -169,3 +169,24 @@ export async function fetchClassDetails(setCurrentClass, courseId) {
       setCurrentClass({});
     });
 }
+
+export async function fetchStudents(sectionId, date, setData){
+  fetch(
+    getUrl(urlTypes.getStudents) + sectionId + "/" + date
+  )
+    .then(res => res.json())
+    .then(response => {
+      if (response.success) {
+        if (response.resultData) {
+          setData(response.resultData);
+        }
+      } else {
+        connectionError();
+        throw new Error("Connection error");
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      setData({});
+    });
+}

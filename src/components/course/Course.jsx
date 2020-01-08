@@ -4,12 +4,14 @@ import { NavLink, useRouteMatch } from 'react-router-dom'
 
 import generateColor from '../../utils/color-from-string'
 import calculateFontColor from '../../utils/font-color-calculator'
+import { connect } from "react-redux";
 
-const Course = ({ data }) => {
+const Course = ({ data, currentUser }) => {
   const { course, absences, notices } = data
   let { path } = useRouteMatch()
   let color = generateColor(`${course}1`)
   let fontColor = calculateFontColor(color);
+  let isProfessor = currentUser.role === "Professor"
 
   return (
     <div className='intec-class-component '>
@@ -19,11 +21,11 @@ const Course = ({ data }) => {
         </div>
         <div className='info'>
           <div className='text-around'>
-            <span>Ausencias</span>
+            <span>{isProfessor ? 'Asistencias' :  'Ausencias'}</span>
             <span>{absences}</span>
           </div>
           <div className='text-around'>
-            <span>Avisos</span>
+            <span>{isProfessor ? 'Excusas' :  'Avisos'}</span>
             <span>{notices}</span>
           </div>
         </div>
@@ -31,4 +33,8 @@ const Course = ({ data }) => {
     </div>
   )
 }
-export default Course
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser
+});
+
+export default connect(mapStateToProps)(Course);

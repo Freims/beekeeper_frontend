@@ -10,6 +10,7 @@ import Loading from '../loading/Loading'
 
 import { connect } from 'react-redux'
 import { setCurrentUser } from '../../redux/user/user-actions'
+import { url } from '../../utils/url/url-resolver'
 
 const LoginCard = ({ setCurrentUser, loginSuccess }) => {
   const [userCredentials, setUserCredentials] = useState({
@@ -35,7 +36,7 @@ const LoginCard = ({ setCurrentUser, loginSuccess }) => {
     setLoading(true)
     try {
       let response = await fetch(
-        `https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackend.azurewebsites.net/Login/${id}/${password}`,
+        `${url}Login/${id}/${password}`,
         {
           method: 'POST',
           headers: {
