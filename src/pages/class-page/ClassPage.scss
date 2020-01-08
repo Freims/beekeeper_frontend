@@ -88,7 +88,7 @@
     }
 }
 
-@include respond(tab-land) {
+@include respond(desktop) {
     .class-page {
         animation: appearOutOfNowhere 500ms;
         margin: 1.4rem;

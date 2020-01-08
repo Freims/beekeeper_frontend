@@ -5,7 +5,7 @@ import Modal from "../modal/Modal";
 import CustomButton from "../custom-button/CustomButton";
 import { connectionError, successfulExcuse } from "../../utils/notifications";
 import { connect } from "react-redux";
-import { createExcuse } from "../../utils/post-utils";
+import { createExcuse } from "../../utils/url/post-handler";
 import Loading from "../loading/Loading";
 
 const ExcuseModal = ({ visible, setVisible, color, currentUser, id }) => {

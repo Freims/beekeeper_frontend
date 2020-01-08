@@ -10,7 +10,7 @@ import HomePage from "./pages/home-page/HomePage";
 import ClassesPage from "./pages/classes-page/ClassesPage";
 import ClassPage from "./pages/class-page/ClassPage";
 import { setCurrentUser } from "./redux/user/user-actions";
-import { fetchUserSession } from "./utils/fetch-handler";
+import { fetchUserSession } from "./utils/url/fetch-handler";
 import ProtectedRoute from "./components/protected-route/ProtectedRoute";
 
 const App = ({ setCurrentUser, currentUser }) => {

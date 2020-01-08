@@ -12,17 +12,24 @@ import { faCopy } from '@fortawesome/free-solid-svg-icons'
 
 import { useParams } from 'react-router-dom'
 import generateColor from '../../utils/color-from-string'
-import { fetchClassDetails } from '../../utils/fetch-handler'
+import { fetchClassDetails } from '../../utils/url/fetch-handler'
 import ExcuseModal from '../../components/excuse-modal/ExcuseModal'
 import { connectionError } from '../../utils/notifications'
+import { sendAssistanceCode } from '../../utils/url/post-handler'
 
-const ClassPage = ({ currentClasses }) => {
+const ClassPage = ({ currentClasses, currentUser }) => {
   const { courseName } = useParams()
   const [currentClass, setCurrentClass] = useState({ noticesList: [] })
   const [classHead, setClassHead] = useState({})
   const [color, setColor] = useState('white')
   const [createExcuse, setCreateExcuse] = useState(false)
   const [loading, setLoading] = useState(true)
+  const [token, setToken] = useState()
+
+  const handleChange = event => {
+    const { value } = event.target
+    setToken(value)
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -83,14 +90,28 @@ const ClassPage = ({ currentClasses }) => {
           <span>Asistencia</span>
           <div className='class-divider' />
           <div className='class-code-container'>
-            <IconInput maxLength={6} icon={faCopy} />
+            <IconInput
+              spellCheck='false'
+              maxLength={6}
+              required
+              minLength={6}
+              onChange={handleChange}
+              icon={faCopy}
+              pattern='[A-Za-z0-9]{1,20}'
+            />
           </div>
           <div className='class-buttons'>
             <CustomButton
               color={color}
               width='auto'
               text='Enviar código'
-              onClick={connectionError}
+              onClick={() =>
+                sendAssistanceCode(
+                  currentClass.sectionId,
+                  currentUser.dbId,
+                  token
+                )
+              }
             />
             <CustomButton
               color={color}
@@ -113,8 +134,9 @@ const ClassPage = ({ currentClasses }) => {
   )
 }
 
-const mapStateToProps = ({ classes }) => ({
-  currentClasses: classes.currentClasses
+const mapStateToProps = ({ classes, user }) => ({
+  currentClasses: classes.currentClasses,
+  currentUser: user.currentUser
 })
 
 export default connect(mapStateToProps)(ClassPage)

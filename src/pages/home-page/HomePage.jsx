@@ -8,7 +8,7 @@ import getToday from "../../utils/spanish-date";
 import { setCurrentClasses } from "../../redux/classes/classes-actions";
 
 import { connect } from "react-redux";
-import { fetchSchedule, fetchTodaySummary, fetchClasses } from "../../utils/fetch-handler";
+import { fetchSchedule, fetchTodaySummary, fetchClasses } from "../../utils/url/fetch-handler";
 
 const HomePage = ({ currentUser, setCurrentClasses }) => {
   const [schedule, setSchedule] = useState(undefined);

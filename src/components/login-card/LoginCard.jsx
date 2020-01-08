@@ -5,7 +5,7 @@ import { ReactComponent as Logo } from '../../assets/svgs/beekeeper_logo.svg'
 import CustomButton from '../custom-button/CustomButton'
 import IconInput from '../icon-input/IconInput'
 import { faUser, faKey } from '@fortawesome/free-solid-svg-icons'
-import { handleLoginResponse } from '../../utils/fetch-handler'
+import { handleLoginResponse } from '../../utils/url/fetch-handler'
 
 import Loading from '../loading/Loading'
 
@@ -23,9 +23,8 @@ const LoginCard = ({ setCurrentUser, loginSuccess }) => {
 
   const handleSubmit = async event => {
     event.preventDefault()
-    await doLogin().then(response =>
+     let response = await  doLogin()
       handleLoginResponse(response, setCurrentUser, loginSuccess, setInvalidCredentials, setLoading)
-    )
   }
 
   const handleChange = event => {
@@ -37,7 +36,7 @@ const LoginCard = ({ setCurrentUser, loginSuccess }) => {
     setLoading(true)
     try {
       let response = await fetch(
-        `https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackendservice.azurewebsites.net/Login/${id}/${password}`,
+        `https://cors-anywhere.herokuapp.com/https://beekeeperrestapibackend.azurewebsites.net/Login/${id}/${password}`,
         {
           method: 'POST',
           headers: {

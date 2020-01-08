@@ -1,5 +1,5 @@
-import { mapUser } from "./data-mapping";
-import { invalidCredentials, connectionError } from "./notifications";
+import { mapUser } from "../data-mapping";
+import { invalidCredentials, connectionError } from "../notifications";
 import { getUrl, urlTypes } from "./url-resolver";
 
 export function handleLoginResponse(
