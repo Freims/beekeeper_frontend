@@ -12,11 +12,14 @@ import ClassPage from "./pages/class-page/ClassPage";
 import { setCurrentUser } from "./redux/user/user-actions";
 import { fetchUserSession } from "./utils/url/fetch-handler";
 import ProtectedRoute from "./components/protected-route/ProtectedRoute";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = ({ setCurrentUser, currentUser }) => {
 
   useEffect(() => {
     fetchUserSession(setCurrentUser)
+    toast.configure()
   }, [setCurrentUser])
 
   return (
@@ -32,6 +35,7 @@ const App = ({ setCurrentUser, currentUser }) => {
           <Test pepe={"esto funciona freims!!!"} />
         </ProtectedRoute>
       </Layout>
+      <ToastContainer autoClose={5000}/>
     </Switch >
   )
 }

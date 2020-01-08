@@ -3,7 +3,7 @@ import "./ExcuseModal.scss";
 
 import Modal from "../modal/Modal";
 import CustomButton from "../custom-button/CustomButton";
-import { connectionError, successfulExcuse } from "../../utils/notifications";
+import { connectionError, successfulExcuse } from "../../utils/notifications/notifications";
 import { connect } from "react-redux";
 import { createExcuse } from "../../utils/url/post-handler";
 import Loading from "../loading/Loading";

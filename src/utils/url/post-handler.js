@@ -1,4 +1,5 @@
 import { getUrl, urlTypes } from "./url-resolver";
+import { success, error } from "../notifications/notifications";
 
 export async function createExcuse(studentId, sectionId, title, description) {
   let date = new Date();
@@ -42,8 +43,8 @@ export async function createExcuse(studentId, sectionId, title, description) {
 
 export async function sendAssistanceCode(sectionId, studentId, token) {
 
-  let url = getUrl(urlTypes.validateToken) + sectionId + "/" + studentId + "/" + token;
-
+  let url = getUrl(urlTypes.validateToken) + studentId + "/" + sectionId + "/" + token;
+  console.log(url)
   return fetch(url, {
     method: 'POST',
     headers: {
@@ -55,10 +56,12 @@ export async function sendAssistanceCode(sectionId, studentId, token) {
     .then(res => res.json())
     .then(response => {
       if (response) {
-        console.log("TOKEN VALIDATED", response);
+        console.log("TOKEN RESPONSE", response);
         if (response.success) {
+          success(response.message)
           return true;
         } else {
+          error(response.message)
           return false;
         }
       }

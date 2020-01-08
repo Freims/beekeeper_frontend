@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './LoginCard.scss'
-import ReactNotification from 'react-notifications-component'
 import { ReactComponent as Logo } from '../../assets/svgs/beekeeper_logo.svg'
 import CustomButton from '../custom-button/CustomButton'
 import IconInput from '../icon-input/IconInput'
@@ -94,7 +93,6 @@ const LoginCard = ({ setCurrentUser, loginSuccess }) => {
         </div>
         <CustomButton login type='submit' text='ACCEDER' width='65%' />
       </form>
-      <ReactNotification />
     </div>
   )
 }

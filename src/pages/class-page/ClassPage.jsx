@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import './ClassPage.scss'
 
-import ReactNotification from 'react-notifications-component'
 import StyledFraction from '../../components/styled-fraction/StyledFraction'
 import NotificationPill from '../../components/notification-pill/NotificationPill'
 import IconInput from '../../components/icon-input/IconInput'
@@ -14,7 +13,6 @@ import { useParams } from 'react-router-dom'
 import generateColor from '../../utils/color-from-string'
 import { fetchClassDetails } from '../../utils/url/fetch-handler'
 import ExcuseModal from '../../components/excuse-modal/ExcuseModal'
-import { connectionError } from '../../utils/notifications'
 import { sendAssistanceCode } from '../../utils/url/post-handler'
 
 const ClassPage = ({ currentClasses, currentUser }) => {
@@ -92,9 +90,9 @@ const ClassPage = ({ currentClasses, currentUser }) => {
           <div className='class-code-container'>
             <IconInput
               spellCheck='false'
-              maxLength={6}
+              maxLength={10}
               required
-              minLength={6}
+              minLength={10}
               onChange={handleChange}
               icon={faCopy}
               pattern='[A-Za-z0-9]{1,20}'
@@ -128,7 +126,6 @@ const ClassPage = ({ currentClasses, currentUser }) => {
           </div>
         </div>
         <Loading visible={loading} />
-        <ReactNotification />
       </div>
     </div>
   )
