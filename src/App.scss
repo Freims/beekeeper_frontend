@@ -1,46 +1,57 @@
-@import '../src/assets/styles/mixins';
+@import "../src/assets/styles/mixins";
 .App > div {
-	height: 100%;
+  height: 100%;
 }
 
 .App-logo {
-	height: 40vmin;
+  height: 40vmin;
 }
 
 html {
-	font-size: 62.5% !important;
-	scroll-behavior: smooth;
-	@include respond(tab-land) {
-		font-size: 100% !important;
-	}
-	@include respond(tab-port) {
-		font-size: 75% !important;
-	}
-	@include respond(phone) {
-		font-size: 65% !important;
-	}
-	@include respond(small-phone) {
-		font-size: 50% !important;
-	}
-	@include respond(desktop) {
-		font-size: 48.5% !important;
-	}
-	@include respond(big-desktop) {
-		font-size: 62.5% !important;
-	}
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+
+  @include respond(big-desktop) {
+    //112.5em
+    font-size: 62.5%;
+  }
+  @include respond(desktop) {
+    //75em
+    font-size: 60%;
+  }
+  @include respond(tab-land) {
+    //75em
+    font-size: 70%;
+  }
+  @include respond(big-tab-port) {
+    //64em
+    font-size: 100%;
+  }
+  @include respond(tab-port) {
+    //56.25em
+    font-size: 70%;
+  }
+  @include respond(phone) {
+    //37.5em
+    font-size: 55%;
+  }
+  @include respond(small-phone) {
+    //22.5em
+    font-size: 50%;
+  }
 }
 
 .App-header {
-	background-color: #282c34;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-size: calc(10px + 2vmin);
-	color: white;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 .App-link {
-	color: #09d3ac;
+  color: #09d3ac;
 }

@@ -42,6 +42,7 @@
 	max-width: 100%;
 	box-sizing: border-box;
 	padding: 0.5rem 1rem;
+
 }
 
 .home-page-web {
@@ -84,6 +85,7 @@
 	height: 20;
 	width: 100%;
 }
+
 
 @include respond(tab-land) {
 	.home-page {
@@ -134,13 +136,40 @@
 		box-sizing: border-box;
 		padding: 0.5rem 1rem;
 		min-width: 80%;
+		box-shadow: 0 0 0;
+	}
+}
+
+@include respond(small-phone){
+	.home-page-mobile {
+		overflow-y: auto;
+		.details-container {
+			min-width: 100%;
+			box-shadow: 0 0 0;
+		}
+	}
+	.for-today-container{
+		min-width: 100%;
+	}
+}
+@include respond(phone){
+	.home-page-mobile {
+		overflow-y: auto;
+		.details-container {
+			min-width: 100%;
+			box-shadow: 0 0 0;
+		}
+	}
+	.for-today-container{
+		min-width: 100%;
 	}
 }
 
 @include respond(tab-port) {
 	.home-page-mobile {
+		overflow-y: auto;
 		.details-container {
-			max-width: 90%;
+			max-width: 80%;
 			box-shadow: 0 0 0;
 		}
 	}
@@ -157,6 +186,7 @@
 		max-width: 100%;
 		box-sizing: border-box;
 		padding: 0.5rem 1rem;
-		min-width: 90%;
 	}
 }
+
+

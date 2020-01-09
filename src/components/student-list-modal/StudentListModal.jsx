@@ -7,14 +7,20 @@ import { connect } from "react-redux";
 import { fetchStudents } from "../../utils/url/fetch-handler";
 
 const StudentListModal = ({ visible, setVisible, color, currentUser, id }) => {
+  let todayDate = new Date().toISOString().substr(0, 10);
   let today = new Date();
   today =
     today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
-
   const [students, setStudents] = useState();
 
-  useEffect(() => {
+  const getStudents = async (event) => {
+    console.log(event.target.value)
+    let date = event.target.value;
+    setStudents(null)
+    await fetchStudents(id, date, setStudents)
+  }
 
+  useEffect(() => {
     async function getStudents() {
       if (visible) await fetchStudents(id, today, setStudents);
     }
@@ -30,7 +36,8 @@ const StudentListModal = ({ visible, setVisible, color, currentUser, id }) => {
               <input
                 className="student-list-datepicker"
                 type="date"
-                defaultValue={today}
+                defaultValue={todayDate}
+                onChange={getStudents}
               />
               <table className="student-list">
                 <thead>
@@ -41,7 +48,7 @@ const StudentListModal = ({ visible, setVisible, color, currentUser, id }) => {
                     <th>Excusa</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="student-list-body">
                   {students
                     ? students.map(student => (
                         <tr>
@@ -52,13 +59,20 @@ const StudentListModal = ({ visible, setVisible, color, currentUser, id }) => {
                           ) : (
                             <td>X</td>
                           )}
-                          {student.hasExcuse === "N" ? 
-                          <td>-</td>:
-                          <CustomButton color={color} text="Ver" width="auto"/>
-                            }
+                          {student.hasExcuse === "N" ? (
+                            <td>-</td>
+                          ) : (
+                            <td>
+                              <CustomButton
+                                color={color}
+                                text="Ver"
+                                width="auto"
+                              />
+                            </td>
+                          )}
                         </tr>
                       ))
-                    : "Cargando..."}
+                    : <td colSpan="4" height="150px">Cargando...</td>}
                 </tbody>
               </table>
             </div>

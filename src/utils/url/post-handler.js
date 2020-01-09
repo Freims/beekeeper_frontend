@@ -78,7 +78,7 @@ export async function generateToken(sectionId, timespan) {
       if (response) {
         console.log("GENERATE TOKEN RESPONSE", response);
         if (response.success) {
-          return response.resultData.tokenkey;
+          return response.resultData.tokenKey;
         } else {
           error(response.message);
           return "";

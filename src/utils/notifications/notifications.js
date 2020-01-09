@@ -14,6 +14,11 @@ export const successfulExcuse = () => (
     toast.success('Tu excusa ha sido enviada satisfactoriamente.', { bodyClassName: "grow-font-size" })
 )
 
+export const successfulNotice= () => (
+    toast.success('Tu aviso ha sido enviado satisfactoriamente.', { bodyClassName: "grow-font-size" })
+)
+
+
 export const warn = (text) => toast.warn(text, { bodyClassName: "grow-font-size" });
 export const success = (text) => toast.success(text, { bodyClassName: "grow-font-size" });
 export const error = (text) => toast.error(text, { bodyClassName: "grow-font-size" });

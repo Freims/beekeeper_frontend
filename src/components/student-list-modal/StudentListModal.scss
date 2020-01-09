@@ -1,93 +1,10 @@
 @import "./src/assets/styles/mixins";
 @import "./src/assets/styles/colors";
 
-.excuse-container {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  font-size: 2.4rem;
-  @include respond(desktop) {
-    font-size: 2.8rem;
-  }
-  height: 100%;
-  .excuse-content-header {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    width: 95%;
-    height: 2.8rem;
-    @include respond(desktop) {
-      flex-direction: row;
-      width: 80%;
-    }
-    input {
-      border: none;
-      overflow: auto;
-      outline: none;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none;
-      box-shadow: none;
-    }
-    .excuse-title {
-      display: block;
-      width: 90%;
-      font-family: "BAHNSCHRIFT";
-      font-size: 1.8rem;
-      @include respond(desktop) {
-        padding-left: 1.4rem;
-        width: 100%;
-      }
-    }
-  }
-  .horizontal-line {
-    margin: auto;
-    height: 0.3rem;
-    width: 90%;
-    background-color: gray;
-  }
-  .excuse-content-body {
-    padding-top: 2.8rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    .excuse-body {
-      box-sizing: border-box;
-      font-family: "BAHNSCHRIFT";
-      font-size: 1.8rem;
-      padding: 1.4rem;
-      border: 0.1rem lightgray solid;
-      border-radius: 1rem;
-      text-align: left;
-      min-height: 21rem;
-      width: 80%;
-    }
-    .send-excuse {
-      display: flex;
-      justify-content: space-evenly;
-      flex-direction: row;
-      padding-top: 1.4rem;
-      width: 100%;
-      @include respond(desktop) {
-        width: 40%;
-      }
-    }
-    textarea {
-      border: none;
-      overflow: auto;
-      outline: none;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none;
-      box-shadow: none;
-      max-width: 100%;
-      min-width: 50%;
-      max-height: 50rem;
-    }
-  }
-}
+
 
 .student-list {
+  margin-top: 1rem;
   width: 100%;
   font-size: 2rem;
   text-align: center;
@@ -98,7 +15,7 @@
   border: 0.1rem solid $color-grey-borders;
   box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.025);
   border-collapse: collapse;
-  
+
   td {
     word-wrap: break-word;
     padding: 4px 2px;
@@ -110,11 +27,20 @@
   .header-row {
     background-color: $primary-color;
   }
- 
+
+  .margin-center {
+    margin: 0 auto;
+  }
+
   &-container {
+  position: relative;
     min-height: 50vh;
+    max-height: 80vh;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
+  }
+  &-body{
   }
   &-datepicker {
     align-self: flex-end;
@@ -123,5 +49,30 @@
     font-size: 1.8rem;
     padding: 1rem 0;
     direction: rtl;
+    outline: none;
+    margin-right: 1rem;
+    letter-spacing: 0.2rem;
+    &::-webkit-datetime-edit {
+      padding: 0em;
+    }
+    &::-webkit-datetime-edit-text {
+      color:  $primary-color-dark;
+      padding: 0 0.3em;
+    }
+    &::-webkit-inner-spin-button {
+      display: none;
+    }
+    &::-webkit-calendar-picker-indicator {
+      color: $primary-color-dark;
+    }
+    &::-webkit-clear-button{
+      display: none;
+    }
+  }
+
+  &-loading{
+    display: block;
+    justify-content: center;
+    align-items: center;
   }
 }

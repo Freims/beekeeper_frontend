@@ -1,0 +1,89 @@
+@import './src/assets/styles/mixins';
+
+.create-notice-container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    font-size: 2.4rem;
+    @include respond(desktop) {
+        font-size: 2.8rem;
+    }
+    height: 100%;
+    .create-notice-content-header {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        width: 95%;
+        height: 2.8rem;
+         @include respond(desktop) {
+            flex-direction: row;
+            width: 80%;
+        }
+        input {
+            border: none;
+            overflow: auto;
+            outline: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+        }
+        .create-notice-title {
+            display: block;
+            width: 90%;
+            font-family: "BAHNSCHRIFT";
+            font-size: 1.8rem;
+            @include respond(desktop) {
+                padding-left: 1.4rem;
+                width: 100%;
+
+            }
+        }
+    }
+    .horizontal-line {
+        margin: auto;
+        height: 0.3rem;
+        width: 90%;
+        background-color: gray;
+    }
+    .create-notice-content-body {
+        padding-top: 2.8rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        .create-notice-body {
+            box-sizing: border-box;
+            font-family: "BAHNSCHRIFT";
+            font-size: 1.8rem;
+            padding: 1.4rem;
+            border: 0.1rem lightgray solid;
+            border-radius: 1rem;
+            text-align: left;
+            min-height: 21rem;
+            width: 80%;
+        }
+        .send-notice {
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: row;
+            padding-top: 1.4rem;
+            width: 100%;
+            @include respond(desktop) {
+             width: 40%;
+
+            }
+        }
+        textarea {
+            border: none;
+            overflow: auto;
+            outline: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+            max-width: 100%;
+            min-width: 50%;
+            max-height: 50rem;
+        }
+    }
+}

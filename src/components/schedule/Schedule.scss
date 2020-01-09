@@ -25,7 +25,7 @@
     }
     td {
         word-wrap: break-word;
-        padding: 4px 2px;
+        padding: 0.4rem 0.2rem;
         font-size: 0.9em;
         border: none;
         background-color: white;
@@ -35,6 +35,9 @@
         background-color: $primary-color;
     }
 }
+
+
+@include respond(phone) {}
 
 @include respond(desktop) {
     .schedule {
@@ -82,6 +85,63 @@
             &::first-letter {
                 font-size: 1.6rem;
             }
+        }
+    }
+}
+
+@include respond(big-tab-port) {
+    .schedule {
+        font-size: 1.6rem;
+        th {
+            font-size: 1.7rem;
+        }
+        th:not(:first-child) {
+            font-size: 2.1;
+            &::first-letter {
+                font-size: 1.7rem;
+            }
+        }
+        td{
+            padding: 1rem 0.6rem;
+        }
+    }
+}
+
+@include respond(phone) {
+    .schedule {
+        font-size: 0.7rem;
+        th {
+            font-size: 1.4rem;
+            padding: 0.5em 0.2em;
+        }
+        th:not(:first-child) {
+            font-size: 0;
+            &::first-letter {
+                font-size: 1.4rem;
+            }
+        }
+        td{
+            font-size: 1.3rem;
+            padding: 0.4rem 0.4rem;
+        }
+    }
+}
+@include respond(small-phone) {
+    .schedule {
+        font-size: 0.6rem;
+        th {
+            font-size: 1.2rem;
+            padding: 0.5em 0.2em;
+        }
+        th:not(:first-child) {
+            font-size: 0;
+            &::first-letter {
+                font-size: 1.2rem;
+            }
+        }
+        td{
+            font-size: 1.1rem;
+            padding: 0.2rem 0.5rem;
         }
     }
 }

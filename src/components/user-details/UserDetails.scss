@@ -68,3 +68,43 @@
         }
     }
 }
+
+@include respond(big-tab-port) {
+    .user-details {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        font-size: 2.2rem;
+        .circle-avatar-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 5.2em;
+            width: 5.2em;
+            margin-right: 1em;
+        }
+        .info {
+            max-width: 50%;
+            display: flex;
+            flex-flow: column;
+            margin-left: 0.3em;
+            .name {
+                font-weight: 700;
+                font-size: 0.8em;
+                margin: 1rem 0;
+            }
+            .id {
+                font-size: 0.8em;
+                display: inline;
+                font-weight: lighter;
+            }
+            .program {
+                font-weight: lighter;
+                font-size: 0.8em;
+                margin-bottom: 1rem;
+            }
+            hyphens: auto;
+        }
+    }
+}

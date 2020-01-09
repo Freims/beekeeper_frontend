@@ -36,8 +36,10 @@ const ClassPage = ({ currentClasses, currentUser }) => {
   };
 
   const generateNewToken = async () => {
+    setLoading(true)
     let token = await generateToken(classHead.sectionId, "00:30:00");
     setToken(token);
+    setLoading(false)
   };
 
   const handleSubmit = async event => {
@@ -72,7 +74,7 @@ const ClassPage = ({ currentClasses, currentUser }) => {
       <div className="class-page-content">
         <div className="class-content">
           <div className="class-item">
-            <span>Ausencias</span>
+            <span className="class-item-subtitle">Ausencias</span>
             <div className="class-divider" />
             {isProfessor ? (
               <div className="class-absence">
@@ -96,7 +98,7 @@ const ClassPage = ({ currentClasses, currentUser }) => {
             )}
           </div>
           <div className="class-item">
-            <span>Avisos</span>
+            <span className="class-item-subtitle">Avisos</span>
             <div className="class-divider" />
             <div className="class-notification-container">
               {currentClass.noticesList ? (
@@ -125,7 +127,7 @@ const ClassPage = ({ currentClasses, currentUser }) => {
         {isProfessor ? (
           <div className="class-content">
             <div className="class-item">
-              <span>Asistencia Manual</span>
+              <span className="class-item-subtitle">Asistencia Manual</span>
               <div className="class-divider" />
               <div className="class-absence">
                 <CustomButton
@@ -141,7 +143,7 @@ const ClassPage = ({ currentClasses, currentUser }) => {
               </div>
             </div>
             <div className="class-item">
-              <span>Código de Asistencia</span>
+              <span className="class-item-subtitle">Código de Asistencia</span>
               <div className="class-divider" />
               <div className="class-absence">
                 <IconInput icon={faCopy} value={token || ""} disabled />
@@ -162,8 +164,8 @@ const ClassPage = ({ currentClasses, currentUser }) => {
           </div>
         ) : (
           <React.Fragment>
-            <div className="single-class-item">
-              <span>Asistencia</span>
+            <form className="single-class-item" onSubmit={handleSubmit}>
+              <span className="class-item-subtitle">Asistencia</span>
               <div className="class-divider" />
               <div className="class-code-container">
                 <IconInput
@@ -181,13 +183,7 @@ const ClassPage = ({ currentClasses, currentUser }) => {
                   color={color}
                   width="auto"
                   text="Enviar código"
-                  onClick={() =>
-                    sendAssistanceCode(
-                      currentClass.sectionId,
-                      currentUser.dbId,
-                      token
-                    )
-                  }
+                  type="submit"
                 />
                 <CustomButton
                   color={color}
@@ -202,7 +198,7 @@ const ClassPage = ({ currentClasses, currentUser }) => {
                   id={classHead.sectionId}
                 />
               </div>
-            </div>
+            </form>
           </React.Fragment>
         )}
         <Loading visible={loading} />

@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from "react";
 import "./NotificationPill.scss";
 
-// import { faPlus } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExpandArrowsAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CustomButton from "../custom-button/CustomButton";
 
 import { LightenDarkenColor } from "lighten-darken-color";
@@ -28,9 +28,9 @@ const NotificationPill = ({ notification, color = "#FECD1C" }) => {
         >
           {createdDate}
         </span>
-        {/* <span className="view-more">
-          <FontAwesomeIcon icon={faPlus} />
-        </span> */}
+        <span className="view-more">
+          <FontAwesomeIcon icon={faExpandArrowsAlt} />
+        </span>
       </div>
       <Modal visible={visible} setVisible={setVisible}>
         {closeModal => (

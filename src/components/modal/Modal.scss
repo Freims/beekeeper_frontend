@@ -1,54 +1,55 @@
-@import '../../assets/styles/animations';
-@import './src/assets/styles/mixins';
+@import "../../assets/styles/animations";
+@import "./src/assets/styles/mixins";
 
 .modal {
+  animation: appearOutOfNowhere 300ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0.2);
+  .modal-content {
+    border-radius: 2rem;
+    background-color: #fefefe;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid rgba(136, 136, 136, 0.25);
+    width: 80%;
+  }
+}
+
+@include respond(desktop) {
+  .modal {
     animation: appearOutOfNowhere 300ms;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: fixed;
-    z-index: 1;
+    justify-content: center;
+    z-index: 5;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow-y: scroll;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.3);
     .modal-content {
-        border-radius: 2rem;
-        background-color: #fefefe;
-        /* 15% from the top and centered */
-        padding: 20px;
-        border: 1px solid rgba(136, 136, 136, 0.25);
-        width: 80%;
-    }
-}
+      border-radius: 2rem;
+      background-color: #fefefe;
+      margin: 15% auto;
+      /* 15% from the top and centered */
+      padding: 2rem 1rem;
+      border: 1px solid rgba(136, 136, 136, 0.25);
+      width: 60%;
+      max-width: 100rem;
 
-@include respond(desktop) {
-    .modal {
-        animation: appearOutOfNowhere 300ms;
-        position: fixed;
-        justify-content: center;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow-y: scroll;
-        background-color: rgba(0, 0, 0, 0.3);
-        .modal-content {
-            border-radius: 2rem;
-            background-color: #fefefe;
-            margin: 15% auto;
-            /* 15% from the top and centered */
-            padding: 2rem 1rem;
-            border: 1px solid rgba(136, 136, 136, 0.25);
-            width: 60%;
-            max-width: 100rem;
-        }
     }
+  }
 }
 
 .goOut {
-    animation: goToNowhere 300ms;
+  animation: goToNowhere 300ms;
 }
