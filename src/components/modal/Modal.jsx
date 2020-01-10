@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./Modal.scss";
 
-const Modal = ({ visible, setVisible, children }) => {
+const Modal = ({ visible, setVisible, children, width = "60%" }) => {
   useEffect(() => {}, [visible]);
 
   const [exiting, setExiting] = useState(false);
-  
+
   const closeModal = () => {
     setExiting(true);
   };
@@ -25,8 +25,12 @@ const Modal = ({ visible, setVisible, children }) => {
         onAnimationEnd={closeModalForReal}
         onClick={closeModal}
       >
-        <div onClick={e => e.stopPropagation()} className="modal-content">
-          {children(closeModal)}
+        <div
+          onClick={e => e.stopPropagation()}
+          className="modal-content"
+          style={(width = { width })}
+        >
+          {children && children(closeModal)}
         </div>
       </div>
     )

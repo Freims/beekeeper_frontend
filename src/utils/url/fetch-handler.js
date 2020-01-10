@@ -95,7 +95,7 @@ export async function fetchSchedule(dbId, setSchedule) {
       .then(response => {
         console.log(response);
         if (response.resultData) {
-          console.log(response.resultData.courseList);
+          console.log("FETCHED SCHEDULE", response.resultData);
           setSchedule(response.resultData.courseList);
           sessionStorage.setItem(
             "schedule",

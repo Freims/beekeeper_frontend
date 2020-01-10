@@ -15,7 +15,7 @@
     }
 }
 
-@include respond(tab-land) {
+@include respond(tab-port) {
     .layout {
         #web {
             display: none;

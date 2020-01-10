@@ -3,8 +3,7 @@ import './Test.scss'
 import TodaySummary from '../today-summary/TodaySummary'
 import StyledFraction from '../styled-fraction/StyledFraction'
 import NotificationPill from '../notification-pill/NotificationPill'
-import Modal from '../modal/Modal'
-import { invalidCredentials } from '../../utils/notifications/notifications'
+import ProfessorAbsenceModal from '../professor-absence-modal/ProfessorAbsenceModal'
 const Test = ({ pepe }) => {
   const [visible, setVisible] = useState(false)
   let pp = {
@@ -16,16 +15,13 @@ const Test = ({ pepe }) => {
       'asuntos familiares, espero que lo puedan entender.'
   }
 
-  const notify = () => {
-    invalidCredentials()
-  }
   return (
     <div className='test'>
       <TodaySummary />
       <StyledFraction color={'indianred'} numerator={4} denominator={5} />
       <NotificationPill notification={pp} />
-      <Modal visible={visible} setVisible={setVisible} />
-      <button onClick={notify} > KLKLKLK</button>
+      <button onClick={() => setVisible(true)} > KLKLKLK</button>
+      <ProfessorAbsenceModal visible={visible} setVisible={setVisible}/>
     </div>
   )
 }

@@ -18,6 +18,8 @@ import {
   generateToken
 } from "../../utils/url/post-handler";
 import StudentListModal from "../../components/student-list-modal/StudentListModal";
+import CreateNoticeModal from "../../components/create-notice-modal/CreateNoticeModal";
+import ProfessorAbsenceModal from "../../components/professor-absence-modal/ProfessorAbsenceModal";
 
 const ClassPage = ({ currentClasses, currentUser }) => {
   const { courseName } = useParams();
@@ -25,9 +27,11 @@ const ClassPage = ({ currentClasses, currentUser }) => {
   const [classHead, setClassHead] = useState({});
   const [color, setColor] = useState("white");
   const [createExcuse, setCreateExcuse] = useState(false);
+  const [absence, setAbsence] = useState(false);
+  const [createNotice, setCreateNotice] = useState(false);
   const [studentListModal, setStudentListModal] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState("");
   let isProfessor = currentUser.role === "Professor";
 
   const handleChange = event => {
@@ -36,10 +40,10 @@ const ClassPage = ({ currentClasses, currentUser }) => {
   };
 
   const generateNewToken = async () => {
-    setLoading(true)
+    setLoading(true);
     let token = await generateToken(classHead.sectionId, "00:30:00");
     setToken(token);
-    setLoading(false)
+    setLoading(false);
   };
 
   const handleSubmit = async event => {
@@ -82,6 +86,7 @@ const ClassPage = ({ currentClasses, currentUser }) => {
                   color={color}
                   width="auto"
                   text="Notificar Ausencia"
+                  onClick={() => setAbsence(true)}
                 />
                 <CustomButton
                   color={color}
@@ -120,7 +125,12 @@ const ClassPage = ({ currentClasses, currentUser }) => {
               )}
             </div>
             {isProfessor ? (
-              <CustomButton color={color} width="auto" text="Crear Aviso" />
+              <CustomButton
+                color={color}
+                width="auto"
+                text="Crear Aviso"
+                onClick={() => setCreateNotice(true)}
+              />
             ) : null}
           </div>
         </div>
@@ -158,6 +168,18 @@ const ClassPage = ({ currentClasses, currentUser }) => {
             <StudentListModal
               visible={studentListModal}
               setVisible={setStudentListModal}
+              color={color}
+              id={classHead.sectionId}
+            />
+            <CreateNoticeModal
+              visible={createNotice}
+              setVisible={setCreateNotice}
+              color={color}
+              id={classHead.sectionId}
+            />
+            <ProfessorAbsenceModal
+              visible={absence}
+              setVisible={setAbsence}
               color={color}
               id={classHead.sectionId}
             />

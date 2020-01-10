@@ -1,110 +1,80 @@
-@import '../../assets/styles/mixins';
+@import "../../assets/styles/mixins";
 
 .user-details {
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  @include respond(big-tab-port) {
+    font-size: 1.8rem;
+  }
+
+  .circle-avatar-container {
+    height: 8.5em;
+    width: 8.5em;
+    margin: 1rem 0;
+  }
+  @include respond(big-tab-port) {
+    .name,
+    .id,
+    .program {
+      text-align: center;
+    }
+  }
+  .info {
+    .name {
+      font-weight: 700;
+      font-size: 1em;
+      margin: 1rem 0;
+    }
+    .id {
+      font-weight: lighter;
+      font-size: 1.2em;
+      margin-bottom: 1rem;
+    }
+    .program {
+      font-weight: lighter;
+      font-size: 1em;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+@include respond(tab-port) {
+  .user-details {
     display: flex;
-    flex-direction: column;
-    font-size: 2rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    font-size: 2.2rem;
     .circle-avatar-container {
-        height: 8.5em;
-        width: 8.5em;
-        margin: 1rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 5.2em;
+      width: 5.2em;
+      margin-right: 1em;
     }
     .info {
-        .name {
-            font-weight: 700;
-            font-size: 1em;
-            margin: 1rem 0;
-        }
-        .id {
-            font-weight: lighter;
-            font-size: 1.2em;
-            margin-bottom: 1rem;
-        }
-        .program {
-            display: inline-block;
-            font-weight: lighter;
-            font-size: 1em;
-            margin-bottom: 1rem;
-        }
+      max-width: 50%;
+      display: flex;
+      flex-flow: column;
+      margin-left: 0.3em;
+      .name {
+        font-weight: 700;
+        font-size: 0.8em;
+        margin: 1rem 0;
+      }
+      .id {
+        font-size: 0.8em;
+        display: inline;
+        font-weight: lighter;
+      }
+      .program {
+        font-weight: lighter;
+        font-size: 0.8em;
+        margin-bottom: 1rem;
+      }
+      hyphens: auto;
     }
-}
-
-@include respond(tab-land) {
-    .user-details {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        font-size: 2.2rem;
-        .circle-avatar-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 5.2em;
-            width: 5.2em;
-            margin-right: 1em;
-        }
-        .info {
-            max-width: 50%;
-            display: flex;
-            flex-flow: column;
-            margin-left: 0.3em;
-            .name {
-                font-weight: 700;
-                font-size: 0.8em;
-                margin: 1rem 0;
-            }
-            .id {
-                font-size: 0.8em;
-                display: inline;
-                font-weight: lighter;
-            }
-            .program {
-                font-weight: lighter;
-                font-size: 0.8em;
-                margin-bottom: 1rem;
-            }
-            hyphens: auto;
-        }
-    }
-}
-
-@include respond(big-tab-port) {
-    .user-details {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        font-size: 2.2rem;
-        .circle-avatar-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 5.2em;
-            width: 5.2em;
-            margin-right: 1em;
-        }
-        .info {
-            max-width: 50%;
-            display: flex;
-            flex-flow: column;
-            margin-left: 0.3em;
-            .name {
-                font-weight: 700;
-                font-size: 0.8em;
-                margin: 1rem 0;
-            }
-            .id {
-                font-size: 0.8em;
-                display: inline;
-                font-weight: lighter;
-            }
-            .program {
-                font-weight: lighter;
-                font-size: 0.8em;
-                margin-bottom: 1rem;
-            }
-            hyphens: auto;
-        }
-    }
+  }
 }

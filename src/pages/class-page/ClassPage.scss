@@ -1,6 +1,7 @@
 @import "./src/assets/styles/colors";
 @import "../../assets/styles/animations";
 @import "../../assets/styles/mixins";
+
 .class-page {
   animation: appearOutOfNowhere 500ms;
   margin: 1rem;
@@ -12,6 +13,10 @@
   border-radius: 2rem;
   border: solid 0.1rem $color-grey-borders;
   background-color: white;
+  @include respond(big-tab-port) {
+    box-shadow: none;
+    overflow: visible;
+  }
   box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.15);
 
   .class-page-content {
@@ -19,11 +24,18 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    @include respond(big-tab-port) {
+      justify-content: space-evenly;
+      margin-top: -6rem;
+    }
   }
 
   .class-title {
     display: flex;
     justify-content: center;
+    @include respond(big-tab-port) {
+      transform: translateY(-2rem);
+    }
     .title {
       text-align: center;
       font-weight: bold;
@@ -33,15 +45,24 @@
   }
   .class-item {
     width: 100%;
+    @include respond(big-tab-port) {
+     width: 50%;
+    }
     margin-top: 0.8rem;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    &-subtitle{
-        font-size: 2rem;
-      }
+    &-subtitle {
+      font-size: 2rem;
+    }
   }
+
+  @include respond(big-tab-port) {
+    .class-content{
+      display: flex;
+    }
+   }
   .single-class-item {
     margin-top: 0.8rem;
     display: flex;
@@ -94,7 +115,7 @@
   }
   .class-absence {
     display: flex;
-    height: 13rem;
+    height: 14rem;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
@@ -126,7 +147,6 @@
         font-size: 2.5rem;
         transform: translateY(-3rem);
       }
-
     }
 
     .class-page-content {
@@ -146,8 +166,8 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        &-subtitle{
-          font-size: 2rem;
+        &-subtitle {
+          font-size: 2.25rem;
         }
       }
       .single-class-item {
@@ -158,7 +178,7 @@
       }
       .class-divider {
         margin: 0.5rem 0;
-        height: 0.1rem;
+        height: 1px;
         width: 70%;
         background-color: $color-grey-borders;
       }

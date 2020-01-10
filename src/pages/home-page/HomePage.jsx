@@ -11,8 +11,8 @@ import { connect } from "react-redux";
 import { fetchSchedule, fetchTodaySummary, fetchClasses } from "../../utils/url/fetch-handler";
 
 const HomePage = ({ currentUser, setCurrentClasses }) => {
-  const [schedule, setSchedule] = useState(undefined);
-  const [todaySummaryList, setTodaySummaryList] = useState(undefined);
+  const [schedule, setSchedule] = useState();
+  const [todaySummaryList, setTodaySummaryList] = useState();
 
   useEffect(() => {
     fetchClasses(currentUser.dbId, setCurrentClasses);
@@ -24,7 +24,7 @@ return (
     <div className="home-page">
       <div className="home-page-web">
         <Schedule data={schedule} />
-        <div>
+        <div className="today-is-container">
           <span className="today-is">{getToday()}</span>
           <div className="for-today">
             <TodaySummary data={todaySummaryList} />

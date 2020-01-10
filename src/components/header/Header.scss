@@ -1,35 +1,47 @@
-@import './src/assets/styles/colors';
-@import './src/assets/styles/mixins';
+@import "./src/assets/styles/colors";
+@import "./src/assets/styles/mixins";
 .logo {
-    height: 5.5rem;
-    margin-top: 0.4rem;
+  height: 5.5rem;
+  margin-top: 0.4rem;
 }
 
 .header-container {
-    position: relative;
-    background-color: $primary-color;
-    box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.15);
+  position: relative;
+  background-color: $primary-color;
+  box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .header {
-    width: 80%;
-    margin: 0 auto;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .header-content {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
-@include respond(tab-land){
-    .logo {
-        height: 4.2rem;
-    }
-    .header-content {
-        justify-content: center;
-    }
-    #sign-out {
-        display: none;
-    }
+@include respond(tab-land) {
+  .logo {
+    height: 4.2rem;
+  }
+  .header-content {
+    justify-content: center;
+  }
+  #sign-out {
+    display: none;
+  }
+}
+
+@include respond(big-tab-port) {
+  .logo {
+    height: 4.8rem;
+  }
+  .header-content {
+    justify-content: space-between;
+  }
+  #sign-out {
+    display: flex;
+  }
 }

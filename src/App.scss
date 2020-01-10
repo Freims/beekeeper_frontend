@@ -25,7 +25,7 @@ html {
   }
   @include respond(big-tab-port) {
     //64em
-    font-size: 100%;
+    font-size: 70%;
   }
   @include respond(tab-port) {
     //56.25em

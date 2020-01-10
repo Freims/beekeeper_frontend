@@ -54,7 +54,7 @@ const CreateNoticeModal = ({ visible, setVisible, color, currentUser, id }) => {
                   maxLength="55"
                   minLength="5"
                   type="text"
-                  placeholder="Título"
+                  placeholder="Título del aviso"
                   required
                 />
               </div>
@@ -64,7 +64,7 @@ const CreateNoticeModal = ({ visible, setVisible, color, currentUser, id }) => {
                   onChange={handleChange}
                   name="body"
                   className="create-notice-body"
-                  placeholder="Describe el aviso aquí."
+                  placeholder="Describe el aviso aquí"
                   minLength="10"
                   maxLength="255"
                   required
