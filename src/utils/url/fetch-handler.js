@@ -158,6 +158,7 @@ export async function fetchClassDetails(setCurrentClass, courseId) {
       if (response.success) {
         if (response.resultData) {
           setCurrentClass(response.resultData);
+          console.log(response.resultData)
         }
       } else {
         connectionError();
@@ -170,9 +171,30 @@ export async function fetchClassDetails(setCurrentClass, courseId) {
     });
 }
 
-export async function fetchStudents(sectionId, date, setData){
+export async function fetchStudents(sectionId, date, setData) {
   fetch(
     getUrl(urlTypes.getStudents) + sectionId + "/" + date
+  )
+    .then(res => res.json())
+    .then(response => {
+      if (response.success) {
+        if (response.resultData) {
+          setData(response.resultData);
+        }
+      } else {
+        connectionError();
+        throw new Error("Connection error");
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      setData({});
+    });
+}
+
+export async function fetchExcuse(sectionId, studentId, date, setData) {
+  fetch(
+    getUrl(urlTypes.getExcuse) + studentId + "/" + sectionId + "/" + date
   )
     .then(res => res.json())
     .then(response => {

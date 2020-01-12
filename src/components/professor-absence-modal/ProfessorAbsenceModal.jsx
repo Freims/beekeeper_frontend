@@ -6,7 +6,7 @@ import Modal from "../modal/Modal";
 import CustomButton from "../custom-button/CustomButton";
 import { success, error } from "../../utils/notifications/notifications";
 import { connect } from "react-redux";
-import { createExcuse } from "../../utils/url/post-handler";
+import { createNotice } from "../../utils/url/post-handler";
 import Loading from "../loading/Loading";
 
 const ProfessorAbsenceModal = ({
@@ -30,7 +30,7 @@ const ProfessorAbsenceModal = ({
           const sendAbsence = async event => {
             event.preventDefault();
             setLoading(true);
-            let successR = await createExcuse(
+            let successR = await createNotice(
               currentUser.dbId,
               id,
               "Notificación de Ausencia",

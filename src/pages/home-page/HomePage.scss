@@ -51,14 +51,13 @@
 	justify-content: space-evenly;
 	align-items: center;
 	height: 100%;
-	width: 95%;
+	width: 100%;
 }
 
 .for-today {
 	display: flex;
 	flex: 1;
 	flex-flow: column;
-	justify-content: space-evenly;
 	align-items: center;
 	padding: 2rem;
 	min-height: 6rem;

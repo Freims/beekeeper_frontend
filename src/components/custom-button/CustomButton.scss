@@ -8,7 +8,7 @@
     font-size: 2rem;
     border-radius: 2rem;
     padding: 1rem 0.6rem;
-    border: 0.3rem solid black;
+    border: 3px solid black;
     transition: all 0.3s;
     -moz-user-select: none;
     -khtml-user-select: none;
@@ -31,19 +31,22 @@
     box-sizing: border-box;
     font-family: "BAHNSCHRIFT";
     font-weight: lighter;
-    display: flex;
     color: white;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    vertical-align: middle;
     font-size: 2rem;
-    border: 0.2rem solid;
+    border: 2px solid;
     border-radius: 2rem;
     padding: 0.7rem 1.2rem;
+    margin: 1px;
     transition: all 0.3s;
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
     backface-visibility: hidden;
+
+
+
     &:hover,
     &:focus {
         outline: none;
@@ -55,4 +58,11 @@
         transform: translateY(-0.1rem);
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
     }
+    &:disabled:hover{
+        outline: none;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+    }
+
 }

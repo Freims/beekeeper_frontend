@@ -1,241 +1,282 @@
-@import "./src/assets/styles/colors";
-@import "../../assets/styles/animations";
-@import "../../assets/styles/mixins";
+@import './src/assets/styles/colors';
+@import '../../assets/styles/animations';
+@import '../../assets/styles/mixins';
 
 .class-page {
-  animation: appearOutOfNowhere 500ms;
-  margin: 1rem;
-  box-sizing: border-box;
-  height: 95%;
-  overflow-y: scroll;
-  display: flex;
-  flex-flow: column;
-  border-radius: 2rem;
-  border: solid 0.1rem $color-grey-borders;
-  background-color: white;
-  @include respond(big-tab-port) {
-    box-shadow: none;
-    overflow: visible;
-  }
-  box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.15);
+	animation: appearOutOfNowhere 500ms;
+	margin: 1rem;
+	box-sizing: border-box;
+	height: 95%;
+	overflow-y: scroll;
+	display: flex;
+	flex-flow: column;
+	border-radius: 2rem;
+	border: solid 1px $color-grey-borders;
+	background-color: white;
+	box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.15);
 
-  .class-page-content {
-    margin: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    @include respond(big-tab-port) {
-      justify-content: space-evenly;
-      margin-top: -6rem;
-    }
-  }
+	@media only screen and (min-width: 64em) and (max-height: 85.375em) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5) {
+		border: solid 1px $color-grey-borders;
+		box-shadow: none;
+	}
+	.create-notice-button{
+		margin-top: 1rem;
+		padding: 0.5rem;
+	}
+	.class-page-content {
+		height: 100%;
+		display: flex;
+		@include respond(small-phone) {
+			justify-content: flex-start;
+		}
+		flex-direction: column;
+	}
 
-  .class-title {
-    display: flex;
-    justify-content: center;
-    @include respond(big-tab-port) {
-      transform: translateY(-2rem);
-    }
-    .title {
-      text-align: center;
-      font-weight: bold;
-      padding: 1rem;
-      font-size: 2rem;
-    }
-  }
-  .class-item {
-    width: 100%;
-    @include respond(big-tab-port) {
-     width: 50%;
-    }
-    margin-top: 0.8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    &-subtitle {
-      font-size: 2rem;
-    }
-  }
+	.class-title {
+		display: flex;
+		justify-content: center;
 
-  @include respond(big-tab-port) {
-    .class-content{
-      display: flex;
-    }
-   }
-  .single-class-item {
-    margin-top: 0.8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  .class-divider {
-    margin: 0.5rem 0;
-    height: 1px;
-    width: 70%;
-    background-color: $color-grey-borders;
-  }
-  .class-notification-container {
-    min-width: 30%;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    max-height: 14rem;
-    padding: 0 1rem;
-    overflow-y: auto;
+		.title {
+			text-align: center;
+			font-weight: bold;
+			padding: 2rem 0.5rem 10px 0.5rem;
+			font-size: 2rem;
+		}
+	}
+	.class-item {
+		width: 100%;
+		margin-top: 1.5rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		&-subtitle {
+			font-size: 2rem;
+		}
+		&-token-counter {
+			margin-top: 5px;
+			width: 100%;
+			font-size: 3rem;
+			letter-spacing: 1.2rem;
+			color: dimgrey;
+		}
+		&-token-generate {
+			display: flex;
+			align-items: center;
+		}
+		&-token-input {
+			$char-w: 1ch;
+			$gap: 0.5 * $char-w;
+			$n-char: 6;
+			$in-w: $n-char * ($char-w + $gap);
+			display: block;
+			margin: 0;
+			border: none;
+			padding: 0;
+			width: $in-w;
+			background: repeating-linear-gradient(
+					90deg,
+					dimgrey 0,
+					dimgrey $char-w,
+					transparent 0,
+					transparent $char-w + $gap
+				)
+				0 100% / #{$in-w - $gap} 2px no-repeat;
+			font: 3ch droid sans mono, consolas, monospace;
+			letter-spacing: $gap;
+			@include respond(tab-land) {
+				$char-w: 1ch;
+				font-size: 7ch;
+			}
+			@include respond(tab-port) {
+				$char-w: 1ch;
+				font-size: 6.5ch;
+			}
+			@include respond(phone) {
+				$char-w: 1ch;
+				font-size: 6ch;
+			}
+			@include respond(small-phone) {
+				$char-w: 1ch;
+				font-size: 5ch;
+			}
+		}
+	}
 
-    .notification-individual-container {
-      padding: 0.5rem 0;
-    }
-  }
-  .class-code-container {
-    width: 60%;
-    max-width: 30rem;
-    input {
-      padding-left: 1em;
-      letter-spacing: 2rem;
-      text-align: center;
-      font-size: 2rem;
-    }
-  }
-  .class-buttons {
-    margin-top: 1.2rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 90%;
-  }
-  .class-no-notices {
-    display: inline-block;
-    text-align: center;
-    font-size: 2rem;
-    min-height: 8rem;
-    margin: 2rem 0;
-  }
-  .class-absence {
-    display: flex;
-    height: 14rem;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-  }
+	.single-class-item {
+		margin-top: 0.8rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+	.class-divider {
+		margin: 0.5rem 0;
+		height: 1px;
+		width: 70%;
+		background-color: $color-grey-borders;
+	}
+	.class-notification-container {
+		min-width: 30%;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		max-height: 15rem;
+		padding: 0 1rem;
+		overflow-y: auto;
+
+		.notification-individual-container {
+			padding: 0.5rem 0;
+		}
+	}
+	.class-code-container {
+		width: 60%;
+		max-width: 30rem;
+		input {
+			padding-left: 1em;
+			letter-spacing: 2rem;
+			text-align: center;
+			font-size: 2rem;
+		}
+	}
+	.class-buttons {
+		margin-top: 1.2rem;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		width: 90%;
+	}
+	.class-no-notices {
+		display: inline-block;
+		text-align: center;
+		font-size: 2rem;
+		min-height: 8rem;
+		margin: 2rem 0;
+	}
+	.class-absence {
+		display: flex;
+		height: 16rem;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+	}
 }
 
 @include respond(desktop) {
-  .class-page {
-    animation: appearOutOfNowhere 500ms;
-    margin: 1.4rem;
-    box-sizing: border-box;
-    font-size: 2.5rem;
-    height: 95%;
-    display: flex;
-    flex-flow: column;
-    border-radius: 2rem;
-    border: solid 0.1rem $color-grey-borders;
-    background-color: white;
-    box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0);
-    overflow: visible;
+	.class-page {
+		animation: appearOutOfNowhere 500ms;
+		margin: 1.4rem;
+		box-sizing: border-box;
+		font-size: 2.5rem;
+		height: 95%;
+		display: flex;
+		flex-flow: column;
+		border-radius: 2rem;
+		border: solid 0.1rem $color-grey-borders;
+		background-color: white;
+		box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0);
+		overflow: visible;
 
-    .class-title {
-      display: flex;
-      justify-content: center;
-      .title {
-        font-weight: bold;
-        padding: 1.4rem 4.5rem;
-        background: white;
-        font-size: 2.5rem;
-        transform: translateY(-3rem);
-      }
-    }
+		.class-title {
+			display: flex;
+			justify-content: center;
+			.title {
+				font-weight: bold;
+				padding: 1.4rem 4.5rem;
+				background: white;
+				font-size: 2.5rem;
+				transform: translateY(-3rem);
+			}
+		}
 
-    .class-page-content {
-      margin-top: -6rem;
-      justify-content: space-evenly;
-    }
+		.class-page-content {
+			margin-top: -6rem;
+			justify-content: space-evenly;
+		}
 
-    .class-content {
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: center;
-      align-items: flex-start;
-      .class-item {
-        width: 50%;
-        margin-top: 0.8rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        &-subtitle {
-          font-size: 2.25rem;
-        }
-      }
-      .single-class-item {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-      }
-      .class-divider {
-        margin: 0.5rem 0;
-        height: 1px;
-        width: 70%;
-        background-color: $color-grey-borders;
-      }
-      .class-notification-container {
-        width: 50%;
-        display: flex;
-        box-sizing: border-box;
-        margin-top: 1.5rem;
-        padding: 0 1rem;
-        flex-direction: column;
-        direction: rtl;
-        max-height: 14rem;
-        overflow: visible;
-        overflow-y: auto;
+		.class-content {
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: center;
+			align-items: flex-start;
+			.class-item {
+				width: 50%;
+				margin-top: 0.8rem;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				&-subtitle {
+					font-size: 2.25rem;
+				}
+			}
+			.single-class-item {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+			}
+			.class-divider {
+				margin: 0.5rem 0;
+				height: 1px;
+				width: 70%;
+				background-color: $color-grey-borders;
+			}
+			.class-notification-container {
+				width: 50%;
+				display: flex;
+				box-sizing: border-box;
+				margin-top: 1.5rem;
+				padding: 0 1rem;
+				flex-direction: column;
+				direction: rtl;
+				max-height: 14.5rem;
+				overflow: visible;
+				overflow-y: auto;
 
-        &::-webkit-scrollbar-track {
-          box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-          border-radius: 10px;
-          background-color: #f5f5f5;
-        }
-        &::-webkit-scrollbar {
-          width: 5px;
-          background-color: #f5f5f5;
-        }
-        &::-webkit-scrollbar-thumb {
-          border-radius: 10px;
-          box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-          background-color: lightgray;
-        }
-        .notification-individual-container {
-          padding: 0.5rem 0;
-        }
-      }
-    }
-    .class-no-notices {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      direction: ltr;
-    }
-    .class-code-container {
-      width: 40%;
-      margin-top: 2rem;
-    }
-    .class-buttons {
-      margin-top: 1.2rem;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      width: 40%;
-    }
-  }
+				&::-webkit-scrollbar-track {
+					box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+					border-radius: 10px;
+					background-color: #f5f5f5;
+				}
+				&::-webkit-scrollbar {
+					width: 5px;
+					background-color: #f5f5f5;
+				}
+				&::-webkit-scrollbar-thumb {
+					border-radius: 10px;
+					box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+					background-color: lightgray;
+				}
+				.notification-individual-container {
+					padding: 0.5rem 0;
+				}
+			}
+		}
+		.class-no-notices {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			direction: ltr;
+		}
+		.class-code-container {
+			width: 40%;
+			margin-top: 2rem;
+		}
+		.class-buttons {
+			padding: 0.5rem 0;
+			margin-top: 1.2rem;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-evenly;
+			width: 40%;
+		}
+	}
 }
 
 @include respond(tab-port) {
-  .class-notification-container {
-    width: 50%;
-    overflow-y: auto;
-  }
+	.class-notification-container {
+		width: 50%;
+		overflow-y: auto;
+	}
 }

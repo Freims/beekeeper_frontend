@@ -1,5 +1,6 @@
 @import "./src/assets/styles/colors";
 @import "./src/assets/styles/mixins";
+
 .logo {
   height: 5.5rem;
   margin-top: 0.4rem;
@@ -36,7 +37,7 @@
 
 @include respond(big-tab-port) {
   .logo {
-    height: 4.8rem;
+    height: 5rem;
   }
   .header-content {
     justify-content: space-between;

@@ -1,3 +1,5 @@
+@import "../../assets/styles/mixins";
+
 .user-nav {
   height: 100%;
   display: flex;
@@ -15,7 +17,10 @@
   flex-flow: column;
   justify-content: flex-start;
   height: 100%;
-
+  @include respond(big-tab-port){
+    justify-content: space-evenly;
+    height: 30rem;
+  }
   & span {
     margin: 3vh 0;
   }

@@ -1,0 +1,71 @@
+@import '../../assets/styles/animations';
+
+.select-duration {
+    &-container {
+        position: relative;
+        margin-right: 2rem;
+        margin-left: -6.5rem;
+        display: inline-block;
+        cursor: pointer;
+        color: rgb(51, 56, 58);
+        font-size: 3rem;
+        font-weight: 600;
+        transition: all 0.2s;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    &-picker{
+        width: 4.5rem;
+        padding: 1rem 0.5rem 0 0.5rem;
+        font-family: "BAHNSCHRIFT";
+        border-radius: 5px;
+        border: 1px solid rgba(224, 224, 224, 0.596);
+        font-size: 2rem;
+        text-align: end;
+        &-label-1{
+            margin-right: 1rem;
+            margin-left: 0.5rem;
+        }
+        &-label-2{
+            margin-left: 0.5rem;
+        }
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0; 
+          }
+    }
+	&-body {
+        display: flex;
+        align-items: flex-end;
+        font-size: 2rem;
+        font-family: "BAHNSCHRIFT";
+		animation: appearDown ease-in 300ms;
+		background-color: white;
+        box-shadow: 0 -2px 15px 5px rgba(216, 212, 212, 0.1);
+        border: 1px solid rgba(224, 224, 224, 0.596);
+		color:  rgb(51, 56, 58);
+		text-align: center;
+		border-radius: 6px;
+        padding: 1rem 1.5rem;
+		position: absolute;
+        z-index: 1;
+        right: -320%;
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 100%;
+			transform: rotate(180deg);
+			left: 50%;
+			margin-left: -5px;
+			border-width: 5px;
+			border-style: solid;
+			border-color: white transparent transparent transparent;
+        }
+  
+	}
+}
+
+.goOutSelect {
+	animation: disappearUp ease-out 300ms;
+}

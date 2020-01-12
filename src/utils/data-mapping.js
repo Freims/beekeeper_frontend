@@ -23,3 +23,10 @@ export function mapUser(user) {
     }
     return currentUser
 }
+
+export function formatDate(date) {
+    let formattedDate = new Date(date);
+    formattedDate = formattedDate.getDate() + ' / ' + (formattedDate.getMonth() + 1) + ' / ' + formattedDate.getFullYear();
+
+    return formattedDate;
+}

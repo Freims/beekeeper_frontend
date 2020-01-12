@@ -1,27 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Test.scss'
-import TodaySummary from '../today-summary/TodaySummary'
-import StyledFraction from '../styled-fraction/StyledFraction'
-import NotificationPill from '../notification-pill/NotificationPill'
-import ProfessorAbsenceModal from '../professor-absence-modal/ProfessorAbsenceModal'
+import Counter from 'react-omni-counter'
+
 const Test = ({ pepe }) => {
-  const [visible, setVisible] = useState(false)
-  let pp = {
-    author: 'Profesor',
-    date: '22/12/2019',
-    msg:
-      'Buenas jóvenes, la verdad es que no podré asistir ' +
-      'a la clase pautada para el 23/12/2019 por unos ' +
-      'asuntos familiares, espero que lo puedan entender.'
-  }
+  let next90Mins = new Date(Date.now() + 5400000)
 
   return (
     <div className='test'>
-      <TodaySummary />
-      <StyledFraction color={'indianred'} numerator={4} denominator={5} />
-      <NotificationPill notification={pp} />
-      <button onClick={() => setVisible(true)} > KLKLKLK</button>
-      <ProfessorAbsenceModal visible={visible} setVisible={setVisible}/>
+      <Counter timeleft={1200} />
+      <Counter to={next90Mins} mode="hh:mm:ss"/>   
     </div>
   )
 }

@@ -3,9 +3,9 @@ import "./CreateNoticeModal.scss";
 
 import Modal from "../modal/Modal";
 import CustomButton from "../custom-button/CustomButton";
-import { connectionError, successfulExcuse } from "../../utils/notifications/notifications";
+import { connectionError, success } from "../../utils/notifications/notifications";
 import { connect } from "react-redux";
-import { createExcuse } from "../../utils/url/post-handler";
+import { createNotice } from "../../utils/url/post-handler";
 import Loading from "../loading/Loading";
 
 const CreateNoticeModal = ({ visible, setVisible, color, currentUser, id }) => {
@@ -30,14 +30,14 @@ const CreateNoticeModal = ({ visible, setVisible, color, currentUser, id }) => {
 
           const sendExcuse = async () => {
             setLoading(true);
-            let success = await createExcuse(
+            let successR = await createNotice(
               currentUser.dbId,
               id,
               notice.title,
               notice.body
             );
-            if (success) {
-              successfulExcuse();
+            if (successR) {
+              success(successR);
               closeModal();
             } else {
               connectionError();

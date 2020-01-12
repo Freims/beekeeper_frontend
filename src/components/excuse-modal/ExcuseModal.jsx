@@ -9,8 +9,9 @@ import { createExcuse } from "../../utils/url/post-handler";
 import Loading from "../loading/Loading";
 
 const ExcuseModal = ({ visible, setVisible, color, currentUser, id }) => {
-  const [excuse, setExcuse] = useState({ title: "", body: "" });
+  const [excuse, setExcuse] = useState({ title: "", body: "", date:""});
   const [loading, setLoading] = useState(false);
+  let todayDate = new Date().toISOString().substr(0, 10)
 
   const handleChange = event => {
     const { value, name } = event.target;
@@ -33,8 +34,7 @@ const ExcuseModal = ({ visible, setVisible, color, currentUser, id }) => {
             let success = await createExcuse(
               currentUser.dbId,
               id,
-              excuse.title,
-              excuse.body
+              excuse
             );
             if (success) {
               successfulExcuse();
@@ -57,6 +57,14 @@ const ExcuseModal = ({ visible, setVisible, color, currentUser, id }) => {
                   placeholder="Título"
                   required
                 />
+                <input
+                className='student-list-datepicker'
+                name="date"
+                type='date'
+                min={todayDate}
+                defaultValue={todayDate}
+                onChange={handleChange}
+              />
               </div>
               <div className="horizontal-line" />
               <div className="excuse-content-body">

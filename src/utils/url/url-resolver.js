@@ -18,7 +18,10 @@ const professorUrls = {
   todaySummary: url + "GetTodayProfessorSchedule/",
   classDetail: url + "GetNoticesBySection/",
   generateToken: url + "GenerateToken/",
-  getStudents: url + "StudentListBySection/"
+  getStudents: url + "StudentListBySection/",
+  createNotice: url + "CreateNotice/",
+  manualAssistance: url + "RegisterManualAssistance/",
+  getExcuse: url + "SeeExcuse/",
 };
 
 export const urlTypes = {
@@ -27,9 +30,12 @@ export const urlTypes = {
   todaySummary: "todaySummary",
   classDetail: "classDetail",
   createExcuse: "createExcuse",
+  createNotice: "createNotice",
   validateToken: "validateToken",
   generateToken: "generateToken",
-  getStudents: "getStudents"
+  getStudents: "getStudents",
+  getExcuse: "getExcuse",
+  manualAssistance: "manualAssistance"
 };
 
 function getUserRole() {
@@ -70,6 +76,12 @@ export function getUrl(type) {
         return professorUrls.generateToken;
       case urlTypes.getStudents:
         return professorUrls.getStudents;
+      case urlTypes.createNotice:
+        return professorUrls.createNotice;
+      case urlTypes.getExcuse:
+        return professorUrls.getExcuse;
+      case urlTypes.manualAssistance:
+        return professorUrls.manualAssistance;
       default:
         return null;
     }
