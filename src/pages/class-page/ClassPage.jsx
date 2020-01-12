@@ -157,9 +157,9 @@ const ClassPage = ({ currentClasses, currentUser }) => {
                   maxLength='6'
                   value={currentClass.tokenKey || token || ''}
                 />
-                {currentClass.tokenKey &&
+                {
                 <div className="class-item-token-counter">
-                  <Counter to={new Date(Date.now() + (currentClass.leftSeconds * 1000))} mode="hh:mm:ss" />
+                  <Counter to={new Date(Date.now() + (160000 * 1000))} mode="hh:mm:ss" />
                 </div>
                 }
                 <div className='class-item-token-generate'>
