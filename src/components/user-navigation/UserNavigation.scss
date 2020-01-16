@@ -5,6 +5,9 @@
   display: flex;
   flex-direction: column;
   margin: 2.5vh 1vw;
+  @include respond(phone){
+    height: auto;
+  }
 }
 
 .user-details-container {
