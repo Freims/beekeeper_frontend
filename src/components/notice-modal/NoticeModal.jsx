@@ -70,7 +70,7 @@ const NoticeModal = ({ visible, setVisible, color, currentUser, id }) => {
                   required
                 />
                 <div className="send-excuse">
-                  <CustomButton value="Adjunto" color={color} width={"auto"} />
+                  {/* <CustomButton value="Adjunto" color={color} width={"auto"} /> */}
                   <CustomButton
                     value="Enviar"
                     color={color}

@@ -155,9 +155,9 @@ const ClassPage = ({ currentClasses, currentUser }) => {
                   className='class-item-token-input'
                   disabled
                   maxLength='6'
-                  value={currentClass.tokenKey || token || ''}
+                  value={ token || currentClass.tokenKey || ''}
                 />
-                {currentClass.tokenKey &&
+                {(token || currentClass.tokenKey) &&
                 <div className="class-item-token-counter">
                   <Counter to={new Date(Date.now() + (currentClass.leftSeconds * 1000))} mode="hh:mm:ss" />
                 </div>
@@ -174,7 +174,7 @@ const ClassPage = ({ currentClasses, currentUser }) => {
                     width='16rem'
                     text='Generar Código'
                     onClick={generateNewToken}
-                    disabled={!!currentClass.tokenKey}
+                    disabled={!!token || !!currentClass.tokenKey }
                   />
                 </div>
               </div>
