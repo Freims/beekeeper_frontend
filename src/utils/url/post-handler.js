@@ -2,17 +2,18 @@ import { getUrl, urlTypes } from "./url-resolver";
 import { success, error } from "../notifications/notifications";
 
 export async function createExcuse(studentId, sectionId, excuse) {
-  let date = new Date();
+  let todayDate = new Date().toISOString().substr(0, 10);
+  
   let data = {
     StudentId: parseInt(studentId),
     SectionId: parseInt(sectionId),
-    CreatedDate: date,
+    CreatedDate: todayDate,
     ExcuseDate: excuse.date,
-    Description: excuse.description,
+    Description: excuse.body,
     Title: excuse.title
   };
-  data = await JSON.stringify(data);
   console.log(data);
+  data = await JSON.stringify(data)
   return fetch(getUrl(urlTypes.createExcuse), {
     method: "POST",
     mode: "cors",
@@ -23,15 +24,14 @@ export async function createExcuse(studentId, sectionId, excuse) {
     },
 
     body: data
-  })
-    .then(res => res.json())
+  }).then(res => res.json())
     .then(response => {
       if (response) {
         console.log("CREATE", response);
         if (response.success) {
-          return true;
+          return response;
         } else {
-          return false;
+          return response;
         }
       }
     });
@@ -48,7 +48,7 @@ export async function sendAssistanceCode(sectionId, studentId, token) {
       "Content-Type": "application/json"
     }
   })
-    .then(res => res.json())
+.then(res => res.json())
     .then(response => {
       if (response) {
         console.log("TOKEN RESPONSE", response);
@@ -142,6 +142,79 @@ export async function manualAssistance(sectionId, studentId) {
         } else {
           error(response.message);
           return false;
+        }
+      }
+    });
+}
+
+export async function acceptExcuse(excuse) {
+  let data = {
+    NoticeSectionId: parseInt(excuse.noticeSectionId),
+    StudentId: parseInt(excuse.studentId),
+    sectionId: parseInt(excuse.sectionId),
+    ExcuseDate: excuse.excuseDate.split("T")[0],
+    Description: excuse.description,
+    Title: excuse.title
+    };
+
+  console.log(data);
+  data = await JSON.stringify(data)
+  return fetch(getUrl(urlTypes.acceptExcuse), {
+    method: "POST",
+    mode: "cors",
+    cache: "no-cache",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json"
+    },
+
+    body: data
+  }).then(res => res.json())
+    .then(response => {
+      if (response) {
+        console.log("ACCEPT", response);
+        if (response.success) {
+          success(response.message)
+          return response;
+        } else {
+          error(response.message)
+          return response;
+        }
+      }
+    });
+}
+export async function declineExcuse(excuse) {
+  let data = {
+    NoticeSectionId: parseInt(excuse.noticeSectionId),
+    StudentId: parseInt(excuse.studentId),
+    sectionId: parseInt(excuse.sectionId),
+    ExcuseDate: excuse.excuseDate.split("T")[0],
+    Description: excuse.description,
+    Title: excuse.title
+    };
+
+  console.log(data);
+  data = await JSON.stringify(data)
+  return fetch(getUrl(urlTypes.declineExcuse), {
+    method: "POST",
+    mode: "cors",
+    cache: "no-cache",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json"
+    },
+
+    body: data
+  }).then(res => res.json())
+    .then(response => {
+      if (response) {
+        console.log("DECLINE", response);
+        if (response.success) {
+          success(response.message)
+          return response;
+        } else {
+          error(response.message)
+          return response;
         }
       }
     });

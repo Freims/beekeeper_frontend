@@ -182,12 +182,13 @@ export async function fetchStudents(sectionId, date, setData) {
           setData(response.resultData);
         }
       } else {
-        connectionError();
         throw new Error("Connection error");
       }
     })
     .catch(error => {
       console.log(error);
+      connectionError();
+
       setData({});
     });
 }

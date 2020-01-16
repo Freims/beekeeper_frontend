@@ -22,6 +22,8 @@ const professorUrls = {
   createNotice: url + "CreateNotice/",
   manualAssistance: url + "RegisterManualAssistance/",
   getExcuse: url + "SeeExcuse/",
+  acceptExcuse: url + "AcceptExcuse/",
+  declineExcuse: url + "DeclineExcuse/"
 };
 
 export const urlTypes = {
@@ -35,7 +37,9 @@ export const urlTypes = {
   generateToken: "generateToken",
   getStudents: "getStudents",
   getExcuse: "getExcuse",
-  manualAssistance: "manualAssistance"
+  manualAssistance: "manualAssistance",
+  acceptExcuse: "acceptExcuxe",
+  declineExcuse: "declineExcuse"
 };
 
 function getUserRole() {
@@ -82,6 +86,10 @@ export function getUrl(type) {
         return professorUrls.getExcuse;
       case urlTypes.manualAssistance:
         return professorUrls.manualAssistance;
+      case urlTypes.acceptExcuse:
+        return professorUrls.acceptExcuse;
+      case urlTypes.declineExcuse:
+        return professorUrls.declineExcuse;
       default:
         return null;
     }

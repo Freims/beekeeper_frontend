@@ -2,7 +2,7 @@
 @import './src/assets/styles/mixins';
 
 .intec-class-component {
-	margin: 1.5rem;
+	
 	box-sizing: border-box;
 	font-size: 1.5rem;
 	width: 100%;
@@ -46,7 +46,6 @@
 
 @include respond(desktop) {
 	.intec-class-component {
-		margin: 2rem;
 		box-sizing: border-box;
 		font-size: 1.9rem;
 		width: 100%;

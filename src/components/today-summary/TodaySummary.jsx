@@ -8,7 +8,7 @@ const TodaySummary = ({ data, history }) =>
   data ? (
     data.length > 0 ? (
       data.map(todaySummary => {
-        let color = generateColor(todaySummary.name + '1');
+        let color = generateColor(todaySummary.name + 'jaja');
         return (
           <div
             key={todaySummary.name}

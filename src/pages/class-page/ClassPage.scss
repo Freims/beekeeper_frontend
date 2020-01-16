@@ -54,9 +54,11 @@
 			font-size: 2rem;
 		}
 		&-token-counter {
+			justify-content: center;
+			display: flex;
 			margin-top: 5px;
 			width: 100%;
-			font-size: 3rem;
+			font-size: 2rem;
 			letter-spacing: 1.2rem;
 			color: dimgrey;
 		}

@@ -69,13 +69,17 @@
     .notification-content-body {
         padding: 5.6rem 0 3rem 0;
         display: flex;
+        width: 90%;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: space-evenly;
         align-items: center;
         text-align: center;
         direction: ltr;
 
         .notification-dismiss {
+            width: 80%;
+            display: flex;
+            justify-content: space-evenly;
             padding-top: 5.6rem;
         }
     }

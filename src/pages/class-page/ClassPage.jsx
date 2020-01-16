@@ -71,7 +71,7 @@ const ClassPage = ({ currentClasses, currentUser }) => {
         setLoading(false)
       )
       setClassHead(searchedClass)
-      setColor(generateColor(`${searchedClass.course}1`))
+      setColor(generateColor(`${searchedClass.course}jaja`))
     }
     fetchData()
   }, [currentClasses, courseName, token])
@@ -97,11 +97,11 @@ const ClassPage = ({ currentClasses, currentUser }) => {
                   text='Notificar Ausencia'
                   onClick={() => setAbsence(true)}
                 />
-                <CustomButton
+                {/* <CustomButton
                   color={color}
                   width='auto'
                   text='Agendar Reposición'
-                />
+                /> */}
               </div>
             ) : (
               <StyledFraction
@@ -234,9 +234,9 @@ const ClassPage = ({ currentClasses, currentUser }) => {
               <div className='class-code-container'>
                 <IconInput
                   spellCheck='false'
-                  maxLength={10}
+                  maxLength={6}
                   required
-                  minLength={10}
+                  minLength={6}
                   onChange={handleChange}
                   icon={faCopy}
                   pattern='[A-Za-z0-9]{1,20}'

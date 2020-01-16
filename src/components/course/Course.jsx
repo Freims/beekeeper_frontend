@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 const Course = ({ data, currentUser }) => {
   const { course, absences, notices } = data
   let { path } = useRouteMatch()
-  let color = generateColor(`${course}1`)
+  let color = generateColor(`${course}jaja`)
   let fontColor = calculateFontColor(color);
   let isProfessor = currentUser.role === "Professor"
 

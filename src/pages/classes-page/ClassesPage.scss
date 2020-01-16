@@ -12,10 +12,10 @@
     .class-container {
         box-sizing: border-box;
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         flex-flow: row wrap;
         align-items: center;
-        overflow-y: auto;
+        overflow: auto;
         height: 100%;
         margin-top: 1.5rem;
         border-radius: 2.2rem;

@@ -3,18 +3,27 @@ import "./ExcuseModal.scss";
 
 import Modal from "../modal/Modal";
 import CustomButton from "../custom-button/CustomButton";
-import { connectionError, successfulExcuse } from "../../utils/notifications/notifications";
+import {
+  successfulExcuse,
+  error
+} from "../../utils/notifications/notifications";
 import { connect } from "react-redux";
 import { createExcuse } from "../../utils/url/post-handler";
 import Loading from "../loading/Loading";
 
 const ExcuseModal = ({ visible, setVisible, color, currentUser, id }) => {
-  const [excuse, setExcuse] = useState({ title: "", body: "", date:""});
+  
+  let todayDate = new Date().toISOString().substr(0, 10);
+  const [excuse, setExcuse] = useState({
+    title: "",
+    body: "",
+    date: todayDate
+  });
   const [loading, setLoading] = useState(false);
-  let todayDate = new Date().toISOString().substr(0, 10)
 
   const handleChange = event => {
     const { value, name } = event.target;
+    console.log(name, value);
     setExcuse({ ...excuse, [name]: value });
   };
 
@@ -23,24 +32,21 @@ const ExcuseModal = ({ visible, setVisible, color, currentUser, id }) => {
       <Loading visible={loading} />
       <Modal visible={visible} setVisible={setVisible}>
         {closeModal => {
-
           const handleSubmit = async event => {
             event.preventDefault();
-            sendExcuse()
-          }
+            event.stopPropagation();
+            sendExcuse();
+          };
 
           const sendExcuse = async () => {
             setLoading(true);
-            let success = await createExcuse(
-              currentUser.dbId,
-              id,
-              excuse
-            );
-            if (success) {
+            let response = await createExcuse(currentUser.dbId, id, excuse);
+            console.log(response)
+            if (response.success) {
               successfulExcuse();
               closeModal();
             } else {
-              connectionError();
+              error(response.message)
             }
             setLoading(false);
           };
@@ -58,13 +64,13 @@ const ExcuseModal = ({ visible, setVisible, color, currentUser, id }) => {
                   required
                 />
                 <input
-                className='student-list-datepicker'
-                name="date"
-                type='date'
-                min={todayDate}
-                defaultValue={todayDate}
-                onChange={handleChange}
-              />
+                  className="student-list-datepicker"
+                  name="date"
+                  type="date"
+                  min={todayDate}
+                  defaultValue={todayDate}
+                  onChange={handleChange}
+                />
               </div>
               <div className="horizontal-line" />
               <div className="excuse-content-body">
@@ -78,7 +84,7 @@ const ExcuseModal = ({ visible, setVisible, color, currentUser, id }) => {
                   required
                 />
                 <div className="send-excuse">
-                  <CustomButton value="Adjunto" color={color} width={"auto"} />
+                  {/* <CustomButton value="Adjunto" color={color} width={"auto"} /> */}
                   <CustomButton
                     value="Enviar"
                     color={color}
