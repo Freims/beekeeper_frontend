@@ -6,7 +6,7 @@ import CustomButton from "../custom-button/CustomButton";
 import Modal from "../modal/Modal";
 import { fetchExcuse } from "../../utils/url/fetch-handler";
 import { formatDate } from "../../utils/data-mapping";
-import { acceptExcuse, declineExcuse } from "../../utils/url/post-handler";
+// import { acceptExcuse, declineExcuse } from "../../utils/url/post-handler";
 
 const ValidateExcuseModal = ({
   visible,
@@ -31,13 +31,13 @@ const ValidateExcuseModal = ({
     };
   }, [visible, date, id, studentId]);
 
-  const acceptExcuseAction = async () => {
-    await acceptExcuse(excuse);
-  };
+  // const acceptExcuseAction = async () => {
+  //   await acceptExcuse(excuse);
+  // };
 
-  const declineExcuseAction = async () => {
-    await declineExcuse(excuse);
-  };
+  // const declineExcuseAction = async () => {
+  //   await declineExcuse(excuse);
+  // };
 
   return (
     <Modal visible={visible} setVisible={setVisible}>

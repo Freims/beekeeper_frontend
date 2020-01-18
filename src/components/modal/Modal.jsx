@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Modal.scss";
 
-const Modal = ({ visible, setVisible, children, width = "60%" }) => {
+const Modal = ({ visible, setVisible, children, width }) => {
   useEffect(() => {}, [visible]);
 
   const [exiting, setExiting] = useState(false);

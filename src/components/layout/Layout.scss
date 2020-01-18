@@ -5,24 +5,5 @@
     animation: appearOutOfNowhere 500ms;
     display: flex;
     flex-flow: column;
-    #mobile {
-        display: none;
-    }
-    #web {
-        height: 100%;
-        width: 100%;
-    }
 }
 
-@include respond(tab-port) {
-    .layout {
-        #web {
-            display: none;
-        }
-        #mobile {
-            display: flex;
-            height: 100%;
-            width: 100%;
-        }
-    }
-}

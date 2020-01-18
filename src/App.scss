@@ -1,4 +1,9 @@
 @import '../src/assets/styles/mixins';
+
+:root {
+	--scroll-color: lightgray;
+}
+
 .App > div {
 	height: 100%;
 }
@@ -19,7 +24,6 @@ html {
 		//112.5em
 		font-size: 60%;
 	}
-
 
 	@media only screen and (min-width: 64em) and (max-height: 85.375em) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1.5) {
 		font-size: 62.5%;

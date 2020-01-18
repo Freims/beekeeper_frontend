@@ -74,8 +74,9 @@ const ClassPage = ({ currentClasses, currentUser }) => {
       setColor(generateColor(`${searchedClass.course}jaja`))
     }
     fetchData()
-  }, [currentClasses, courseName, token])
-
+    let root = document.documentElement
+    root.style.setProperty('--scroll-color', color)
+  }, [currentClasses, courseName, token, color])
 
   return (
     <div className='class-page'>
@@ -134,13 +135,13 @@ const ClassPage = ({ currentClasses, currentUser }) => {
               )}
             </div>
             {isProfessor ? (
-              <div className="create-notice-button">
-              <CustomButton
-                color={color}
-                width='auto'
-                text='Crear Aviso'
-                onClick={() => setCreateNotice(true)}
-              />
+              <div className='create-notice-button'>
+                <CustomButton
+                  color={color}
+                  width='auto'
+                  text='Crear Aviso'
+                  onClick={() => setCreateNotice(true)}
+                />
               </div>
             ) : null}
           </div>
@@ -155,13 +156,18 @@ const ClassPage = ({ currentClasses, currentUser }) => {
                   className='class-item-token-input'
                   disabled
                   maxLength='6'
-                  value={ token || currentClass.tokenKey || ''}
+                  value={token || currentClass.tokenKey || ''}
                 />
-                {(token || currentClass.tokenKey) &&
-                <div className="class-item-token-counter">
-                  <Counter to={new Date(Date.now() + (currentClass.leftSeconds * 1000))} mode="hh:mm:ss" />
-                </div>
-                }
+                {(token || currentClass.tokenKey) && (
+                  <div className='class-item-token-counter'>
+                    <Counter
+                      to={
+                        new Date(Date.now() + currentClass.leftSeconds * 1000)
+                      }
+                      mode='hh:mm:ss'
+                    />
+                  </div>
+                )}
                 <div className='class-item-token-generate'>
                   <SelectDuration
                     duration={duration}
@@ -174,7 +180,7 @@ const ClassPage = ({ currentClasses, currentUser }) => {
                     width='16rem'
                     text='Generar Código'
                     onClick={generateNewToken}
-                    disabled={!!token || !!currentClass.tokenKey }
+                    disabled={!!token || !!currentClass.tokenKey}
                   />
                 </div>
               </div>
