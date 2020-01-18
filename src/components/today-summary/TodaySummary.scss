@@ -1,107 +1,137 @@
-@import "./src/assets/styles/colors";
-@import "../../assets/styles/mixins";
+@import './src/assets/styles/colors';
+@import '../../assets/styles/mixins';
 
 .today-summary {
-  flex: 0 0;
-  width: 100%;
-  border: 1px solid $color-grey-borders;
-  border-radius: 1.5rem;
-  margin-top: 0.5rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  overflow: hidden;
-  font-size: 1.8rem;
-  .intec-class {
-    width: 40%;
-    border-radius: 0;
-    box-sizing: border-box;
-    padding: 0.4em 0.8em;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .today-info {
-    flex-grow: 1;
-    margin-right: 2vw;
-    color: $color-black;
-    display: flex;
-    box-sizing: border-box;
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
-  &:hover {
-    cursor: pointer;
-  }
+	flex: 0 0;
+	width: 100%;
+	border: 1px solid $color-grey-borders;
+	border-radius: 1.5rem;
+	margin-top: 0.5rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	overflow: hidden;
+	font-size: 1.8rem;
+	.intec-class {
+		width: 40%;
+		border-radius: 0;
+		box-sizing: border-box;
+		padding: 0.4em 0.8em;
+		text-align: center;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.today-info {
+		flex-grow: 1;
+		margin-right: 2vw;
+		color: $color-black;
+		display: flex;
+		box-sizing: border-box;
+		flex-direction: row;
+		justify-content: space-evenly;
+	}
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 .free-day {
-  display: flex;
-  justify-content: center;
-  font-size: 2.5rem;
+	display: flex;
+	justify-content: center;
+	font-size: 2.5rem;
 }
 
 @include respond(tab-land) {
-  .today-summary {
-    border: 1px solid $color-grey-borders;
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    overflow: hidden;
-    font-size: 1rem;
-    .intecClass {
-      border-radius: 0;
-      box-sizing: border-box;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .today-info {
-      margin: 0 2rem;
-      min-width: 10rem;
-      color: $color-black;
-      display: flex;
-      box-sizing: border-box;
-      flex-direction: row;
-      justify-content: space-evenly;
-    }
-  }
+	.today-summary {
+		border: 1px solid $color-grey-borders;
+		border-radius: 1rem;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		overflow: hidden;
+		font-size: 1rem;
+		.intecClass {
+			border-radius: 0;
+			box-sizing: border-box;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		.today-info {
+			margin: 0 2rem;
+			min-width: 10rem;
+			color: $color-black;
+			display: flex;
+			box-sizing: border-box;
+			flex-direction: row;
+			justify-content: space-evenly;
+		}
+	}
 }
 
 @include respond(tab-port) {
-  .today-summary {
-    font-size: 1.4rem;
-    .intec-class {
-      width: 50%;
-    }
-  }
+	.today-summary {
+		font-size: 1.4rem;
+		.intec-class {
+			width: 50%;
+		}
+	}
 }
 @include respond(big-tab-port) {
-  .today-summary {
-    font-size: 1.6rem;
-    .intec-class {
-      width: 50%;
-    }
+	.today-summary {
+		font-size: 1.6rem;
+		.intec-class {
+			width: 50%;
+		}
+	}
+}
+
+
+@include respond(tab-port) {
+	.today-summary {
+    font-size: 1.2rem;
   }
 }
 @include respond(phone) {
-  .today-summary {
-    flex: 1;
+	.today-summary {
     font-size: 1.2rem;
-    .intec-class {
-      width: 50%;
-    }
   }
 }
 
-@include respond(small-phone) {
-  .today-summary {
-    flex: 1;
-    font-size: 1rem;
-    .intec-class {
-      width: 50%;
-    }
-  }
+@include respond(phone) {
+	.today-summary {
+    min-height: 2rem;
+    width: 100%;
+		border: 1px solid $color-grey-borders;
+		border-radius: 1.5rem;
+		margin-top: 0.5rem;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		overflow: hidden;
+		font-size: 1rem;
+		.intec-class {
+			width: 50%;
+			border-radius: 0;
+			box-sizing: border-box;
+			padding: 0.4em 0.8em;
+			text-align: center;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		.today-info {
+			flex-grow: 1;
+			margin-right: 2vw;
+			color: $color-black;
+			display: flex;
+			box-sizing: border-box;
+			flex-direction: row;
+			justify-content: space-evenly;
+		}
+		&:hover {
+			cursor: pointer;
+		}
+	}
 }

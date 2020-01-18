@@ -148,9 +148,11 @@
 
 @include respond(small-phone){
 	.home-page-mobile {
+		overflow-x: visible;
 		overflow-y: auto;
+		align-items: center;
 		.details-container {
-			min-width: 100%;
+			min-width: 98%;
 			box-shadow: 0 0 0;
 		}
 	}
@@ -160,9 +162,12 @@
 }
 @include respond(phone){
 	.home-page-mobile {
+		overflow-x: visible;
 		overflow-y: auto;
+		align-items: center;
+
 		.details-container {
-			min-width: 100%;
+			min-width: 98%;
 			box-shadow: 0 0 0;
 		}
 	}
