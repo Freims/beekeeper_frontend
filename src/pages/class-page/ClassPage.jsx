@@ -72,7 +72,10 @@ const ClassPage = ({ currentClasses, currentUser }) => {
       setLoading(false)
       setColor(generateColor(`${searchedClass.course}jaja`))
       let root = document.documentElement
-      root.style.setProperty('--scroll-color', generateColor(`${searchedClass.course}jaja`))
+      root.style.setProperty(
+        '--scroll-color',
+        generateColor(`${searchedClass.course}jaja`)
+      )
     }
 
     fetchData()
@@ -162,7 +165,15 @@ const ClassPage = ({ currentClasses, currentUser }) => {
                   <div className='class-item-token-counter'>
                     <Counter
                       to={
-                        new Date(Date.now() + currentClass.leftSeconds * 1000)
+                        Number(currentClass.leftSeconds) === 0
+                          ? new Date(
+                              Date.now() +
+                                duration.hours * 3600000 +
+                                duration.minutes * 60000
+                            )
+                          : new Date(
+                              Date.now() + currentClass.leftSeconds * 1000
+                            )
                       }
                       mode='hh:mm:ss'
                     />
