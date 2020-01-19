@@ -15,7 +15,7 @@ const NotificationPill = ({ notification, color = "#FECD1C" }) => {
   return (
     <Fragment>
       <div
-        className="notification-pill"
+        className="notification-pill scale-in-center"
         style={{
           backgroundColor: `${color}`,
           borderColor: `${LightenDarkenColor(color, -40)}`

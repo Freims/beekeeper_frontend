@@ -1,82 +1,86 @@
 @import './src/assets/styles/colors';
 @import './src/assets/styles/mixins';
+@import './src/assets/styles/animations';
 
 .notification-pill {
-    box-sizing: border-box;
-    position: relative;
-    font-size: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;    
-    border-radius: 4rem;
-    border: 2px solid $color-grey-borders;
-    padding: 0.5rem 5rem;
-    width: 100%;
-    cursor: pointer;
-    transition: all .2s;
+	box-sizing: border-box;
+	position: relative;
+	font-size: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 4rem;
+	border: 2px solid $color-grey-borders;
+	padding: 0.5rem 5rem;
+	width: 100%;
+	cursor: pointer;
+	transition: all 0.2s;
 
-    .view-more {
-        align-self: flex-end;
-        font-size: 1.3rem;
-        position: absolute;
-        right: -1rem;
-        bottom: -0.4rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 1.5rem;
-        width: 1.5rem;
-        border-radius: 50%;
-        color: $color-grey-dark;
-        background: white;
-        border: 2px solid $color-grey-dark;
-        padding: 0.5rem;
-        transition: 300ms;
-        z-index: 1;
-        &:hover{
-            transform: scale(1.1);
-        }
-    }
+	.view-more {
+		align-self: flex-end;
+		font-size: 1.3rem;
+		position: absolute;
+		right: -1rem;
+		bottom: -0.4rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 1.5rem;
+		width: 1.5rem;
+		border-radius: 50%;
+		color: $color-grey-dark;
+		background: white;
+		border: 2px solid $color-grey-dark;
+		padding: 0.5rem;
+		transition: 300ms;
+		z-index: 1;
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
 }
 
 .notification-content {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    font-size: 1.5rem;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	font-size: 1.5rem;
 
-    @include respond(desktop) {
-        font-size: 2rem;
-    }
-    height: 100%;
-    .notification-content-header {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-between;
-        width: 95%;
-        @include respond(desktop) {
-            flex-direction: row;
-            width: 80%;
-        }
-    }
-    .horizontal-line {
-        margin: auto;
-        height: 0.2rem;
-        width: 90%;
-        background-color: gray;
-    }
-    .notification-content-body {
-        padding: 5.6rem 0 3rem 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        text-align: center;
-        direction: ltr;
+	@include respond(desktop) {
+		font-size: 2rem;
+	}
+	height: 100%;
+	.notification-content-header {
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: space-between;
+		width: 95%;
+		@include respond(desktop) {
+			flex-direction: row;
+			width: 80%;
+		}
+	}
+	.horizontal-line {
+		margin: auto;
+		height: 0.2rem;
+		width: 90%;
+		background-color: gray;
+	}
+	.notification-content-body {
+		padding: 5.6rem 0 3rem 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		text-align: center;
+		direction: ltr;
 
-        .notification-dismiss {
-            padding-top: 5.6rem;
-        }
-    }
+		.notification-dismiss {
+			padding-top: 5.6rem;
+		}
+	}
+}
+.scale-in-center {
+	animation: scale-in-center 300ms cubic-bezier(0.77, 0, 0.175, 1) both;
 }
