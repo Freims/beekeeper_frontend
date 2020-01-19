@@ -150,6 +150,7 @@ export async function fetchTodaySummary(dbId, setTodaySummaryList) {
 }
 
 export async function fetchClassDetails(setCurrentClass, courseId) {
+  console.log("fetching class detail")
   fetch(
     getUrl(urlTypes.classDetail) + courseId
   )

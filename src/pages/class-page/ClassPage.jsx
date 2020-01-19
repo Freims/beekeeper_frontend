@@ -67,16 +67,16 @@ const ClassPage = ({ currentClasses, currentUser }) => {
       let searchedClass = await currentClasses.find(
         cour => cour.course === courseName
       )
-      fetchClassDetails(setCurrentClass, searchedClass.sectionId).then(
-        setLoading(false)
-      )
       setClassHead(searchedClass)
+      await fetchClassDetails(setCurrentClass, searchedClass.sectionId)
+      setLoading(false)
       setColor(generateColor(`${searchedClass.course}jaja`))
+      let root = document.documentElement
+      root.style.setProperty('--scroll-color', generateColor(`${searchedClass.course}jaja`))
     }
+
     fetchData()
-    let root = document.documentElement
-    root.style.setProperty('--scroll-color', color)
-  }, [currentClasses, courseName, token, color])
+  }, [currentClasses, courseName, token])
 
   return (
     <div className='class-page'>
