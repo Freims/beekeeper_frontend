@@ -23,6 +23,10 @@
 		margin-top: 1rem;
 		padding: 0.5rem;
 	}
+
+	.counter-student{
+		margin-top: 2rem;
+	}
 	.class-page-content {
 		height: 100%;
 		display: flex;
@@ -132,6 +136,10 @@
 		}
 	}
 	.class-code-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
 		width: 60%;
 		max-width: 30rem;
 		input {
@@ -262,6 +270,10 @@
 			direction: ltr;
 		}
 		.class-code-container {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
 			width: 40%;
 			margin-top: 2rem;
 		}
@@ -275,6 +287,8 @@
 		}
 	}
 }
+
+
 
 @include respond(tab-port) {
 	.class-notification-container {

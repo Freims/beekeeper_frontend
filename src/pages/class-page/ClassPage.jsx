@@ -258,6 +258,14 @@ const ClassPage = ({ currentClasses, currentUser }) => {
                   icon={faCopy}
                   pattern='[A-Za-z0-9]{1,20}'
                 />
+                {Number(currentClass.leftSeconds) !== 0 && (
+                  <div className='counter-student'>
+                    <Counter
+                      to={Date.now() + currentClass.leftSeconds * 1000}
+                      mode='hh:mm:ss'
+                    />
+                  </div>
+                )}
               </div>
               <div className='class-buttons'>
                 <CustomButton
