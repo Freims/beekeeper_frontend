@@ -67,8 +67,8 @@ const ClassPage = ({ currentClasses, currentUser, history }) => {
       let searchedClass = await currentClasses.find(
         cour => cour.course === courseName
       )
-      if(searchedClass === undefined){
-        history.push('/');
+      if (searchedClass === undefined) {
+        history.push('/')
         return null
       }
       setClassHead(searchedClass)
@@ -168,19 +168,12 @@ const ClassPage = ({ currentClasses, currentUser, history }) => {
                 {(token || currentClass.tokenKey) && (
                   <div className='class-item-token-counter'>
                     <Counter
-                      to={
-                        Number(currentClass.leftSeconds) === 0
-                          ? new Date(
-                              Date.now() +
-                                duration.hours * 3600000 +
-                                duration.minutes * 60000
-                            )
-                          : new Date(
-                              Date.now() + currentClass.leftSeconds * 1000
-                            )
-                      }
                       mode='hh:mm:ss'
-                    />
+                      to={ Number(currentClass.leftSeconds) === 0 ?
+                         new Date(Date.now() + duration.hours * 3600000 + duration.minutes * 60000)
+                          : 
+                          new Date(Date.now() + currentClass.leftSeconds * 1000)
+                      }/>
                   </div>
                 )}
                 <div className='class-item-token-generate'>
@@ -262,11 +255,12 @@ const ClassPage = ({ currentClasses, currentUser, history }) => {
                   icon={faCopy}
                   pattern='[A-Za-z0-9]{1,20}'
                 />
-                {Number(currentClass.leftSeconds) !== 0 && (
+                {
+                }
+                {!!Number(currentClass.leftSeconds) && (
                   <div className='counter-student'>
-                    <Counter
-                      to={Date.now() + currentClass.leftSeconds * 1000}
-                      mode='hh:mm:ss'
+                    <Counter mode='hh:mm:ss'
+                      to={(new Date(Date.now() + Number(currentClass.leftSeconds) * 1000))}
                     />
                   </div>
                 )}
