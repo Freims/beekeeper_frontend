@@ -21,7 +21,7 @@ import ManualAssistanceModal from '../../components/manual-assistance-modal/Manu
 import SelectDuration from '../../components/select-duration/SelectDuration'
 import Counter from 'react-omni-counter'
 
-const ClassPage = ({ currentClasses, currentUser }) => {
+const ClassPage = ({ currentClasses, currentUser, history }) => {
   const { courseName } = useParams()
   const [currentClass, setCurrentClass] = useState({ noticesList: [] })
   const [classHead, setClassHead] = useState({})
@@ -67,6 +67,10 @@ const ClassPage = ({ currentClasses, currentUser }) => {
       let searchedClass = await currentClasses.find(
         cour => cour.course === courseName
       )
+      if(searchedClass === undefined){
+        history.push('/');
+        return null
+      }
       setClassHead(searchedClass)
       await fetchClassDetails(setCurrentClass, searchedClass.sectionId)
       setLoading(false)
@@ -79,7 +83,7 @@ const ClassPage = ({ currentClasses, currentUser }) => {
     }
 
     fetchData()
-  }, [currentClasses, courseName, token])
+  }, [currentClasses, courseName, token, history])
 
   return (
     <div className='class-page'>
