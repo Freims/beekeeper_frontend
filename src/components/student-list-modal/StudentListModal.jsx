@@ -45,7 +45,6 @@ const StudentListModal = ({ visible, setVisible, color, id }) => {
               <input
                 className='student-list-datepicker'
                 type='date'
-                max={todayDate}
                 defaultValue={selectDate}
                 onChange={getStudents}
               />
