@@ -198,7 +198,7 @@ export async function declineExcuse(excuse) {
   console.log(data);
   data = await JSON.stringify(data)
   return fetch(getUrl(urlTypes.declineExcuse), {
-    method: "POST",
+    method: "PUT",
     mode: "cors",
     cache: "no-cache",
     credentials: "same-origin",
