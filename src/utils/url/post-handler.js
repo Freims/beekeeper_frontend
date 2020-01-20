@@ -154,7 +154,8 @@ export async function acceptExcuse(excuse) {
     sectionId: parseInt(excuse.sectionId),
     ExcuseDate: excuse.excuseDate.split("T")[0],
     Description: excuse.description,
-    Title: excuse.title
+    Title: excuse.title,
+    Status: excuse.status
     };
 
   console.log(data);
@@ -190,7 +191,8 @@ export async function declineExcuse(excuse) {
     sectionId: parseInt(excuse.sectionId),
     ExcuseDate: excuse.excuseDate.split("T")[0],
     Description: excuse.description,
-    Title: excuse.title
+    Title: excuse.title,
+    Status: excuse.status
     };
 
   console.log(data);

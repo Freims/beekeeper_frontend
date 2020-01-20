@@ -31,8 +31,9 @@ const StudentListModal = ({ visible, setVisible, color, id }) => {
       if (visible) await fetchStudents(id, today, setStudents)
     }
     getStudents()
-    return function cleanup () {
-      setSelectDate(todayDate)
+    return async function cleanup () {
+      await setSelectDate(todayDate)
+      getStudents()
     }
   }, [id, today, visible, todayDate])
 
