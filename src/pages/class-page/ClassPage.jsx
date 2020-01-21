@@ -83,7 +83,7 @@ const ClassPage = ({ currentClasses, currentUser, history }) => {
     }
 
     fetchData()
-  }, [currentClasses, courseName, token, history])
+  }, [currentClasses, courseName, history])
 
   return (
     <div className='class-page'>
