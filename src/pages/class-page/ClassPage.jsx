@@ -58,8 +58,8 @@ const ClassPage = ({ currentClasses, currentUser, setCurrentClasses, history }) 
   const handleSubmit = async event => {
     event.preventDefault()
     setLoading(true)
-    await sendAssistanceCode(currentClass.sectionId, currentUser.dbId, token)
-    fetchClasses(currentUser.dbId, setCurrentClasses);
+    let success = await sendAssistanceCode(currentClass.sectionId, currentUser.dbId, token)
+    success && fetchClasses(currentUser.dbId, setCurrentClasses);
     setLoading(false)
   }
 
