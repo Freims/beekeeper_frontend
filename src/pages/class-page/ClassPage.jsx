@@ -11,7 +11,7 @@ import { faCopy } from '@fortawesome/free-solid-svg-icons'
 
 import { useParams } from 'react-router-dom'
 import generateColor from '../../utils/color-from-string'
-import { fetchClassDetails } from '../../utils/url/fetch-handler'
+import { fetchClassDetails, fetchClasses } from '../../utils/url/fetch-handler'
 import ExcuseModal from '../../components/excuse-modal/ExcuseModal'
 import { sendAssistanceCode, generateToken } from '../../utils/url/post-handler'
 import StudentListModal from '../../components/student-list-modal/StudentListModal'
@@ -20,8 +20,9 @@ import ProfessorAbsenceModal from '../../components/professor-absence-modal/Prof
 import ManualAssistanceModal from '../../components/manual-assistance-modal/ManualAssistanceModal'
 import SelectDuration from '../../components/select-duration/SelectDuration'
 import Counter from 'react-omni-counter'
+import { setCurrentClasses } from '../../redux/classes/classes-actions'
 
-const ClassPage = ({ currentClasses, currentUser, history }) => {
+const ClassPage = ({ currentClasses, currentUser, setCurrentClasses, history }) => {
   const { courseName } = useParams()
   const [currentClass, setCurrentClass] = useState({ noticesList: [] })
   const [classHead, setClassHead] = useState({})
@@ -58,6 +59,7 @@ const ClassPage = ({ currentClasses, currentUser, history }) => {
     event.preventDefault()
     setLoading(true)
     await sendAssistanceCode(currentClass.sectionId, currentUser.dbId, token)
+    fetchClasses(currentUser.dbId, setCurrentClasses);
     setLoading(false)
   }
 
@@ -299,4 +301,9 @@ const mapStateToProps = ({ classes, user }) => ({
   currentUser: user.currentUser
 })
 
-export default connect(mapStateToProps)(ClassPage)
+const mapDispatchToProps = dispatch => ({
+  setCurrentClasses: classes => dispatch(setCurrentClasses(classes))
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ClassPage)
