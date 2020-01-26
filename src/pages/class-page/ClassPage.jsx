@@ -59,7 +59,7 @@ const ClassPage = ({ currentClasses, currentUser, setCurrentClasses, history }) 
     event.preventDefault()
     setLoading(true)
     let success = await sendAssistanceCode(currentClass.sectionId, currentUser.dbId, token)
-    success && fetchClasses(currentUser.dbId, setCurrentClasses);
+    success && fetchClasses(currentUser.dbId, setCurrentClasses, true);
     setLoading(false)
   }
 
