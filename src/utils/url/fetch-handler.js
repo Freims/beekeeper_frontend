@@ -40,10 +40,14 @@ export async function fetchUserSession(setCurrentUser) {
   }
 }
 
-export async function fetchClasses(userDbId, setCurrentClasses) {
+export async function fetchClasses(userDbId, setCurrentClasses, forceFetch = false) {
   let classesInStorage = await JSON.parse(
     sessionStorage.getItem("currentClasses")
   );
+  
+  if(forceFetch){
+    classesInStorage = false;
+  }
 
   if (classesInStorage) {
     return;
