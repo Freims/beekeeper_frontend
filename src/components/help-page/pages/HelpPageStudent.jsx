@@ -10,8 +10,8 @@ const HelpPageStudent = ({ children }) => {
         <CollapsibleQuestion
           title="Pantalla de inicio"
           description={
-            <div style={{ display: "flex", flexDirection: "row" }}>
-              <div style={{ width: "30%" }}>
+            <div style={{ textAlign: "center" }}>
+              <div>
                 En la pantalla de inicio de la aplicación se destaca lo
                 siguiente: <br />
                 <br />
@@ -21,7 +21,7 @@ const HelpPageStudent = ({ children }) => {
                 4. Tab de Mis Clases
               </div>
               <img
-                width="70%"
+                width="100%"
                 src={require("../../../assets/images/help/inicio.png")}
                 alt="app"
               />
@@ -31,8 +31,8 @@ const HelpPageStudent = ({ children }) => {
         <CollapsibleQuestion
           title="Pantalla de Mis Clases"
           description={
-            <div style={{ display: "flex", flexDirection: "row" }}>
-              <div style={{ width: "30%" }}>
+            <div>
+              <div style={{ textAlign: "center" }}>
                 En esta pantalla podemos ver nuestras clases del trimestre y así
                 vemos las ausencias y excusas que han tenido nuestros
                 estudiantes. <br />
@@ -43,7 +43,7 @@ const HelpPageStudent = ({ children }) => {
                 4. Tab de Mis Clases
               </div>
               <img
-                width="70%"
+                width="100%"
                 src={require("../../../assets/images/help/clases.png")}
                 alt="app"
               />
@@ -53,13 +53,11 @@ const HelpPageStudent = ({ children }) => {
         <CollapsibleQuestion
           title="Pantalla de Clase"
           description={
-            <div style={{ display: "flex", flexDirection: "row" }}>
-              <div style={{ width: "30%" }}>
-                Cuando accedemos a la pantalla de Clase es que podremos realizar
-                la mayoría de las funcionalidades que nos ofrece la aplicación.{" "}
-              </div>
+            <div style={{ textAlign: "center" }}>
+              Cuando accedemos a la pantalla de Clase es que podremos realizar
+              la mayoría de las funcionalidades que nos ofrece la aplicación.{" "}
               <img
-                width="70%"
+                width="100%"
                 src={require("../../../assets/images/help/clase.png")}
                 alt="app"
               />
@@ -69,13 +67,13 @@ const HelpPageStudent = ({ children }) => {
         <CollapsibleQuestion
           title="¿Cómo veo mis avisos?"
           description={
-            <div style={{ display: "flex", flexDirection: "row" }}>
+            <div style={{ textAlign: "center" }}>
               <div style={{ width: "50%" }}>
                 En esta parte de la pantalla de Clase vemos los avisos que hemos
                 enviado.
               </div>
               <img
-                width="40%"
+                width="100%"
                 src={require("../../../assets/images/help/avisoestudiante.png")}
                 alt="app"
               />
@@ -85,13 +83,13 @@ const HelpPageStudent = ({ children }) => {
         <CollapsibleQuestion
           title="¿Cómo creo una excusa?"
           description={
-            <div style={{ display: "flex", flexDirection: "row" }}>
-              <div style={{ width: "30%" }}>
+            <div style={{ textAlign: "center" }}>
+              <div>
                 Presionamos el botón crear excusa en la pantalla de clase como
                 mostrado en imagen, ponemos los detalles y presionamos enviar.
               </div>
               <img
-                width="70%"
+                width="100%"
                 src={require("../../../assets/images/help/crearexcusa.png")}
                 alt="app"
               />
@@ -101,14 +99,12 @@ const HelpPageStudent = ({ children }) => {
         <CollapsibleQuestion
           title="¿Cómo valido mi asistencia?"
           description={
-            <div style={{ display: "flex", flexDirection: "row" }}>
-              <div style={{ width: "30%" }}>
-                Introducimos el código de asistencia en el campo de Asistencia y
-                presionamos Enviar Código. Esta acción solo podemos realizarla
-                cuando estamos en la clase, la fecha, hora y lugar.
-              </div>
+            <div style={{ textAlign: "center" }}>
+              Introducimos el código de asistencia en el campo de Asistencia y
+              presionamos Enviar Código. Esta acción solo podemos realizarla
+              cuando estamos en la clase, la fecha, hora y lugar.
               <img
-                width="70%"
+                width="100%"
                 src={require("../../../assets/images/help/enviarcodigo.png")}
                 alt="app"
               />

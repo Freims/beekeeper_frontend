@@ -33,7 +33,6 @@
     background-position: 99% 99%;
     background-repeat: no-repeat;
     background-attachment: scroll;
-
   }
 }
 
@@ -43,6 +42,7 @@
   align-items: center;
   flex-direction: column;
   &-title {
+    text-align: center;
     font-size: 4rem;
   }
   &-subtitle {
@@ -56,7 +56,10 @@
 }
 
 .help-page-start-content {
-  width: 70%;
+  width: 100%;
+  @include respond(desktop) {
+    width: 70%;
+  }
 }
 
 .Collapsible {

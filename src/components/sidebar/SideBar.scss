@@ -15,7 +15,7 @@
     &-mobile {
       font-size: 2rem;
       @include respond(desktop) {
-       font-size: 0;
+       display: none;
       }
     }
   }

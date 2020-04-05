@@ -20,6 +20,7 @@
   }
   @include respond(desktop) {
     padding: 2.5rem 4rem;
+    justify-content: flex-start;
   }
 
   &-name {
