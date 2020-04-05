@@ -12,7 +12,7 @@
 	width: 100%;
 	padding: 0 1rem;
 	border-radius: 2rem;
-	border: 0.3rem solid black;
+	border: 0.3rem solid rgba(0, 0, 0, 0.39);
 	background-color: white;
 	transition: all 0.3s;
 	&:focus-within {
@@ -35,7 +35,7 @@
 	width: 100%;
 	padding: 0 1rem;
 	border-radius: 2rem;
-	border: 1px solid $color-grey-dark;
+	border: 2px solid $color-grey-dark;
 	background-color: white;
 	color: $color-grey-dark;
 	transition: all 0.3s;
