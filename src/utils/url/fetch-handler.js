@@ -161,10 +161,12 @@ export async function fetchClassDetails(setCurrentClass, courseId) {
     .then((response) => {
       if (response.success) {
         if (response.resultData) {
-          const currentClass = {
-            noticesList: response.resultData.noticesList.reverse(),
-            ...response.resultData,
-          };
+          let currentClass = response.resultData;
+          if (response.resultData.noticesList)
+            currentClass = {
+              noticesList: response.resultData.noticesList.reverse(),
+              ...response.resultData,
+            };
           setCurrentClass(currentClass);
         }
       } else {
