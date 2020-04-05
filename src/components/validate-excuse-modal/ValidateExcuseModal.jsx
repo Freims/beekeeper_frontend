@@ -33,13 +33,13 @@ const ValidateExcuseModal = ({
   }, [visible, date, id, studentId]);
 
   const acceptExcuseAction = async () => {
-    setExcuse({ ...excuse, course: className });
-    await acceptExcuse(excuse);
+    const Excuse = { ...excuse, course: className };
+    await acceptExcuse(Excuse);
   };
 
   const declineExcuseAction = async () => {
-    setExcuse({ ...excuse, course: className });
-    await declineExcuse(excuse);
+    const Excuse = { ...excuse, course: className };
+    await declineExcuse(Excuse);
   };
 
   return (
