@@ -238,6 +238,7 @@ const ClassPage = ({
             </div>
 
             <StudentListModal
+            className={currentClass.course}
               visible={studentListModal}
               setVisible={setStudentListModal}
               color={color}

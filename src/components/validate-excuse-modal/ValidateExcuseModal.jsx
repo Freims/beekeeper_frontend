@@ -14,11 +14,12 @@ const ValidateExcuseModal = ({
   color = "#FECD1C",
   id,
   studentId,
-  date
+  date,
+  className,
 }) => {
   const [excuse, setExcuse] = useState({
     title: "",
-    description: "Cargando..."
+    description: "Cargando...",
   });
 
   useEffect(() => {
@@ -32,16 +33,18 @@ const ValidateExcuseModal = ({
   }, [visible, date, id, studentId]);
 
   const acceptExcuseAction = async () => {
+    setExcuse({ ...excuse, course: className });
     await acceptExcuse(excuse);
   };
 
   const declineExcuseAction = async () => {
+    setExcuse({ ...excuse, course: className });
     await declineExcuse(excuse);
   };
 
   return (
     <Modal visible={visible} setVisible={setVisible}>
-      {closeModal => (
+      {(closeModal) => (
         <div className="notification-content">
           <div className="notification-content-header">
             <span className="notification-title"> {excuse.title}</span>
@@ -79,7 +82,7 @@ const ValidateExcuseModal = ({
                   closeModal();
                 }}
               />
-              </div>
+            </div>
           </div>
         </div>
       )}

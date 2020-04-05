@@ -3,29 +3,30 @@ import { success, error } from "../notifications/notifications";
 
 export async function createExcuse(studentId, sectionId, excuse) {
   let todayDate = new Date().toISOString().substr(0, 10);
-  
+
   let data = {
     StudentId: parseInt(studentId),
     SectionId: parseInt(sectionId),
     CreatedDate: todayDate,
     ExcuseDate: excuse.date,
     Description: excuse.body,
-    Title: excuse.title
+    Title: excuse.title,
   };
   console.log(data);
-  data = await JSON.stringify(data)
+  data = await JSON.stringify(data);
   return fetch(getUrl(urlTypes.createExcuse), {
     method: "POST",
     mode: "cors",
     cache: "no-cache",
     credentials: "same-origin",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
 
-    body: data
-  }).then(res => res.json())
-    .then(response => {
+    body: data,
+  })
+    .then((res) => res.json())
+    .then((response) => {
       if (response) {
         console.log("CREATE", response);
         if (response.success) {
@@ -45,11 +46,11 @@ export async function sendAssistanceCode(sectionId, studentId, token) {
     method: "POST",
     headers: {
       Accept: "application/json",
-      "Content-Type": "application/json"
-    }
+      "Content-Type": "application/json",
+    },
   })
-.then(res => res.json())
-    .then(response => {
+    .then((res) => res.json())
+    .then((response) => {
       if (response) {
         console.log("TOKEN RESPONSE", response);
         if (response.success) {
@@ -70,11 +71,11 @@ export async function generateToken(sectionId, timespan) {
     method: "POST",
     headers: {
       Accept: "application/json",
-      "Content-Type": "application/json"
-    }
+      "Content-Type": "application/json",
+    },
   })
-    .then(res => res.json())
-    .then(response => {
+    .then((res) => res.json())
+    .then((response) => {
       if (response) {
         console.log("GENERATE TOKEN RESPONSE", response);
         if (response.success) {
@@ -94,7 +95,7 @@ export async function createNotice(studentId, sectionId, title, description) {
     SectionId: parseInt(sectionId),
     CreatedDate: date,
     Title: title,
-    Description: description
+    Description: description,
   };
   data = await JSON.stringify(data);
   console.log(data);
@@ -104,13 +105,13 @@ export async function createNotice(studentId, sectionId, title, description) {
     cache: "no-cache",
     credentials: "same-origin",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
 
-    body: data
+    body: data,
   })
-    .then(res => res.json())
-    .then(response => {
+    .then((res) => res.json())
+    .then((response) => {
       if (response) {
         console.log("CREATE", response);
         if (response.success) {
@@ -129,15 +130,15 @@ export async function manualAssistance(sectionId, studentId) {
     method: "POST",
     headers: {
       Accept: "application/json",
-      "Content-Type": "application/json"
-    }
+      "Content-Type": "application/json",
+    },
   })
-    .then(res => res.json())
-    .then(response => {
+    .then((res) => res.json())
+    .then((response) => {
       if (response) {
         console.log("MANUAL ASSISTANCE", response);
         if (response.success) {
-          success(response.message)
+          success(response.message);
           return true;
         } else {
           error(response.message);
@@ -155,30 +156,32 @@ export async function acceptExcuse(excuse) {
     ExcuseDate: excuse.excuseDate.split("T")[0],
     Description: excuse.description,
     Title: excuse.title,
-    Status: excuse.status
-    };
+    Status: excuse.status,
+    Course: excuse.course,
+  };
 
   console.log(data);
-  data = await JSON.stringify(data)
+  data = await JSON.stringify(data);
   return fetch(getUrl(urlTypes.acceptExcuse), {
     method: "POST",
     mode: "cors",
     cache: "no-cache",
     credentials: "same-origin",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
 
-    body: data
-  }).then(res => res.json())
-    .then(response => {
+    body: data,
+  })
+    .then((res) => res.json())
+    .then((response) => {
       if (response) {
         console.log("ACCEPT", response);
         if (response.success) {
-          success(response.message)
+          success(response.message);
           return response;
         } else {
-          error(response.message)
+          error(response.message);
           return response;
         }
       }
@@ -192,30 +195,32 @@ export async function declineExcuse(excuse) {
     ExcuseDate: excuse.excuseDate.split("T")[0],
     Description: excuse.description,
     Title: excuse.title,
-    Status: excuse.status
-    };
+    Status: excuse.status,
+    Course: excuse.course
+  };
 
   console.log(data);
-  data = await JSON.stringify(data)
+  data = await JSON.stringify(data);
   return fetch(getUrl(urlTypes.declineExcuse), {
     method: "PUT",
     mode: "cors",
     cache: "no-cache",
     credentials: "same-origin",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
 
-    body: data
-  }).then(res => res.json())
-    .then(response => {
+    body: data,
+  })
+    .then((res) => res.json())
+    .then((response) => {
       if (response) {
         console.log("DECLINE", response);
         if (response.success) {
-          success(response.message)
+          success(response.message);
           return response;
         } else {
-          error(response.message)
+          error(response.message);
           return response;
         }
       }
