@@ -140,7 +140,7 @@ const HelpPageProfessor = ({ children }) => {
             <div style={{ textAlign: "center" }}>
               Presionamos el botón Generar Código y especificamos la duración
               del código, esta acción solo podemos realizarla cuando estamos en
-              la clase, la fecha, hora y lugar.
+              la clase, la fecha, hora y lugar adecuado.
               <img
                 width="100%"
                 src={require("../../../assets/images/help/codigo.png")}
