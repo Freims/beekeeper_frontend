@@ -13,7 +13,7 @@ const SideBarItem = ({ name, to, icon }) => {
       {
         <span>
           <FontAwesomeIcon icon={icon} />{" "}
-          <span style={{ marginLeft: "1.2rem" }}>{name}</span>
+          <span className="sidebar-item-name" style={{ marginLeft: "1.2rem" }}>{name}</span>
         </span>
       }
     </NavLink>

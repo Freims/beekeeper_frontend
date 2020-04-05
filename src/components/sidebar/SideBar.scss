@@ -1,7 +1,31 @@
+@import "./../../assets/styles/mixins";
+
 .sidebar {
   width: 15%;
   height: 100%;
   background-color: #fecd1c;
   flex-direction: row;
   transition: all 0.3s;
+
+  &-logo {
+    display: none;
+    @include respond(desktop) {
+      display: block;
+    }
+    &-mobile {
+      font-size: 2rem;
+      @include respond(desktop) {
+       font-size: 0;
+      }
+    }
+  }
+  &-ayuda {
+    font-size: 0rem;
+  }
+  @include respond(desktop) {
+    width: 15%;
+    &-ayuda {
+      font-size: 2rem;
+    }
+  }
 }

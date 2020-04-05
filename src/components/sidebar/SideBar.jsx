@@ -7,15 +7,21 @@ import {
   faUser,
   faUserTie,
   faBaby,
+  faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
 const SideBar = () => {
   return (
     <div className="sidebar">
-      <Header noExit style={{ boxShadow: "none" }} />
+      <div className="sidebar-logo">
+        <Header noExit style={{ boxShadow: "none" }} />
+      </div>
+      <div className="sidebar-logo-mobile">
+        <SideBarItem icon={faArrowLeft} to="/login" />
+      </div>
       <div
+        className="sidebar-ayuda"
         style={{
-          fontSize: "2rem",
           textAlign: "center",
           borderBottom: "2px solid #e4b61267",
           paddingBottom: "1rem",

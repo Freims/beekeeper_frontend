@@ -1,9 +1,12 @@
+@import "./../../assets/styles/mixins";
+
 .sidebar-item {
   transition: all 0.7s;
-  display: block;
+  display: flex;
+  justify-content: center;
   text-decoration: none;
   font-size: 2rem;
-  padding: 2.5rem 4rem;
+  padding: 3.5rem 1rem;
   background-color: transparent;
   color: black;
   &:hover {
@@ -13,6 +16,16 @@
     background-color: #e4b613;
     &:hover {
       background-color: #e4b613;
+    }
+  }
+  @include respond(desktop) {
+    padding: 2.5rem 4rem;
+  }
+
+  &-name {
+    font-size: 0rem;
+    @include respond(desktop) {
+      font-size: 2rem;
     }
   }
 }
