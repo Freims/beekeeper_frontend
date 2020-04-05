@@ -21,6 +21,8 @@ import ManualAssistanceModal from '../../components/manual-assistance-modal/Manu
 import SelectDuration from '../../components/select-duration/SelectDuration'
 import Counter from 'react-omni-counter'
 import { setCurrentClasses } from '../../redux/classes/classes-actions'
+import { geolocated } from "react-geolocated";
+ 
 
 const ClassPage = ({ currentClasses, currentUser, setCurrentClasses, history }) => {
   const { courseName } = useParams()
@@ -36,7 +38,7 @@ const ClassPage = ({ currentClasses, currentUser, setCurrentClasses, history }) 
   const [token, setToken] = useState('')
   const [durationSelect, setDurationSelect] = useState('')
   const [duration, setDuration] = useState({ hours: 0, minutes: 30 })
-  let isProfessor = currentUser.role === 'Professor'
+  const isProfessor = currentUser.role === 'Professor'
 
   const handleChange = event => {
     const { value } = event.target
@@ -306,4 +308,9 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ClassPage)
+export default geolocated({
+  positionOptions: {
+      enableHighAccuracy: false,
+  },
+  userDecisionTimeout: 5000,
+})(connect(mapStateToProps, mapDispatchToProps)(ClassPage));

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Modal.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const Modal = ({ visible, setVisible, children, width }) => {
   useEffect(() => {}, [visible]);
@@ -25,11 +27,13 @@ const Modal = ({ visible, setVisible, children, width }) => {
         onAnimationEnd={closeModalForReal}
         onClick={closeModal}
       >
-        <div
+        <div  
           onClick={e => e.stopPropagation()}
           className="modal-content"
-          style={(width = { width })}
-        >
+          style={(width = { width })}>
+          <div className="modal-content-close-icon" onClick={closeModal}>
+          <FontAwesomeIcon icon={faTimes} />
+          </div>
           {children && children(closeModal)}
         </div>
       </div>

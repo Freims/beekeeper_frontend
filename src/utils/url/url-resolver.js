@@ -1,7 +1,7 @@
 import { store } from "../../redux/store";
 
 export const url =
-  "https://beekeeperrestapibackend.azurewebsites.net/";
+  "https://beekeeperbackend.herokuapp.com/";
 
 const studentUrls = {
   classes: url + "GetStudentAbsencesNoticesPerCourse/",

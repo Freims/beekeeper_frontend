@@ -5,23 +5,26 @@ import Modal from '../modal/Modal'
 import CustomButton from '../custom-button/CustomButton'
 import { fetchStudents } from '../../utils/url/fetch-handler'
 import ValidateExcuseModal from '../validate-excuse-modal/ValidateExcuseModal'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
 const StudentListModal = ({ visible, setVisible, color, id }) => {
   let todayDate = new Date().toISOString().substr(0, 10)
   let today = new Date()
   today =
     today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
-  const [students, setStudents] = useState()
+  const [students, setStudents] = useState([])
   const [currentStudentId, setCurrentStudentId] = useState()
   const [selectDate, setSelectDate] = useState(todayDate)
   const [excuseModal, setExcuseModal] = useState(false)
-
+  let presentStudents = 0;
+  
   const getStudents = async event => {
     console.log(event.target.value)
     let date = event.target.value
     if (date) {
       setSelectDate(date)
-      setStudents(null)
+      setStudents([])
       await fetchStudents(id, date, setStudents)
     }
   }
@@ -64,11 +67,16 @@ const StudentListModal = ({ visible, setVisible, color, id }) => {
                       <tr key={student.studentId}>
                         <td>{student.student}</td>
                         <td>{student.id}</td>
+                        <td>
                         {student.wasPresent === 'Y' ? (
-                          <td>&#10004;</td>
+                          (() => {
+                              presentStudents++;
+                         return <FontAwesomeIcon icon={faCheck} />
+                        })()
                         ) : (
-                          <td>X</td>
+                          "X"
                         )}
+                        </td>
                         {student.hasExcuse === 'N' ? (
                           <td>-</td>
                         ) : (
@@ -95,6 +103,11 @@ const StudentListModal = ({ visible, setVisible, color, id }) => {
                   )}
                 </tbody>
               </table>
+              <div className="student-list-present-students">
+                {`${presentStudents} / ${ students.length}`}
+                <div className="student-list-present-students-tag"> Estudiantes</div>
+                <div className="student-list-present-students-tag"> presentes</div>
+              </div>
             </div>
           )
         }}

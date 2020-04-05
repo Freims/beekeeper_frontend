@@ -7,14 +7,14 @@ const Schedule = ({ data }) => {
     <table className='schedule'>
       <thead>
         <tr className='header-row'>
-          <th>Asignatura</th>
+          <th>Asignaturas</th>
           <th>Lunes</th>
           <th>Martes</th>
           <th>Miércoles</th>
           <th>Jueves</th>
           <th>Viernes</th>
           <th>Sábados</th>
-          <th />
+          <th>Aulas</th>
         </tr>
       </thead>
       <tbody>

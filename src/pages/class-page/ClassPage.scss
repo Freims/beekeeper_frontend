@@ -233,7 +233,6 @@
 				background-color: $color-grey-borders;
 			}
 			.class-notification-container {
-				width: 50%;
 				display: flex;
 				box-sizing: border-box;
 				margin-top: 1.5rem;
@@ -292,7 +291,7 @@
 
 @include respond(tab-port) {
 	.class-notification-container {
-		width: 50%;
+		width: auto;
 		overflow-y: auto;
 	}
 }

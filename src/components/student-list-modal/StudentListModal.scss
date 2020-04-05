@@ -1,13 +1,12 @@
 @import "./src/assets/styles/mixins";
 @import "./src/assets/styles/colors";
 
-
-
 .student-list {
   margin-top: 1rem;
+  position: relative;
   width: 100%;
   font-size: 2rem;
-  @include respond(phone){
+  @include respond(phone) {
     font-size: 1.5rem;
   }
   text-align: center;
@@ -34,11 +33,19 @@
   .margin-center {
     margin: 0 auto;
   }
+  &-present-students {
+    position: absolute;
+    bottom: 1rem;
+    left: 3rem;
+    &-tag{
+      font-size: 1.2rem;
+    }
+  }
 
   &-container {
-  position: relative;
+    position: relative;
     min-height: 50vh;
-    @include respond(phone){
+    @include respond(phone) {
       min-height: 30vh;
     }
     max-height: 80vh;
@@ -49,7 +56,7 @@
   &-datepicker {
     width: 20rem;
     text-align: end;
-    align-self: flex-end;
+    align-self: flex-start;
     display: block;
     font-family: "BAHNSCHRIFT";
     font-size: 1.8rem;
@@ -62,7 +69,7 @@
       padding: 0em;
     }
     &::-webkit-datetime-edit-text {
-      color:  $primary-color-dark;
+      color: $primary-color-dark;
       padding: 0 0.3em;
     }
     &::-webkit-inner-spin-button {
@@ -71,12 +78,12 @@
     &::-webkit-calendar-picker-indicator {
       color: $primary-color-dark;
     }
-    &::-webkit-clear-button{
+    &::-webkit-clear-button {
       display: none;
     }
   }
 
-  &-loading{
+  &-loading {
     display: block;
     justify-content: center;
     align-items: center;

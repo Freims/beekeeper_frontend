@@ -1,25 +1,45 @@
-@import '../../assets/styles/animations';
-@import '../../assets/styles/mixins';
+@import "../../assets/styles/animations";
+@import "../../assets/styles/mixins";
+@import "../../assets/styles/colors";
 
 .login-page {
-	animation: appearOutOfNowhere 500ms;
-	background: url('../../assets/svgs/web_backgrounds/login_background.svg');
-	background-size: cover;
-	background-attachment: fixed;
-	background-position: bottom;
-	background-repeat: repeat-y;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-flow: column;
-	height: 100%;
-	
+  animation: appearOutOfNowhere 500ms;
+  background: url("../../assets/svgs/web_backgrounds/login_background.svg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: bottom;
+  background-repeat: repeat-y;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  height: 100%;
 }
 
-@include respond(tab-land)  {
-	.login-page {
-		background: url('../../assets/svgs/mobile_backgrounds/login_background.svg');
-		background-size: cover;
-		background-position: bottom left;
-	}
+@include respond(tab-land) {
+  .login-page {
+    background: url("../../assets/svgs/mobile_backgrounds/login_background.svg");
+    background-size: cover;
+    background-position: bottom left;
+  }
+}
+
+.help-guide-button {
+  color: $color-grey-font;
+  background-color: white;
+  border-radius: 20%;
+  cursor: pointer;
+  position: absolute;
+  padding: 1.8rem 2rem;
+  right: 2rem;
+  bottom: 2rem;
+  font-size: 5rem;
+  transition: all 0.3s;
+  border: 0.5rem solid $color-grey-font;
+  &:hover {
+	  transform: translateY(-1rem);
+	  color: black;
+	  box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.3);
+	  border: 0.5rem solid black;
+  }
 }

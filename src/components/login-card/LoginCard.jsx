@@ -72,8 +72,8 @@ const LoginCard = ({ setCurrentUser, loginSuccess }) => {
             icon={faUser}
             error={invalidCredentials}
             required
-            maxLength="7"
-            minLength="7"
+            maxLength="20"
+            minLength="5"
             login
           />
           <label className='label'>ID</label>

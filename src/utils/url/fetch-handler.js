@@ -1,5 +1,8 @@
 import { mapUser } from "../data-mapping";
-import { invalidCredentials, connectionError } from "../notifications/notifications";
+import {
+  invalidCredentials,
+  connectionError,
+} from "../notifications/notifications";
 import { getUrl, urlTypes } from "./url-resolver";
 
 export function handleLoginResponse(
@@ -35,31 +38,33 @@ export async function fetchUserSession(setCurrentUser) {
       name: user.name,
       program: user.program,
       role: user.role,
-      img: user.img
+      img: user.img,
     });
   }
 }
 
-export async function fetchClasses(userDbId, setCurrentClasses, forceFetch = false) {
+export async function fetchClasses(
+  userDbId,
+  setCurrentClasses,
+  forceFetch = false
+) {
   let classesInStorage = await JSON.parse(
     sessionStorage.getItem("currentClasses")
   );
-  
-  if(forceFetch){
+
+  if (forceFetch) {
     classesInStorage = false;
   }
 
   if (classesInStorage) {
     return;
   } else {
-    fetch(
-      getUrl(urlTypes.classes) + userDbId
-    )
-      .then(res => res.json())
-      .then(response => {
+    fetch(getUrl(urlTypes.classes) + userDbId)
+      .then((res) => res.json())
+      .then((response) => {
         console.log(response);
         if (response.success) {
-          console.log("Classes", response.resultData);
+          console.log("Classes ASDASDSA", response.resultData);
           setCurrentClasses(response.resultData);
           sessionStorage.setItem(
             "currentClasses",
@@ -70,7 +75,7 @@ export async function fetchClasses(userDbId, setCurrentClasses, forceFetch = fal
           throw new Error("Connection error");
         }
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
         setCurrentClasses({});
       });
@@ -92,11 +97,9 @@ export async function fetchSchedule(dbId, setSchedule) {
   if (scheduleInStorage) {
     setSchedule(scheduleInStorage);
   } else {
-    fetch(
-      getUrl(urlTypes.schedule) + dbId
-    )
-      .then(res => res.json())
-      .then(response => {
+    fetch(getUrl(urlTypes.schedule) + dbId)
+      .then((res) => res.json())
+      .then((response) => {
         console.log(response);
         if (response.resultData) {
           console.log("FETCHED SCHEDULE", response.resultData);
@@ -110,7 +113,7 @@ export async function fetchSchedule(dbId, setSchedule) {
           throw new Error("Connection error");
         }
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
         setSchedule({});
       });
@@ -125,11 +128,9 @@ export async function fetchTodaySummary(dbId, setTodaySummaryList) {
   if (todaySummaryInStorage) {
     setTodaySummaryList(todaySummaryInStorage);
   } else {
-    fetch(
-      getUrl(urlTypes.todaySummary) + dbId
-    )
-      .then(res => res.json())
-      .then(response => {
+    fetch(getUrl(urlTypes.todaySummary) + dbId)
+      .then((res) => res.json())
+      .then((response) => {
         if (response.success) {
           if (response.resultData) {
             setTodaySummaryList(response.resultData.todaySchedulesCourse);
@@ -146,7 +147,7 @@ export async function fetchTodaySummary(dbId, setTodaySummaryList) {
           throw new Error("Connection error");
         }
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
         setTodaySummaryList({});
       });
@@ -154,34 +155,33 @@ export async function fetchTodaySummary(dbId, setTodaySummaryList) {
 }
 
 export async function fetchClassDetails(setCurrentClass, courseId) {
-  console.log("fetching class detail")
-  fetch(
-    getUrl(urlTypes.classDetail) + courseId
-  )
-    .then(res => res.json())
-    .then(response => {
+  console.log("fetching class detail");
+  fetch(getUrl(urlTypes.classDetail) + courseId)
+    .then((res) => res.json())
+    .then((response) => {
       if (response.success) {
         if (response.resultData) {
-          setCurrentClass(response.resultData);
-          console.log(response.resultData)
+          const currentClass = {
+            noticesList: response.resultData.noticesList.reverse(),
+            ...response.resultData,
+          };
+          setCurrentClass(currentClass);
         }
       } else {
         connectionError();
         throw new Error("Connection error");
       }
     })
-    .catch(error => {
+    .catch((error) => {
       console.log(error);
       setCurrentClass({});
     });
 }
 
 export async function fetchStudents(sectionId, date, setData) {
-  fetch(
-    getUrl(urlTypes.getStudents) + sectionId + "/" + date
-  )
-    .then(res => res.json())
-    .then(response => {
+  fetch(getUrl(urlTypes.getStudents) + sectionId + "/" + date)
+    .then((res) => res.json())
+    .then((response) => {
       if (response.success) {
         if (response.resultData) {
           setData(response.resultData);
@@ -190,7 +190,7 @@ export async function fetchStudents(sectionId, date, setData) {
         throw new Error("Connection error");
       }
     })
-    .catch(error => {
+    .catch((error) => {
       console.log(error);
       connectionError();
 
@@ -199,11 +199,9 @@ export async function fetchStudents(sectionId, date, setData) {
 }
 
 export async function fetchExcuse(sectionId, studentId, date, setData) {
-  fetch(
-    getUrl(urlTypes.getExcuse) + studentId + "/" + sectionId + "/" + date
-  )
-    .then(res => res.json())
-    .then(response => {
+  fetch(getUrl(urlTypes.getExcuse) + studentId + "/" + sectionId + "/" + date)
+    .then((res) => res.json())
+    .then((response) => {
       if (response.success) {
         if (response.resultData) {
           setData(response.resultData);
@@ -213,7 +211,7 @@ export async function fetchExcuse(sectionId, studentId, date, setData) {
         throw new Error("Connection error");
       }
     })
-    .catch(error => {
+    .catch((error) => {
       console.log(error);
       setData({});
     });

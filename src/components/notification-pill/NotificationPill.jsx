@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import "./NotificationPill.scss";
 
-import { faExpandArrowsAlt } from "@fortawesome/free-solid-svg-icons";
+import { faExpandArrowsAlt, faUserAltSlash, faInfoCircle, faUserClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CustomButton from "../custom-button/CustomButton";
 
@@ -12,6 +12,8 @@ import Modal from "../modal/Modal";
 const NotificationPill = ({ notification, color = "#FECD1C" }) => {
   const { title, description, createdDate } = notification;
   const [visible, setVisible] = useState(false);
+  const abssence = title.toLowerCase().includes("ausencia");
+  const late = title.toLowerCase().includes("tardanza");
   return (
     <Fragment>
       <div
@@ -26,7 +28,7 @@ const NotificationPill = ({ notification, color = "#FECD1C" }) => {
           className="date"
           style={{ color: `${calculateFontColor(color)}` }}
         >
-          {createdDate}
+          {`${createdDate} -   `}{ abssence ?  <FontAwesomeIcon icon={faUserAltSlash} /> : late ? <FontAwesomeIcon icon={faUserClock} /> : <FontAwesomeIcon icon={faInfoCircle} /> }
         </span>
         <span className="view-more">
           <FontAwesomeIcon icon={faExpandArrowsAlt} />
