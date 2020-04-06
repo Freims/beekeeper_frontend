@@ -4,7 +4,6 @@ import "./ProfessorAbsenceModal.scss";
 
 import Modal from "../modal/Modal";
 import CustomButton from "../custom-button/CustomButton";
-import { success, error } from "../../utils/notifications/notifications";
 import { connect } from "react-redux";
 import { createNotice } from "../../utils/url/post-handler";
 import Loading from "../loading/Loading";
@@ -30,18 +29,12 @@ const ProfessorAbsenceModal = ({
           const sendAbsence = async event => {
             event.preventDefault();
             setLoading(true);
-            let successR = await createNotice(
+            await createNotice(
               currentUser.dbId,
               id,
               "Notificación de Ausencia",
               `La clase pautada para el ${date} ha sido cancelada.`
             );
-            if (successR) {
-              success("Notificación de Ausencia enviada satisfactoriamente.");
-              closeModal();
-            } else {
-              error("Ha ocurrido un error");
-            }
             setLoading(false);
           };
           return (

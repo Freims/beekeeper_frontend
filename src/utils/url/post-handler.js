@@ -115,9 +115,9 @@ export async function createNotice(studentId, sectionId, title, description) {
       if (response) {
         console.log("CREATE", response);
         if (response.success) {
-          return response.message;
+          success(response.message);
         } else {
-          return false;
+          error(response.message);
         }
       }
     });
@@ -196,7 +196,7 @@ export async function declineExcuse(excuse) {
     Description: excuse.description,
     Title: excuse.title,
     Status: excuse.status,
-    Course: excuse.course
+    Course: excuse.course,
   };
 
   console.log(data);
