@@ -115,7 +115,7 @@ export async function createNotice(studentId, sectionId, title, description) {
       if (response) {
         console.log("CREATE", response);
         if (response.success) {
-          success(response.message);
+          success("Notificación de Ausencia enviada satisfactoriamente.");
         } else {
           error(response.message);
         }
