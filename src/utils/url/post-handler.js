@@ -115,6 +115,40 @@ export async function createNotice(studentId, sectionId, title, description) {
       if (response) {
         console.log("CREATE", response);
         if (response.success) {
+          return response.message;
+        } else {
+          return false;
+        }
+      }
+    });
+}
+
+export async function createAbsence(date, studentId, sectionId, title, description) {
+    let data = {
+    ProfessorId: parseInt(studentId),
+    SectionId: parseInt(sectionId),
+    CreatedDate: date,
+    Title: title,
+    Description: description,
+  };
+  data = await JSON.stringify(data);
+  console.log(data);
+  return fetch(getUrl(urlTypes.createNotice), {
+    method: "POST",
+    mode: "cors",
+    cache: "no-cache",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json",
+    },
+
+    body: data,
+  })
+    .then((res) => res.json())
+    .then((response) => {
+      if (response) {
+        console.log("CREATE", response);
+        if (response.success) {
           success("Notificación de Ausencia enviada satisfactoriamente.");
         } else {
           error(response.message);
