@@ -36,6 +36,7 @@ const ProfessorAbsenceModal = ({
               `La clase pautada para el ${date} ha sido cancelada.`
             );
             setLoading(false);
+            closeModal();
           };
           return (
             <form onSubmit={sendAbsence} className="create-notice-container">
