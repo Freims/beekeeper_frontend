@@ -25,21 +25,30 @@
 }
 
 .help-guide-button {
-  color: $color-grey-font;
-  background-color: white;
-  border-radius: 20%;
+  background-color: transparent;
+  border-radius: 50%;
   cursor: pointer;
   position: absolute;
-  padding: 1.8rem 2rem;
+  
+  padding: 0.3rem 0.7rem;
+  font-size: 3rem;
   right: 2rem;
   top: 2rem;
-  font-size: 5rem;
   transition: all 0.3s;
-  border: 0.5rem solid $color-grey-font;
+  color: black;
+  border: 0.5rem solid black;
   &:hover {
-	  transform: translateY(-1rem);
-	  color: black;
-	  box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.3);
-	  border: 0.5rem solid black;
+    transform: translateY(-1rem);
+    color: black;
+    box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.3);
+    border: 0.5rem solid black;
+  }
+  
+  @include respond(desktop) {
+    background-color: white;
+    border: 0.5rem solid $color-grey-font;
+    color: $color-grey-font;
+    font-size: 3rem;
+    padding: 0.8rem 1rem;
   }
 }
