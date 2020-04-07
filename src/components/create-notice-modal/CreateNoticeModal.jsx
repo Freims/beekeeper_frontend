@@ -3,16 +3,26 @@ import "./CreateNoticeModal.scss";
 
 import Modal from "../modal/Modal";
 import CustomButton from "../custom-button/CustomButton";
-import { connectionError, success } from "../../utils/notifications/notifications";
+import {
+  connectionError,
+  success,
+} from "../../utils/notifications/notifications";
 import { connect } from "react-redux";
 import { createNotice } from "../../utils/url/post-handler";
 import Loading from "../loading/Loading";
 
-const CreateNoticeModal = ({ visible, setVisible, color, currentUser, id }) => {
+const CreateNoticeModal = ({
+  visible,
+  setVisible,
+  color,
+  currentUser,
+  id,
+  refresh,
+}) => {
   const [notice, setNotice] = useState({ title: "", body: "" });
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     const { value, name } = event.target;
     setNotice({ ...notice, [name]: value });
   };
@@ -21,12 +31,11 @@ const CreateNoticeModal = ({ visible, setVisible, color, currentUser, id }) => {
     <Fragment>
       <Loading visible={loading} />
       <Modal visible={visible} setVisible={setVisible}>
-        {closeModal => {
-
-          const handleSubmit = async event => {
+        {(closeModal) => {
+          const handleSubmit = async (event) => {
             event.preventDefault();
-            sendExcuse()
-          }
+            sendExcuse();
+          };
 
           const sendExcuse = async () => {
             setLoading(true);
@@ -39,6 +48,7 @@ const CreateNoticeModal = ({ visible, setVisible, color, currentUser, id }) => {
             if (successR) {
               success(successR);
               closeModal();
+              refresh();
             } else {
               connectionError();
             }
@@ -86,7 +96,7 @@ const CreateNoticeModal = ({ visible, setVisible, color, currentUser, id }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
 });
 export default connect(mapStateToProps)(CreateNoticeModal);

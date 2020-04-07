@@ -13,11 +13,12 @@ const ProfessorAbsenceModal = ({
   setVisible,
   color,
   currentUser,
-  id
+  id,
+  refresh,
 }) => {
   const [date, setDate] = useState(new Date().toISOString().substr(0, 10));
   const [loading, setLoading] = useState(false);
-  const handleChange = event => {
+  const handleChange = (event) => {
     setDate(event.target.value);
   };
 
@@ -25,8 +26,8 @@ const ProfessorAbsenceModal = ({
     <Fragment>
       <Loading visible={loading} />
       <Modal visible={visible} setVisible={setVisible} width="40rem">
-        {closeModal => {
-          const sendAbsence = async event => {
+        {(closeModal) => {
+          const sendAbsence = async (event) => {
             event.preventDefault();
             setLoading(true);
             await createAbsence(
@@ -37,6 +38,7 @@ const ProfessorAbsenceModal = ({
               `La clase pautada para el ${date} ha sido cancelada.`
             );
             setLoading(false);
+            refresh();
             closeModal();
           };
           return (
@@ -70,7 +72,7 @@ const ProfessorAbsenceModal = ({
   );
 };
 
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
 });
 export default connect(mapStateToProps)(ProfessorAbsenceModal);

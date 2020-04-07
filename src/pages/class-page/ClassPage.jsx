@@ -39,6 +39,7 @@ const ClassPage = ({
   const [createExcuse, setCreateExcuse] = useState(false);
   const [absence, setAbsence] = useState(false);
   const [createNotice, setCreateNotice] = useState(false);
+  const [refresh, setRefresh] = useState(false);
   const [studentListModal, setStudentListModal] = useState(false);
   const [manualAssistance, setManualAssistance] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -50,6 +51,10 @@ const ClassPage = ({
   const handleChange = (event) => {
     const { value } = event.target;
     setToken(value);
+  };
+
+  const toggleRefresh = () => {
+    setRefresh((prev) => !prev);
   };
 
   const generateNewToken = async () => {
@@ -98,7 +103,7 @@ const ClassPage = ({
     };
 
     fetchData();
-  }, [currentClasses, courseName, history]);
+  }, [currentClasses, courseName, history, refresh]);
   console.log("wewewewey", currentClass.course);
   return (
     <div className="class-page">
@@ -238,7 +243,7 @@ const ClassPage = ({
             </div>
 
             <StudentListModal
-            className={currentClass.course}
+              className={currentClass.course}
               visible={studentListModal}
               setVisible={setStudentListModal}
               color={color}
@@ -248,12 +253,14 @@ const ClassPage = ({
               visible={createNotice}
               setVisible={setCreateNotice}
               color={color}
+              refresh={toggleRefresh}
               id={classHead.sectionId}
             />
             <ProfessorAbsenceModal
               visible={absence}
               setVisible={setAbsence}
               color={color}
+              refresh={toggleRefresh}
               id={classHead.sectionId}
             />
             <ManualAssistanceModal
